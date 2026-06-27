@@ -14,7 +14,9 @@ public class Movable : MonoBehaviour
     int actualSpeed;
 
     public void Start()
-    {
+    {   
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         body = GetComponent<Rigidbody>();
         if (sizeMultiplier == Vector3.zero)
         {
@@ -27,24 +29,16 @@ public class Movable : MonoBehaviour
         body.MovePosition(transform.position + ((transform.forward * direction.y) + (transform.right * direction.x)) * actualSpeed * Time.fixedDeltaTime);
     }
 
+    private float verticalRotation = 0f;
+
     public void rotate(Vector2 direction)
     {
-        body.MoveRotation(transform.rotation * Quaternion.Euler(0, direction.x * sensivity * Time.fixedDeltaTime, 0));
-        if (Camera.localEulerAngles.x > 80.1f && Camera.localEulerAngles.x < 180)
-        {
-            Camera.localEulerAngles = new Vector3(80, Camera.localRotation.y, Camera.localRotation.z);
-        }
-        else
-        {
-            if (Camera.localEulerAngles.x < 279.9f && Camera.localEulerAngles.x > 180)
-            {
-                Camera.localEulerAngles = new Vector3(280, Camera.localRotation.y, Camera.localRotation.z);
-            }
-            else
-            {
-                Camera.Rotate(new Vector3(-direction.y * sensivity * Time.fixedDeltaTime, 0, 0));
-            }
-        }
+        body.MoveRotation(transform.rotation * Quaternion.Euler(0, direction.x * sensivity * Time.deltaTime, 0));
+
+        verticalRotation -= direction.y * sensivity * Time.deltaTime;
+        verticalRotation = Mathf.Clamp(verticalRotation, -80f, 80f);
+
+        Camera.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
     public void jump()
