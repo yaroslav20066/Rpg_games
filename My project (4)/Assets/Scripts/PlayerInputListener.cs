@@ -7,11 +7,13 @@ public class PlayerInputListener : MonoBehaviour
     InputSystem_Actions controls;
     Movable movement;
     IteractionScript iteractionScript;
+    SwordScript sword;
 
     void Start()
     {
         movement = GetComponent<Movable>();
         iteractionScript = GetComponent<IteractionScript>();
+        sword = GetComponent<SwordScript>();
         controls = new InputSystem_Actions();
         controls.Enable();
     }
@@ -23,6 +25,7 @@ public class PlayerInputListener : MonoBehaviour
         movement.move(controls.FindAction("Move").ReadValue<Vector2>());
         movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
         iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
+        sword.Attack(controls.FindAction("Attack").WasPerformedThisFrame());
         if (controls.FindAction("Jump").IsPressed())
         {
             movement.jump();

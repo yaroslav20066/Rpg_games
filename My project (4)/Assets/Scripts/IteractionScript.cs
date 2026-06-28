@@ -22,10 +22,6 @@ public class IteractionScript : MonoBehaviour
                GameObject hitObject = hit.transform.gameObject;
                Debug.Log(hitObject.name); 
             }
-            
         }    
-        
-        
-        
     }
 }
