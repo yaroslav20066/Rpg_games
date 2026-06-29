@@ -4,10 +4,13 @@ using UnityEngine.InputSystem.Controls;
 
 public class PlayerInputListener : MonoBehaviour
 {
+    public bool movementIsEnabled;
+    public Canvas UI;
     InputSystem_Actions controls;
     Movable movement;
     IteractionScript iteractionScript;
     SwordScript sword;
+    bool inventoryOpenedPreviousCheck = false;
 
     void Start()
     {
@@ -20,15 +23,30 @@ public class PlayerInputListener : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement.sprint(controls.FindAction("Sprint").IsPressed());
-        movement.crouch(controls.FindAction("Crouch").IsPressed());
-        movement.move(controls.FindAction("Move").ReadValue<Vector2>());
-        movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
-        iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
-        sword.Attack(controls.FindAction("Attack").WasPerformedThisFrame());
-        if (controls.FindAction("Jump").IsPressed())
+        if (controls.FindAction("OpenInventory").IsPressed())
         {
-            movement.jump();
+            if (!inventoryOpenedPreviousCheck)
+            {
+                inventoryOpenedPreviousCheck = true;
+                movementIsEnabled = !movementIsEnabled;
+                UI.gameObject.SetActive(!UI.gameObject.activeSelf);
+            }
+        } else
+        {
+            inventoryOpenedPreviousCheck = false;
+        }
+        if (movementIsEnabled)
+        {
+            movement.sprint(controls.FindAction("Sprint").IsPressed());
+            movement.crouch(controls.FindAction("Crouch").IsPressed());
+            movement.move(controls.FindAction("Move").ReadValue<Vector2>());
+            movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
+            iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
+            sword.Attack(controls.FindAction("Attack").WasPerformedThisFrame());
+            if (controls.FindAction("Jump").IsPressed())
+            {
+                movement.jump();
+            }
         }
     }
 }
