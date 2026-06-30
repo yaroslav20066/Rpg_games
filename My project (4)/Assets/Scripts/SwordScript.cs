@@ -4,49 +4,80 @@ public class SwordScript : MonoBehaviour
 {
     public float damage = 25;
     public float crit = 0;
-    public float attackRange = 7.0f;
     public float sphereRadius = 1.5f; 
     public float sphereDistance = 2.0f; 
+    private bool is_Attack_Ready = false;
     
     private float timeReload = 0f;
+    private Camera playerCamera;
+    Vector3 spherePosition;
+    Collider[] hitColliders;
+
+    void Start()
+    {
+        playerCamera = Camera.main;
+        if (playerCamera == null)
+        {
+            playerCamera = GetComponentInChildren<Camera>();
+        }
+
+    }
 
     public void Attack(bool attack)
     {   
         if (!attack) return;
         
-        if (timeReload >= 2.5f)
+        if (is_Attack_Ready && attack)
         {
-            Vector3 spherePosition = transform.position + transform.forward * sphereDistance;
+            is_Attack_Ready = false;
+            timeReload = 0;
             
-
-            Collider[] hitColliders = Physics.OverlapSphere(spherePosition, sphereRadius);
-            
-            foreach (Collider collider in hitColliders)
+            if (hitColliders != null)
             {
-                EnemySoldierScript soldier = collider.GetComponent<EnemySoldierScript>();
-                if (soldier != null)
+                foreach (Collider collider in hitColliders)
                 {
-                    soldier.TakeDamage(damage);
-                    Debug.Log("Hit: " + collider.name);
-                    if (Random.Range(0, 1) < crit)
+                    Debug.Log(hitColliders.Length);
+                    Debug.Log(collider.GetType());
+                    if (collider.GetComponent<EnemySoldierScript>() != null)
                     {
+                        EnemySoldierScript soldier = collider.GetComponent<EnemySoldierScript>();
                         soldier.TakeDamage(damage);
+                        Debug.Log("Hit: " + collider.name);
+                        if (Random.Range(0f, 1f) < crit) 
+                        {
+                            soldier.TakeDamage(damage);
+                        }
                     }
                 }
             }
-            
-            timeReload = 0f;
         }
     }
 
     void Update()
     {
         timeReload += Time.deltaTime;
+        if (timeReload >= 2.5 && !is_Attack_Ready)
+        {
+            is_Attack_Ready = true;
+            Debug.Log("Attack Ready");
+        }
+        spherePosition = transform.position + playerCamera.transform.forward * sphereDistance;
+        hitColliders = Physics.OverlapSphere(spherePosition, sphereRadius);
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
-        Vector3 spherePosition = transform.position + transform.forward * sphereDistance;
+        Vector3 spherePosition;
+
+        if (playerCamera != null)
+        {
+            spherePosition = transform.position + playerCamera.transform.forward * sphereDistance;
+        }
+        else
+        {
+            spherePosition = transform.position + transform.forward * sphereDistance;
+        }
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(spherePosition, sphereRadius);
     }

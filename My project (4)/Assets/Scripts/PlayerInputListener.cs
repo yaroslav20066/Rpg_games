@@ -30,20 +30,30 @@ public class PlayerInputListener : MonoBehaviour
                 inventoryOpenedPreviousCheck = true;
                 movementIsEnabled = !movementIsEnabled;
                 UI.gameObject.SetActive(!movementIsEnabled);
+                Cursor.visible = !movementIsEnabled;
+                if (!movementIsEnabled == true)
+                {
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
+                else 
+                {
+                    Cursor.lockState = CursorLockMode.Locked;    
+                }
             }
-        } else
+        } 
+        else
         {
             inventoryOpenedPreviousCheck = false;
         }
         if (movementIsEnabled)
         {
+            sword.Attack(controls.FindAction("Attack").IsPressed());
             movement.sprint(controls.FindAction("Sprint").IsPressed());
             movement.crouch(controls.FindAction("Crouch").IsPressed());
             movement.move(controls.FindAction("Move").ReadValue<Vector2>());
             movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
             iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
         }
-        sword.Attack(controls.FindAction("Attack").IsPressed());
         if (controls.FindAction("Jump").IsPressed())
         {
             movement.jump();

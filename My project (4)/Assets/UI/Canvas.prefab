@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4486638634863033658}
   - component: {fileID: 2017200253829430575}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Crit)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 824169559388101408}
   - component: {fileID: 4561438673790225804}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Button (Arrows)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 1981675142105142469}
   - component: {fileID: 4900029897140213247}
   - component: {fileID: 5068543049856901439}
+  - component: {fileID: 5698689401142360019}
   m_Layer: 5
   m_Name: SkillsTab
   m_TagString: Untagged
@@ -562,6 +563,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5698689401142360019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883531971421452258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3e2b600b35b114c8ef5d2436de56d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillsScript
+  crit: {fileID: 2017200253829430575}
+  arrow: {fileID: 4561438673790225804}
+  speed: {fileID: 293533340689667056}
+  heavy_attack: {fileID: 4350278037747900464}
+  aim: {fileID: 2351342741120316950}
+  lier: {fileID: 166651000156358154}
+  player: {fileID: 0}
 --- !u!1 &4228908184934972778
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +903,7 @@ GameObject:
   - component: {fileID: 7289106338213367702}
   - component: {fileID: 166651000156358154}
   m_Layer: 5
-  m_Name: Button (Legacy) (5)
+  m_Name: Button (Lier)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1004,7 +1024,7 @@ GameObject:
   - component: {fileID: 584354038823500405}
   - component: {fileID: 4350278037747900464}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: Button (Heavy Attack)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1130,7 +1150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8342537080563988667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1443,7 +1463,7 @@ GameObject:
   - component: {fileID: 4997151926194545570}
   - component: {fileID: 293533340689667056}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Button (Speed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1564,7 +1584,7 @@ GameObject:
   - component: {fileID: 784211092792823525}
   - component: {fileID: 2351342741120316950}
   m_Layer: 5
-  m_Name: Button (Legacy) (4)
+  m_Name: Button (Aim)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

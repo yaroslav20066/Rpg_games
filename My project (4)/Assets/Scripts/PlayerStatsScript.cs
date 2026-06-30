@@ -29,7 +29,6 @@ public class PlayerStatsScript : MonoBehaviour
     {
         health -= damage;
         if (health <= 0){
-            Debug.Log("You are dead");
         }
     }
 

@@ -360,6 +360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordScript
   damage: 25
-  attackRange: 5
-  sphereRadius: 1
-  sphereDistance: 2
+  crit: 0
+  sphereRadius: 0.5
+  sphereDistance: 1.5
