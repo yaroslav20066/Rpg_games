@@ -29,7 +29,7 @@ public class PlayerInputListener : MonoBehaviour
             {
                 inventoryOpenedPreviousCheck = true;
                 movementIsEnabled = !movementIsEnabled;
-                UI.gameObject.SetActive(!UI.gameObject.activeSelf);
+                UI.gameObject.SetActive(!movementIsEnabled);
             }
         } else
         {
