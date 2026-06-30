@@ -82,8 +82,11 @@ public class SwordScript : MonoBehaviour
         Gizmos.DrawWireSphere(spherePosition, sphereRadius);
     }
 
-    public void updateCrit()
-    {
+    public void updateCrit() {
         crit += 0.25f;
+    }
+
+    public void updateDamage() {
+        damage += 15;
     }
 }

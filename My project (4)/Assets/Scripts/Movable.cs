@@ -63,4 +63,9 @@ public class Movable : MonoBehaviour
     {
         speed += 1;
     }
+    
+    public void updateCrouchMultiplier()
+    {
+        crouchMultiplier *= 0.5f;
+    }
 }
