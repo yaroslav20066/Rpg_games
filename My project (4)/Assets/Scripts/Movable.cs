@@ -58,4 +58,9 @@ public class Movable : MonoBehaviour
     {
         transform.localScale = new Vector3(sizeMultiplier.x, crouch ? sizeMultiplier.y * crouchMultiplier : sizeMultiplier.y, sizeMultiplier.z);
     }
+
+    public void updateSpeed()
+    {
+        speed += 1;
+    }
 }

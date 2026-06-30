@@ -1,38 +1,58 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwordScript : MonoBehaviour
 {
     public float damage = 25;
+    public float crit = 0;
+    public float attackRange = 7.0f;
+    public float sphereRadius = 1.5f; 
+    public float sphereDistance = 2.0f; 
+    
     private float timeReload = 0f;
-    private Camera cam;
-    private void Start()
-    {
-        cam = Camera.main;
-    }
+
     public void Attack(bool attack)
-    {
-        if (timeReload >= 5f)
+    {   
+        if (!attack) return;
+        
+        if (timeReload >= 2.5f)
         {
-            Vector3 point = new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2, 0);
-            Ray ray = cam.ScreenPointToRay(point);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 4.0f) && attack)
+            Vector3 spherePosition = transform.position + transform.forward * sphereDistance;
+            
+
+            Collider[] hitColliders = Physics.OverlapSphere(spherePosition, sphereRadius);
+            
+            foreach (Collider collider in hitColliders)
             {
-                EnemySoldierScript soldier = hit.transform.GetComponent<EnemySoldierScript>();
-                if(soldier != null)
+                EnemySoldierScript soldier = collider.GetComponent<EnemySoldierScript>();
+                if (soldier != null)
                 {
-                    Debug.Log("Got Damage");
                     soldier.TakeDamage(damage);
+                    Debug.Log("Hit: " + collider.name);
+                    if (Random.Range(0, 1) < crit)
+                    {
+                        soldier.TakeDamage(damage);
+                    }
                 }
-                timeReload = 0f; 
             }
+            
+            timeReload = 0f;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        timeReload += 0.1f;
+        timeReload += Time.deltaTime;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Vector3 spherePosition = transform.position + transform.forward * sphereDistance;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(spherePosition, sphereRadius);
+    }
+
+    public void updateCrit()
+    {
+        crit += 0.25f;
     }
 }

@@ -42,11 +42,11 @@ public class PlayerInputListener : MonoBehaviour
             movement.move(controls.FindAction("Move").ReadValue<Vector2>());
             movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
             iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
-            sword.Attack(controls.FindAction("Attack").WasPerformedThisFrame());
-            if (controls.FindAction("Jump").IsPressed())
-            {
-                movement.jump();
-            }
+        }
+        sword.Attack(controls.FindAction("Attack").IsPressed());
+        if (controls.FindAction("Jump").IsPressed())
+        {
+            movement.jump();
         }
     }
 }
