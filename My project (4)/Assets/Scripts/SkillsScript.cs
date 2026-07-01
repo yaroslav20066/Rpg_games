@@ -9,12 +9,11 @@ public class SkillsScript : MonoBehaviour
     public Button speed;
     public Button heavy_attack;
     public Button aim;
-    public Button lier;
+    public Button smooth_talker;
     public GameObject player;
     Movable player_movable; 
     SwordScript sword;
     PlayerStatsScript points;
-
     
     void Start()
     {
@@ -27,7 +26,7 @@ public class SkillsScript : MonoBehaviour
         speed.onClick.AddListener(Speed);
         heavy_attack.onClick.AddListener(HeavyAttack);
         aim.onClick.AddListener(Aim);
-        lier.onClick.AddListener(Lier);
+        smooth_talker.onClick.AddListener(Smooth_talker);
     }
 
     void Crit()
@@ -45,9 +44,9 @@ public class SkillsScript : MonoBehaviour
         if (points.skillPointsCounter.value > 0)
         {
             // что то сделать с луком
+            points.updateArrows();
             points.skillPointsCounter.value -= 1;
             arrow.interactable = false;
-            aim.interactable = true;
         }
     }
 
@@ -58,7 +57,7 @@ public class SkillsScript : MonoBehaviour
             player_movable.updateSpeed();
             points.skillPointsCounter.value -= 1;
             speed.interactable = false;
-            lier.interactable = true;
+            smooth_talker.interactable = true;
         }
     }
 
@@ -82,13 +81,13 @@ public class SkillsScript : MonoBehaviour
         }
     }
 
-    void Lier()
+    void Smooth_talker()
     {
         if (points.skillPointsCounter.value > 0)
         {
             player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
-            lier.interactable = false;
+            smooth_talker.interactable = false;
         }
     }
 }

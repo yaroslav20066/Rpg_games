@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SwordScript : MonoBehaviour
 {
-    public float damage = 25;
+    public float damage = 20;
     public float heavy_damage = 40;
     public float crit = 0;
     public float sphereRadius = 1.5f; 
@@ -33,6 +33,7 @@ public class SwordScript : MonoBehaviour
         if (is_Attack_Ready)
         {
             is_Attack_Ready = false;
+            is_Heavy_Attack_Ready = false;
             timeReload = 0;
             
             if (hitColliders != null)
@@ -61,6 +62,7 @@ public class SwordScript : MonoBehaviour
 
         if (is_Heavy_Attack_Ready)
         {
+            is_Attack_Ready = false;
             is_Heavy_Attack_Ready = false;
             timeReload = 0;
 
@@ -88,7 +90,7 @@ public class SwordScript : MonoBehaviour
     void Update()
     {
         timeReload += Time.deltaTime;
-        if (timeReload >= 2.5 && !is_Attack_Ready)
+        if (timeReload >= 1 && !is_Attack_Ready)
         {
             is_Attack_Ready = true;
             Debug.Log("Attack Ready");
