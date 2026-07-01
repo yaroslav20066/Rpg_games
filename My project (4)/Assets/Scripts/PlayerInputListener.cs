@@ -48,6 +48,7 @@ public class PlayerInputListener : MonoBehaviour
         if (movementIsEnabled)
         {
             sword.Attack(controls.FindAction("Attack").IsPressed());
+            sword.Heavy_Attack(controls.FindAction("Heavy_attack").IsPressed());
             movement.sprint(controls.FindAction("Sprint").IsPressed());
             movement.crouch(controls.FindAction("Crouch").IsPressed());
             movement.move(controls.FindAction("Move").ReadValue<Vector2>());

@@ -3,10 +3,13 @@ using UnityEngine;
 public class SwordScript : MonoBehaviour
 {
     public float damage = 25;
+    public float heavy_damage = 40;
     public float crit = 0;
     public float sphereRadius = 1.5f; 
     public float sphereDistance = 2.0f; 
     private bool is_Attack_Ready = false;
+    private bool is_Heavy_Attack_Ready = false;
+    private bool heavy_attack_allowed = false;
     
     private float timeReload = 0f;
     private Camera playerCamera;
@@ -27,7 +30,7 @@ public class SwordScript : MonoBehaviour
     {   
         if (!attack) return;
         
-        if (is_Attack_Ready && attack)
+        if (is_Attack_Ready)
         {
             is_Attack_Ready = false;
             timeReload = 0;
@@ -52,6 +55,35 @@ public class SwordScript : MonoBehaviour
             }
         }
     }
+    public void Heavy_Attack(bool attack)
+    {
+        if (!attack || !heavy_attack_allowed) return;
+
+        if (is_Heavy_Attack_Ready)
+        {
+            is_Heavy_Attack_Ready = false;
+            timeReload = 0;
+
+            if (hitColliders != null)
+            {
+                foreach (Collider collider in hitColliders)
+                {
+                    Debug.Log(hitColliders.Length);
+                    Debug.Log(collider.GetType());
+                    if (collider.GetComponent<EnemySoldierScript>() != null)
+                    {
+                        EnemySoldierScript soldier = collider.GetComponent<EnemySoldierScript>();
+                        soldier.TakeDamage(heavy_damage);
+                        Debug.Log("Hit: " + collider.name);
+                        if (Random.Range(0f, 1f) < crit) 
+                        {
+                            soldier.TakeDamage(damage);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     void Update()
     {
@@ -60,6 +92,11 @@ public class SwordScript : MonoBehaviour
         {
             is_Attack_Ready = true;
             Debug.Log("Attack Ready");
+        }
+        if (timeReload >= 4 && !is_Heavy_Attack_Ready && heavy_attack_allowed)
+        {
+            is_Heavy_Attack_Ready = true;
+            Debug.Log("Heavy Attack Ready");
         }
         spherePosition = transform.position + playerCamera.transform.forward * sphereDistance;
         hitColliders = Physics.OverlapSphere(spherePosition, sphereRadius);
@@ -87,6 +124,6 @@ public class SwordScript : MonoBehaviour
     }
 
     public void updateDamage() {
-        damage += 15;
+        heavy_attack_allowed = true;
     }
 }

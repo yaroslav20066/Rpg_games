@@ -9,6 +9,10 @@ public class PlayerStatsScript : MonoBehaviour
     public Bar expBar;
     public Counter skillPointsCounter;
 
+    // инвентарь
+    public int maxArrows = 6;
+    public int Arrows = 3;
+
     void Awake()
     {
         instance = this;
@@ -35,5 +39,9 @@ public class PlayerStatsScript : MonoBehaviour
     public void TakeExperience(float exp)
     {
         experience += exp;
+    }
+    public void updateArrows()
+    {
+        maxArrows += 6;
     }
 }
