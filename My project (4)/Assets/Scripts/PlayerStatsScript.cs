@@ -8,6 +8,9 @@ public class PlayerStatsScript : MonoBehaviour
     public float nextLevelMultiplier;
     public Bar expBar;
     public Counter skillPointsCounter;
+    Movable movement;
+    SwordScript sword;
+
 
     // инвентарь
     public int maxArrows = 6;
@@ -16,6 +19,8 @@ public class PlayerStatsScript : MonoBehaviour
     void Awake()
     {
         instance = this;
+        movement = GetComponent<Movable>();
+        sword = GetComponent<SwordScript>();
     }
 
     private void Update()
@@ -26,6 +31,10 @@ public class PlayerStatsScript : MonoBehaviour
             experience -= expBar.maxValue;
             expBar.maxValue *= nextLevelMultiplier;
             skillPointsCounter.value++;
+            movement.speed++;
+            movement.shiftedSpeed++;
+            sword.damage += 5;
+            health += 10;
         }
     }
 
