@@ -10,6 +10,7 @@ public class SkillsScript : MonoBehaviour
     public Button heavy_attack;
     public Button aim;
     public Button smooth_talker;
+    public Button deceiver;
     public GameObject player;
     Movable player_movable; 
     SwordScript sword;
@@ -27,6 +28,12 @@ public class SkillsScript : MonoBehaviour
         heavy_attack.onClick.AddListener(HeavyAttack);
         aim.onClick.AddListener(Aim);
         smooth_talker.onClick.AddListener(Smooth_talker);
+        deceiver.onClick.AddListener(Deceiver);
+
+        heavy_attack.interactable = false;
+        aim.interactable = false;
+        smooth_talker.interactable = false;
+        deceiver.interactable = false;
     }
 
     void Crit()
@@ -47,6 +54,7 @@ public class SkillsScript : MonoBehaviour
             points.updateArrows();
             points.skillPointsCounter.value -= 1;
             arrow.interactable = false;
+            aim.interactable = true;
         }
     }
 
@@ -58,6 +66,7 @@ public class SkillsScript : MonoBehaviour
             points.skillPointsCounter.value -= 1;
             speed.interactable = false;
             smooth_talker.interactable = true;
+            deceiver.interactable = true;
         }
     }
 
@@ -89,6 +98,16 @@ public class SkillsScript : MonoBehaviour
             player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
             smooth_talker.interactable = false;
+        }
+    }
+    
+    void Deceiver()
+    {
+        if (points.skillPointsCounter.value > 0)
+        {
+            player_movable.updateCrouchMultiplier();
+            points.skillPointsCounter.value -= 1;
+            deceiver.interactable = false;
         }
     }
 }
