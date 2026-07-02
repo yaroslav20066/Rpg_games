@@ -26,7 +26,6 @@ public class SwordScript : MonoBehaviour
         {
             playerCamera = GetComponentInChildren<Camera>();
         }
-
     }
 
     public void Attack(bool attack)
