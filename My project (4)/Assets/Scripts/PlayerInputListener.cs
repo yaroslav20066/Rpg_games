@@ -25,6 +25,10 @@ public class PlayerInputListener : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (controls.FindAction("Exit").IsPressed())
+        {
+            Application.Quit();
+        }
         if (controls.FindAction("TEST").IsPressed())
         {
             stats.experience += 50;
