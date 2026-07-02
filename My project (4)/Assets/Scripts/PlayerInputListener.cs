@@ -53,6 +53,7 @@ public class PlayerInputListener : MonoBehaviour
             movement.crouch(controls.FindAction("Crouch").IsPressed());
             movement.move(controls.FindAction("Move").ReadValue<Vector2>());
             movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
+            movement.zoom(controls.FindAction("Zoom").IsPressed());
             iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
         }
         if (controls.FindAction("Jump").IsPressed())

@@ -10,8 +10,10 @@ public class Movable : MonoBehaviour
     public Transform Camera;
     public Vector3 sizeMultiplier;
     public float crouchMultiplier;
+    public Camera forZoom;
     Rigidbody body;
     int actualSpeed;
+    bool zoomAllowed;
 
     public void Start()
     {   
@@ -22,6 +24,7 @@ public class Movable : MonoBehaviour
         {
             sizeMultiplier = transform.localScale;
         }
+        forZoom = Camera.GetComponent<Camera>();
     }
 
     public void move(Vector2 direction)
@@ -61,11 +64,22 @@ public class Movable : MonoBehaviour
 
     public void updateSpeed()
     {
-        speed += 1;
+        speed += 3;
+        shiftedSpeed += 6;
     }
     
     public void updateCrouchMultiplier()
     {
         crouchMultiplier *= 0.5f;
+    }
+
+    public void zoom(bool zoom)
+    {
+        forZoom.fieldOfView = (zoom && zoomAllowed) ? 20 : 60;
+    }
+
+    public void allowZoom()
+    {
+        zoomAllowed = true;
     }
 }
