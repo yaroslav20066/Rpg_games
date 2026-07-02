@@ -1090,8 +1090,8 @@ MonoBehaviour:
   heavy_attack: {fileID: 4350278037747900464}
   aim: {fileID: 2351342741120316950}
   smooth_talker: {fileID: 166651000156358154}
-  deceiver: {fileID: 0}
-  regen: {fileID: 0}
+  deceiver: {fileID: 8921153126868362948}
+  regen: {fileID: 4964967897666397545}
   player: {fileID: 0}
 --- !u!1 &4228908184934972778
 GameObject:

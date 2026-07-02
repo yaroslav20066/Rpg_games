@@ -1,4 +1,3 @@
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -100,6 +99,7 @@ public class SkillsScript : MonoBehaviour
             player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
             smooth_talker.interactable = false;
+            deceiver.interactable = false;
         }
     }
     
@@ -110,6 +110,7 @@ public class SkillsScript : MonoBehaviour
             player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
             deceiver.interactable = false;
+            smooth_talker.interactable = false;
         }
     }
 
