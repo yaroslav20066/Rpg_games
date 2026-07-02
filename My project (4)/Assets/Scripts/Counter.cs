@@ -7,11 +7,11 @@ public class Counter : MonoBehaviour
     public float value;
     public float maxValue;
     public Bar bar;
-    TextMeshProUGUI text;
+    public TextMeshProUGUI countedTextbox;
 
     private void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        //countedTextbox = GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -21,10 +21,12 @@ public class Counter : MonoBehaviour
             value = bar.value;
             maxValue = bar.maxValue;
         }
-        text.text = defaultText + value.ToString();
+        if (countedTextbox != null) {
+        countedTextbox.text = defaultText + value.ToString();
         if (maxValue > 0)
         {
-            text.text += "/" + maxValue.ToString();
+            countedTextbox.text += "/" + maxValue.ToString();
+        }
         }
     }
 }

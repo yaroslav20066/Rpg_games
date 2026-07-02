@@ -10,6 +10,7 @@ public class PlayerInputListener : MonoBehaviour
     Movable movement;
     IteractionScript iteractionScript;
     SwordScript sword;
+    PlayerStatsScript stats;
     bool inventoryOpenedPreviousCheck = false;
 
     void Start()
@@ -19,10 +20,19 @@ public class PlayerInputListener : MonoBehaviour
         sword = GetComponent<SwordScript>();
         controls = new InputSystem_Actions();
         controls.Enable();
+        stats = GetComponent<PlayerStatsScript>();
     }
 
     private void FixedUpdate()
     {
+        if (controls.FindAction("Exit").IsPressed())
+        {
+            Application.Quit();
+        }
+        if (controls.FindAction("TEST").IsPressed())
+        {
+            stats.experience += 50;
+        }
         if (controls.FindAction("OpenInventory").IsPressed())
         {
             if (!inventoryOpenedPreviousCheck)
@@ -48,10 +58,12 @@ public class PlayerInputListener : MonoBehaviour
         if (movementIsEnabled)
         {
             sword.Attack(controls.FindAction("Attack").IsPressed());
+            sword.Heavy_Attack(controls.FindAction("Heavy_attack").IsPressed());
             movement.sprint(controls.FindAction("Sprint").IsPressed());
             movement.crouch(controls.FindAction("Crouch").IsPressed());
             movement.move(controls.FindAction("Move").ReadValue<Vector2>());
             movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
+            movement.zoom(controls.FindAction("Zoom").IsPressed());
             iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
         }
         if (controls.FindAction("Jump").IsPressed())

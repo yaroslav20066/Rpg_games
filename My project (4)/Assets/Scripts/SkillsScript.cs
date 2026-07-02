@@ -1,4 +1,3 @@
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +8,13 @@ public class SkillsScript : MonoBehaviour
     public Button speed;
     public Button heavy_attack;
     public Button aim;
-    public Button lier;
+    public Button smooth_talker;
+    public Button deceiver;
+    public Button regen;
     public GameObject player;
     Movable player_movable; 
     SwordScript sword;
     PlayerStatsScript points;
-
     
     void Start()
     {
@@ -27,7 +27,14 @@ public class SkillsScript : MonoBehaviour
         speed.onClick.AddListener(Speed);
         heavy_attack.onClick.AddListener(HeavyAttack);
         aim.onClick.AddListener(Aim);
-        lier.onClick.AddListener(Lier);
+        smooth_talker.onClick.AddListener(Smooth_talker);
+        deceiver.onClick.AddListener(Deceiver);
+        regen.onClick.AddListener(Regen);
+
+        heavy_attack.interactable = false;
+        aim.interactable = false;
+        smooth_talker.interactable = false;
+        deceiver.interactable = false;
     }
 
     void Crit()
@@ -45,6 +52,7 @@ public class SkillsScript : MonoBehaviour
         if (points.skillPointsCounter.value > 0)
         {
             // что то сделать с луком
+            points.updateArrows();
             points.skillPointsCounter.value -= 1;
             arrow.interactable = false;
             aim.interactable = true;
@@ -58,7 +66,8 @@ public class SkillsScript : MonoBehaviour
             player_movable.updateSpeed();
             points.skillPointsCounter.value -= 1;
             speed.interactable = false;
-            lier.interactable = true;
+            smooth_talker.interactable = true;
+            deceiver.interactable = true;
         }
     }
 
@@ -66,7 +75,7 @@ public class SkillsScript : MonoBehaviour
     {
         if (points.skillPointsCounter.value > 0)
         {
-            sword.updateDamage();
+            sword.enableHeavyAttack();
             points.skillPointsCounter.value -= 1;
             heavy_attack.interactable = false;
         }
@@ -79,16 +88,39 @@ public class SkillsScript : MonoBehaviour
             // что то ещё с луком
             points.skillPointsCounter.value -= 1;
             aim.interactable = false;
+            player_movable.allowZoom();
         }
     }
 
-    void Lier()
+    void Smooth_talker()
     {
         if (points.skillPointsCounter.value > 0)
         {
             player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
-            lier.interactable = false;
+            smooth_talker.interactable = false;
+            deceiver.interactable = false;
+        }
+    }
+    
+    void Deceiver()
+    {
+        if (points.skillPointsCounter.value > 0)
+        {
+            player_movable.updateCrouchMultiplier();
+            points.skillPointsCounter.value -= 1;
+            deceiver.interactable = false;
+            smooth_talker.interactable = false;
+        }
+    }
+
+    void Regen()
+    {
+        if (points.skillPointsCounter.value > 0)
+        {
+            points.updateRegen();
+            points.skillPointsCounter.value -= 1;
+            regen.interactable = false;
         }
     }
 }
