@@ -5,6 +5,7 @@ public class SwordScript : MonoBehaviour
     public float damage = 20;
     public float heavy_damage = 40;
     public float crit = 0;
+    public float heavy_crit = 0;
     public float sphereRadius = 1.5f; 
     public float sphereDistance = 2.0f; 
     private bool is_Attack_Ready = false;
@@ -95,7 +96,7 @@ public class SwordScript : MonoBehaviour
             is_Attack_Ready = true;
             Debug.Log("Attack Ready");
         }
-        if (timeReload >= 4 && !is_Heavy_Attack_Ready && heavy_attack_allowed)
+        if (timeReload >= 2.5 && !is_Heavy_Attack_Ready && heavy_attack_allowed)
         {
             is_Heavy_Attack_Ready = true;
             Debug.Log("Heavy Attack Ready");
@@ -123,6 +124,7 @@ public class SwordScript : MonoBehaviour
 
     public void updateCrit() {
         crit += 0.25f;
+        heavy_crit += 0.45f;
     }
 
     public void updateDamage() {
