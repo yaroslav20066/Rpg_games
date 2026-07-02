@@ -34,6 +34,7 @@ public class PlayerStatsScript : MonoBehaviour
             movement.speed++;
             movement.shiftedSpeed++;
             sword.damage += 5;
+            sword.heavy_damage += 10;
             health += 10;
         }
     }
