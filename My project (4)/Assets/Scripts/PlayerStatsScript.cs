@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerStatsScript : MonoBehaviour
 {
     public static PlayerStatsScript instance;
+    public float maxHealth = 100;
     public float health = 100;
     public float experience = 0;
     public float nextLevelMultiplier;
@@ -10,6 +11,7 @@ public class PlayerStatsScript : MonoBehaviour
     public Counter skillPointsCounter;
     Movable movement;
     SwordScript sword;
+    bool regen;
 
 
     // инвентарь
@@ -35,9 +37,23 @@ public class PlayerStatsScript : MonoBehaviour
             movement.shiftedSpeed++;
             sword.damage += 5;
             sword.heavy_damage += 10;
+            maxHealth += 10;
             health += 10;
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (regen)
+        {
+            health += 0.2f;
+        }
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
 
     public void TakeDamage(float damage)
     {
@@ -53,5 +69,10 @@ public class PlayerStatsScript : MonoBehaviour
     public void updateArrows()
     {
         maxArrows += 6;
+    }
+
+    public void updateRegen()
+    {
+        regen = true;
     }
 }

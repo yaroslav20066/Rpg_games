@@ -11,6 +11,7 @@ public class SkillsScript : MonoBehaviour
     public Button aim;
     public Button smooth_talker;
     public Button deceiver;
+    public Button regen;
     public GameObject player;
     Movable player_movable; 
     SwordScript sword;
@@ -29,6 +30,7 @@ public class SkillsScript : MonoBehaviour
         aim.onClick.AddListener(Aim);
         smooth_talker.onClick.AddListener(Smooth_talker);
         deceiver.onClick.AddListener(Deceiver);
+        regen.onClick.AddListener(Regen);
 
         heavy_attack.interactable = false;
         aim.interactable = false;
@@ -108,6 +110,16 @@ public class SkillsScript : MonoBehaviour
             player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
             deceiver.interactable = false;
+        }
+    }
+
+    void Regen()
+    {
+        if (points.skillPointsCounter.value > 0)
+        {
+            points.updateRegen();
+            points.skillPointsCounter.value -= 1;
+            regen.interactable = false;
         }
     }
 }
