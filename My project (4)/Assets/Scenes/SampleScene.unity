@@ -1235,17 +1235,117 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99453500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0f886b564829d54b95120ead2d262ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialoge_bridge_1
+  canvas: {fileID: 1444180914}
   person: {fileID: 26274507}
-  dialogie: {fileID: 1842638785}
-  text_button_1: {fileID: 1835764632}
-  text_button_2: {fileID: 677662483}
-  button_1: {fileID: 941448709}
-  button_2: {fileID: 288213398}
+  dialogue: {fileID: 1842638785}
+  textButton1: {fileID: 1835764632}
+  textButton2: {fileID: 677662483}
+  button1: {fileID: 941448709}
+  button2: {fileID: 288213398}
+  nodes:
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A"
+    dialogue: "\u0421\u0442\u043E\u0439, \u043A\u0442\u043E \u0438\u0434\u0435\u0442?"
+    choices:
+    - text: "\u041E\u0431\u044B\u0447\u043D\u044B\u0439 \u043F\u0443\u0442\u043D\u0438\u043A,
+        \u0438\u0434\u0443\u0449\u0438\u0439 \u0432 \u0433\u043E\u0440\u043E\u0434"
+      nextNode: 1
+    - text: "\u0421\u043E\u043B\u0434\u0430\u0442 \u041A\u043E\u0432\u0430\u0432\u043E\u0439
+        \u0432\u043E\u0439\u043D\u044B, \u0433\u0435\u0440\u043E\u0439 \u0432 \u0431\u0438\u0442\u0432\u0435
+        \u043F\u0440\u0438 \u041A\u043E\u0440\u0442\u0435\u043D\u0443\u0432\u0435"
+      nextNode: 5
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u0412 \u0433\u043E\u0440\u043E\u0434 \u0437\u043D\u0430\u0447\u0438\u0442
+      \u0432\u044B \u0434\u0432\u0438\u0433\u0430\u0435\u0442\u0435\u0441\u044C,
+      \u0430 \u043F\u0440\u043E\u043F\u0443\u0441\u043A \u0443 \u0432\u0430\u0441
+      \u0435\u0441\u0442\u044C?"
+    choices:
+    - text: "\u0427\u0442\u043E\u0431\u044B \u043F\u0435\u0440\u0435\u0439\u0442\u0438
+        \u043C\u043E\u0441\u0442 \u0442\u0435\u043F\u0435\u0440\u044C \u043D\u0443\u0436\u0435\u043D
+        \u043F\u0440\u043E\u043F\u0443\u0441\u043A?"
+      nextNode: 2
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u0418\u043B\u0438 \u0441\u0435\u0440\u0435\u0431\u0440\u043E \u0432
+      \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435 \u043F\u043B\u0430\u0442\u044B.
+      \u0412\u043E\u0439\u043D\u0430 \u0432\u044B\u0442\u044F\u043D\u0443\u043B\u0430
+      \u043C\u043D\u043E\u0433\u043E \u0434\u0435\u043D\u0435\u0433 \u0438\u0437
+      \u043A\u0430\u0437\u043D\u044B \u0438 \u0442\u0435\u043F\u0435\u0440\u044C
+      \u043A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u0442\u0432\u043E \u043F\u044B\u0442\u0430\u0435\u0442\u0441\u044F
+      \u0438\u0445 \u0432\u0435\u0440\u043D\u0443\u0442\u044C. "
+    choices:
+    - text: "\u041A \u0441\u043E\u0436\u0430\u043B\u0435\u043D\u0438\u044E, \u0434\u0435\u043D\u0435\u0433
+        \u0443 \u043C\u0435\u043D\u044F \u043D\u0435\u0442. \u041C\u043E\u0436\u0435\u0442
+        \u0432\u044B \u043F\u0440\u043E\u044F\u0432\u0438\u0442\u0435 \u0441\u043D\u0438\u0441\u0445\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+        \u0432\u0435\u0442\u0435\u0440\u0430\u043D\u0443?"
+      nextNode: 3
+    - text: "\u0414\u0430 \u043A\u0430\u043A \u0432\u044B \u0441\u043C\u0435\u0435\u0442\u0435?!
+        \u0414\u0430\u0439\u0442\u0435 \u043C\u043D\u0435 \u043F\u0440\u043E\u0439\u0442\u0438!
+        \u042F \u0432\u0438\u0434\u0435\u043B \u043D\u0430 \u0432\u043E\u0439\u043D\u0435
+        \u0442\u0430\u043A\u043E\u0435, \u0447\u0442\u043E \u0442\u0435\u0431\u0435
+        \u0438 \u043D\u0435 \u0441\u043D\u0438\u043B\u043E\u0441\u044C!"
+      nextNode: 3
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u041D\u0438\u043A\u0430\u043A\u0438\u0445 \u0438\u0441\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0439.
+      \u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435, \u043D\u043E \u0442\u0430\u043A\u043E\u0432
+      \u043F\u0440\u0438\u043A\u0430\u0437 \u043A\u043E\u043C\u0430\u043D\u0434\u0438\u0440\u0430
+      \u0433\u0430\u0440\u043D\u0438\u0437\u043E\u043D\u0430. \u0411\u0435\u0437
+      \u0441\u0435\u0440\u0435\u0431\u0440\u0430 \u0438\u043B\u0438 \u043F\u0440\u043E\u043F\u0443\u0441\u043A\u0430,
+      \u044F \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0432\u0430\u0441
+      \u043D\u0435 \u043C\u043E\u0433\u0443."
+    choices:
+    - text: ...
+      nextNode: 4
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u0412\u044B, \u043A\u043E\u043D\u0435\u0447\u043D\u043E, \u043C\u043E\u0436\u0435\u0442\u0435
+      \u043F\u043E\u043F\u044B\u0442\u0430\u0442\u044C\u0441\u044F \u043F\u0440\u043E\u0431\u0438\u0442\u044C\u0441\u044F
+      \u0447\u0435\u0440\u0435\u0437 \u043D\u0430\u0441, \u043D\u043E \u0431\u043E\u044E\u0441\u044C
+      \u0432\u044B \u0431\u044B\u0441\u0442\u0440\u043E \u043E\u043A\u0430\u0436\u0435\u0442\u0435\u0441\u044C
+      \u043D\u0430 \u0442\u043E\u043C \u0441\u0432\u0435\u0442\u0435, \u0447\u0435\u043C
+      \u0432 \u0433\u043E\u0440\u043E\u0434\u0435."
+    choices:
+    - text: "\u0425\u043E\u0440\u043E\u0448\u043E, \u044F \u0447\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
+        \u043F\u0440\u0438\u0434\u0443\u043C\u0430\u044E"
+      nextNode: -1
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u0414\u0430\u0436\u0435 \u0442\u0430\u043A? \u041D\u0443 \u0442\u043E\u0433\u0434\u0430
+      \u0441\u043A\u0430\u0436\u0438\u0442\u0435 \u043A\u0442\u043E \u0438\u0437
+      \u0440\u044B\u0446\u0430\u0440\u0435\u0439 \u043F\u0440\u0438\u043D\u044F\u043B
+      \u043F\u0435\u0440\u0432\u044B\u0439 \u0443\u0434\u0430\u0440 \u0432\u0440\u0430\u0433\u0430?"
+    choices:
+    - text: "\u042D\u0442\u043E \u0442\u0430\u0439\u043D\u0430, \u043A\u043E\u0442\u043E\u0440\u0443\u044E
+        \u043D\u0435\u043B\u044C\u0437\u044F \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C
+        \u043A\u043E\u043C\u0443 \u043F\u043E\u043F\u0430\u043B\u043E."
+      nextNode: 6
+    - text: "\u0421\u044D\u0440 \u0414\u0436\u0435\u0439\u043C\u0435 \u041A\u043E\u0441\u0442\u0435\u0440-\u0412\u0430\u043B\u044C\u0434\u0430\u0443,
+        \u0440\u044B\u0446\u0430\u0440\u044C \u0442\u0440\u0435\u0445 \u043C\u0435\u0447\u0435\u0439."
+      nextNode: 7
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u041A\u0430\u043A \u0438 \u043F\u043B\u0435\u0441\u0442\u0438 \u0447\u0443\u0448\u044C,
+      \u0447\u0442\u043E \u0432\u044B \u0432\u043E\u0435\u0432\u0430\u043B\u0438.
+      \u041D\u0443 \u0434\u0430 \u043B\u0430\u0434\u043D\u043E. \u0418\u0442\u0430\u043A..."
+    choices:
+    - text: ...
+      nextNode: 1
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u0412\u044B... \u043F\u0440\u0430\u0432\u044B. \u041F\u0440\u0438\u0432\u0435\u0441\u0442\u0432\u0443\u044E
+      \u0432\u0430\u0441, \u0433\u043E\u0441\u043F\u043E\u0434\u0438\u043D. \u0421\u043B\u044B\u0448\u0430\u043B,
+      \u0447\u0442\u043E \u043C\u043D\u043E\u0433\u043E \u043D\u0430\u0448\u0438\u0445
+      \u0432\u043E\u0438\u043D\u043E\u0432 \u0442\u0430\u043C \u043F\u043E\u0433\u0438\u0431\u043B\u043E."
+    choices:
+    - text: "\u0414\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E..."
+      nextNode: 8
+  - speaker: "\u0421\u0442\u0440\u0430\u0436\u043D\u0438\u043A "
+    dialogue: "\u0421\u043E\u0436\u0430\u043B\u0435\u044E, \u043D\u043E \u044F \u043D\u0435
+      \u043C\u043E\u0433\u0443 \u0432\u0430\u0441 \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C.
+      \u0412\u0430\u043C \u043D\u0443\u0436\u0435\u043D \u043F\u0440\u043E\u043F\u0443\u0441\u043A..."
+    choices:
+    - text: ???
+      nextNode: 2
+  player: {fileID: 1876813473}
 --- !u!1001 &104135969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7076,7 +7176,7 @@ GameObject:
   - component: {fileID: 677662484}
   - component: {fileID: 677662483}
   m_Layer: 5
-  m_Name: Text_1 (Dialoge_button)
+  m_Name: Text_2 (Dialoge_button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7613,7 +7713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1666319731495570236, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
       propertyPath: m_Name
@@ -12672,6 +12772,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4072419943209311752, guid: 090b7bb6a03631a40bd46c997ea864b8, type: 3}
   m_PrefabInstance: {fileID: 1283267235}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1314741358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+  m_PrefabInstance: {fileID: 1938913803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1314741366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314741358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7507ee386944dcc49ae1aab343f0b2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenDialoge
+  dialoge_space: {fileID: 1444180914}
+  image: {fileID: 99453502}
 --- !u!1001 &1319330403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13613,7 +13732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1666319731495570236, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
       propertyPath: m_Name
@@ -19116,7 +19235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1666319731495570236, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
       propertyPath: m_Name
@@ -19125,7 +19244,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1314741366}
   m_SourcePrefab: {fileID: 100100000, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
 --- !u!1001 &1955805578
 PrefabInstance:
@@ -21258,6 +21380,10 @@ PrefabInstance:
       propertyPath: statSource
       value: 
       objectReference: {fileID: 1876813475}
+    - target: {fileID: 2696829842219232958, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+      propertyPath: XPmessageActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5905367257937997759, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
       propertyPath: m_Name
       value: HUD

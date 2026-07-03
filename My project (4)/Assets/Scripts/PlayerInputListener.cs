@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.Controls;
 
 public class PlayerInputListener : MonoBehaviour
 {
-    public bool movementIsEnabled;
+    [HideInInspector] public bool movementIsEnabled;
     public Canvas UI;
     InputSystem_Actions controls;
     Movable movement;

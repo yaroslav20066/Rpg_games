@@ -40,7 +40,6 @@ public class SwordScript : MonoBehaviour
             {
                 foreach (Collider collider in hitColliders)
                 {
-                    Debug.Log(hitColliders.Length);
                     Debug.Log(collider.GetType());
                     if (collider.GetComponent<EnemySoldierScript>() != null)
                     {
@@ -70,7 +69,6 @@ public class SwordScript : MonoBehaviour
             {
                 foreach (Collider collider in hitColliders)
                 {
-                    Debug.Log(hitColliders.Length);
                     Debug.Log(collider.GetType());
                     if (collider.GetComponent<EnemySoldierScript>() != null)
                     {

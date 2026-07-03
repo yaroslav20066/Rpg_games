@@ -1,52 +1,108 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialoge_bridge_1 : MonoBehaviour
+public class Dialogue_bridge_1 : MonoBehaviour
 {
-    public TextMeshProUGUI person;
-    public TextMeshProUGUI dialogie;
-    public TextMeshProUGUI text_button_1;
-    public TextMeshProUGUI text_button_2;
-    public Button button_1;
-    public Button button_2;
-
-    private int left = 0;
-    private int right = 0;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [System.Serializable]
+    public class Choice
     {
-        person.text = "Стражник:";
-        person.color = Color.blue;
-
-        dialogie.text = "Стой, кто идет?";
-
-        text_button_1.text = "Обычный путник, идущий к городу";
-        text_button_2.text = "Солдат Кровавой войны в отставки, герой в битве при Кортева";
-        button_1.onClick.AddListener(leftChoice);
-        button_2.onClick.AddListener(rightChoice);
+        public string text;      
+        public int nextNode;     
     }
 
-    public void leftChoice()
-    {
-        if (left == 0 && right == 0)
-        {
-            dialogie.text = "";
-        }
-    }
-
-    public void rightChoice()
-    {
-        if (left == 0 && right == 0)
-        {
-            
-        }
-    }
-    // Update is called once per frame
-    void Update()
+    [System.Serializable]
+    public class DialogueNode
     {
         
+        public string speaker;
+        [TextArea]
+        public string dialogue;
+        public Choice[] choices;
+    }
+    public Canvas canvas;
+    public TextMeshProUGUI person;
+    public TextMeshProUGUI dialogue;
+
+    public TextMeshProUGUI textButton1;
+    public TextMeshProUGUI textButton2;
+
+    public Button button1;
+    public Button button2;
+
+    public DialogueNode[] nodes;
+    public GameObject player;
+
+    PlayerInputListener ismoving;
+    private int currentNode;
+
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+
+        ismoving = player.GetComponent<PlayerInputListener>();
+        ismoving.movementIsEnabled = false;
+
+        button1.onClick.AddListener(() => Choose(0));
+        button2.onClick.AddListener(() => Choose(1));
+
+        ShowNode(0);
+    }
+
+    void ShowNode(int index)
+    {
+        currentNode = index;
+
+        DialogueNode node = nodes[index];
+
+        person.text = node.speaker;
+
+        dialogue.text = node.dialogue;
+
+        if (node.choices.Length > 0)
+        {
+            button1.gameObject.SetActive(true);
+            textButton1.text = node.choices[0].text;
+        }
+        else
+        {
+            button1.gameObject.SetActive(false);
+        }
+
+        if (node.choices.Length > 1)
+        {
+            button2.gameObject.SetActive(true);
+            textButton2.text = node.choices[1].text;
+        }
+        else
+        {
+            button2.gameObject.SetActive(false);
+        }
+    }
+
+    void Choose(int choiceIndex)
+    {
+        DialogueNode node = nodes[currentNode];
+
+        if (choiceIndex >= node.choices.Length)
+            return;
+
+        int next = node.choices[choiceIndex].nextNode;
+
+        if (next >= 0)
+            ShowNode(next);
+        else
+            EndDialogue();
+    }
+
+    void EndDialogue()
+    {
+        enabled = false;
+        canvas.gameObject.SetActive(false);
+        ismoving.movementIsEnabled = true;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
