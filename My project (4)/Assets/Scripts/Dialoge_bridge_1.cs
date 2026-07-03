@@ -26,26 +26,28 @@ public class Dialogue_bridge_1 : MonoBehaviour
 
     public TextMeshProUGUI textButton1;
     public TextMeshProUGUI textButton2;
+    public TextMeshProUGUI Main_goal;
+    MainGoalCounter counter;
 
     public Button button1;
     public Button button2;
+    private int currentNode;
 
     public DialogueNode[] nodes;
-    public GameObject player;
 
-    PlayerInputListener ismoving;
-    private int currentNode;
+    
 
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
-        ismoving = player.GetComponent<PlayerInputListener>();
-        ismoving.movementIsEnabled = false;
+        Time.timeScale = 0f;
 
         button1.onClick.AddListener(() => Choose(0));
         button2.onClick.AddListener(() => Choose(1));
+
+        counter = Main_goal.GetComponent<MainGoalCounter>();
 
         ShowNode(0);
     }
@@ -100,9 +102,10 @@ public class Dialogue_bridge_1 : MonoBehaviour
     {
         enabled = false;
         canvas.gameObject.SetActive(false);
-        ismoving.movementIsEnabled = true;
+        Time.timeScale = 1f;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        counter.NewStep();
     }
 }

@@ -24,6 +24,7 @@ public class PlayerStatsScript : MonoBehaviour
     // инвентарь
     public int maxArrows = 6;
     public int Arrows = 3;
+    public int silver = 0;
 
     void Awake()
     {
