@@ -1,8 +1,9 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialogue_priest_1 : MonoBehaviour
+public class Dialogue_bridge_1 : MonoBehaviour
 {
     [System.Serializable]
     public class Choice
@@ -26,16 +27,14 @@ public class Dialogue_priest_1 : MonoBehaviour
 
     public TextMeshProUGUI textButton1;
     public TextMeshProUGUI textButton2;
-    //public TextMeshProUGUI Main_goal;
-    //MainGoalCounter counter;
+    public TextMeshProUGUI Main_goal;
+    MainGoalCounter counter;
 
     public Button button1;
     public Button button2;
     private int currentNode;
 
     public DialogueNode[] nodes;
-
-    
 
     void Start()
     {
@@ -47,7 +46,7 @@ public class Dialogue_priest_1 : MonoBehaviour
         button1.onClick.AddListener(() => Choose(0));
         button2.onClick.AddListener(() => Choose(1));
 
-        //counter = Main_goal.GetComponent<MainGoalCounter>();
+        counter = Main_goal.GetComponent<MainGoalCounter>();
 
         ShowNode(0);
     }
@@ -93,19 +92,25 @@ public class Dialogue_priest_1 : MonoBehaviour
         int next = node.choices[choiceIndex].nextNode;
 
         if (next >= 0)
+        {
             ShowNode(next);
+        }
         else
+        {
+            currentNode = 0;
             EndDialogue();
+        }
+            
     }
 
     void EndDialogue()
     {
+        Debug.Log("exit");
         enabled = false;
         canvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
-
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        //counter.NewStep();
+        counter.NewStep();
     }
 }
