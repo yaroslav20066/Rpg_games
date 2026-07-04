@@ -122,6 +122,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Bow",
+                    "type": "Button",
+                    "id": "4f5028aa-12f5-4793-a04b-867e872de32a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sword",
+                    "type": "Button",
+                    "id": "06d1baf0-0000-46ec-9b8e-de12e74f49c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -562,6 +580,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a371f0e8-d8cb-4691-a5a5-74f774fd4ad0",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dced464c-f83f-4670-bd32-b69e1d0e5a20",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sword",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

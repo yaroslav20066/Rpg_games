@@ -60,14 +60,14 @@ public class PlayerInputListener : MonoBehaviour
         }
         if (movementIsEnabled)
         {
-            //if (controls.FindAction("Sword").IsPressed())
-            //{
-            //    changed_weapon = false;
-            //}
-            //else if (controls.FindAction("Bow").IsPressed())
-            //{
-            //    changed_weapon = true;
-            //}
+            if (controls.FindAction("Sword").IsPressed())
+            {
+                changed_weapon = false;
+            }
+            else if (controls.FindAction("Bow").IsPressed())
+            {
+                changed_weapon = true;
+            }
             if (!changed_weapon)
             {
                 sword.Attack(controls.FindAction("Attack").IsPressed());

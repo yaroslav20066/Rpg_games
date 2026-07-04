@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class OpenDialoge : MonoBehaviour
+public class OpenBridgeDialoge : MonoBehaviour
 {
     public Canvas dialoge_space;
     public Image image;
@@ -10,7 +10,6 @@ public class OpenDialoge : MonoBehaviour
     {
         if (check)
         {
-            Debug.Log("Helo");
             dialoge_space.gameObject.SetActive(true);
             Dialogue_bridge_1 script = image.GetComponent<Dialogue_bridge_1>();
             script.enabled = true;
