@@ -1,13 +1,13 @@
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class Dialogue_bridge_1 : MonoBehaviour
+public class Dialogue_helper_priest : MonoBehaviour
 {
     [System.Serializable]
     public class Choice
     {
+        public bool bad = false;
         public string text;      
         public int nextNode;     
     }
@@ -15,7 +15,9 @@ public class Dialogue_bridge_1 : MonoBehaviour
     [System.Serializable]
     public class DialogueNode
     {
-        
+        public int silver = 0;
+        public int arrow = 0;
+        public int use_bandage = 0;
         public string speaker;
         [TextArea]
         public string dialogue;
@@ -30,7 +32,9 @@ public class Dialogue_bridge_1 : MonoBehaviour
     public TextMeshProUGUI Main_goal;
     MainGoalCounter counter;
     public GameObject player;
-    PlayerStatsScript stats;
+    PlayerStatsScript playerStatsScript;
+
+    public GameObject helper;
 
     public Button button1;
     public Button button2;
@@ -40,6 +44,8 @@ public class Dialogue_bridge_1 : MonoBehaviour
 
     void Start()
     {
+        playerStatsScript = player.GetComponent<PlayerStatsScript>();
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -49,7 +55,6 @@ public class Dialogue_bridge_1 : MonoBehaviour
         button2.onClick.AddListener(() => Choose(1));
 
         counter = Main_goal.GetComponent<MainGoalCounter>();
-        stats = player.GetComponent<PlayerStatsScript>();
 
         ShowNode(0);
     }
@@ -59,6 +64,10 @@ public class Dialogue_bridge_1 : MonoBehaviour
         currentNode = index;
 
         DialogueNode node = nodes[index];
+
+        playerStatsScript.getSilver(node.silver);
+        playerStatsScript.getArrow(node.arrow);
+        playerStatsScript.useBandages(node.use_bandage);
 
         person.text = node.speaker;
 
@@ -98,15 +107,20 @@ public class Dialogue_bridge_1 : MonoBehaviour
         {
             ShowNode(next);
         }
+        else if (next >= 0 && node.choices[choiceIndex].bad)
+        {
+            Bad_endings();
+        }
+
         else
         {
             currentNode = 0;
-            EndDialogue();
+            EndDialogue_helper_priest();
         }
             
     }
 
-    void EndDialogue()
+    void EndDialogue_helper_priest()
     {
         enabled = false;
         canvas.gameObject.SetActive(false);
@@ -115,9 +129,27 @@ public class Dialogue_bridge_1 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        counter.NewStep();
-        stats.TakeExperience(100);
-        
+        player.transform.position = new Vector3(10, 1, 82);
+
+        counter.NewPriestStep();
+        playerStatsScript.TakeExperience(100);
+
         Destroy(this);
+        Destroy(helper);
+    }
+
+    void Bad_endings()
+    {
+        enabled = false;
+        canvas.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        playerStatsScript.TakeExperience(100);
+
+        Destroy(this);
+        Destroy(helper);
     }
 }

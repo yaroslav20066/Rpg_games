@@ -181,6 +181,132 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4072419943209311752, guid: 090b7bb6a03631a40bd46c997ea864b8, type: 3}
   m_PrefabInstance: {fileID: 14614259}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &16667340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16667344}
+  - component: {fileID: 16667343}
+  - component: {fileID: 16667342}
+  - component: {fileID: 16667341}
+  - component: {fileID: 16667345}
+  m_Layer: 0
+  m_Name: Cross
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &16667341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16667340}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &16667342
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16667340}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &16667343
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16667340}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &16667344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16667340}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.51, y: -0.15, z: 9.89}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &16667345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16667340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8725fe487c05a19479644a5902e6a268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TakeCrossScript
+  goal: {fileID: 785550592}
 --- !u!1 &26274505
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +430,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -115.87021, w: 0}
+  m_margin: {x: 0, y: 0, z: -512.55835, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1161,6 +1287,9 @@ GameObject:
   - component: {fileID: 99453502}
   - component: {fileID: 99453504}
   - component: {fileID: 99453505}
+  - component: {fileID: 99453506}
+  - component: {fileID: 99453507}
+  - component: {fileID: 99453508}
   m_Layer: 5
   m_Name: Image (dialoge)
   m_TagString: Untagged
@@ -1247,6 +1376,7 @@ MonoBehaviour:
   textButton1: {fileID: 1835764632}
   textButton2: {fileID: 677662483}
   Main_goal: {fileID: 785550592}
+  player: {fileID: 1876813473}
   button1: {fileID: 941448709}
   button2: {fileID: 288213398}
   nodes:
@@ -1364,10 +1494,14 @@ MonoBehaviour:
   dialogue: {fileID: 1842638785}
   textButton1: {fileID: 1835764632}
   textButton2: {fileID: 677662483}
+  Main_goal: {fileID: 785550592}
+  helper: {fileID: 1405776828}
+  player: {fileID: 1876813473}
   button1: {fileID: 941448709}
   button2: {fileID: 288213398}
   nodes:
-  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A"
+  - bandage: 0
+    speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A"
     dialogue: "\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E,
       \u0421\u044B\u043D \u043C\u043E\u0439. \u0427\u0442\u043E \u043F\u0440\u0438\u0432\u0435\u043B\u043E
       \u0442\u0435\u0431\u044F \u0441\u044E\u0434\u0430?"
@@ -1379,7 +1513,8 @@ MonoBehaviour:
         \u0441\u0442\u0440\u0430\u0436\u0430 \u043D\u0435 \u0434\u0430\u0435\u0442
         \u043F\u0440\u043E\u0445\u043E\u0434\u0430."
       nextNode: 1
-  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
+  - bandage: 0
+    speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
     dialogue: "\u0425\u043C, \u0438\u0434\u0442\u0438 \u0437\u0430 \u043B\u0443\u0447\u0448\u0435\u0439
       \u0436\u0438\u0437\u043D\u044C\u044E \u044D\u0442\u043E \u0431\u043B\u0430\u0433\u043E\u0435
       \u0434\u0435\u043B\u043E. \u042F \u0432\u043E\u0442 \u0442\u043E\u0436\u0435
@@ -1401,7 +1536,8 @@ MonoBehaviour:
         \u043C\u0435\u043D\u044F? \u0423\u0432\u0435\u0440\u0435\u043D, \u043E\u0445\u0440\u0430\u043D\u0430
         \u0432\u0430\u043C \u043D\u0435 \u043F\u043E\u043C\u0435\u0448\u0430\u0435\u0442."
       nextNode: 3
-  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
+  - bandage: 0
+    speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
     dialogue: "\u041F\u0440\u043E\u0441\u0442\u0438, \u043D\u043E \u043D\u0435 \u043A\u0430\u043A\u0438\u0435
       \u0434\u0435\u043D\u044C\u0433\u0438 \u043D\u0435 \u0437\u0430\u0441\u0442\u0430\u0432\u044F\u0442
       \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F \u043F\u0440\u0438\u0432\u0435\u043B\u0435\u0433\u0438\u044F\u043C\u0438
@@ -1414,7 +1550,8 @@ MonoBehaviour:
     choices:
     - text: "\u0427\u0442\u043E \u043D\u0443\u0436\u043D\u043E \u0434\u0435\u043B\u0430\u0442\u044C?"
       nextNode: 4
-  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
+  - bandage: 0
+    speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
     dialogue: "\u041D\u0435 \u0434\u0443\u043C\u0430\u044E, \u0447\u0442\u043E \u043A\u0442\u043E-\u0442\u043E
       \u043F\u043E \u043F\u0443\u0442\u0438 \u043D\u0430\u043F\u0430\u0434\u0435\u0442
       \u043D\u0430 \u0441\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u0435\u0439 \u0426\u0435\u0440\u043A\u0432\u0438,
@@ -1425,7 +1562,8 @@ MonoBehaviour:
     - text: "\u0425\u043E\u0440\u043E\u0448\u043E. \u0427\u0442\u043E \u043D\u0443\u0436\u043D\u043E
         \u0441\u0434\u0435\u043B\u0430\u0442\u044C?"
       nextNode: 4
-  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
+  - bandage: 0
+    speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
     dialogue: "\u0412\u0438\u0434\u0438\u0448\u044C \u043B\u0438, \u0434\u0435\u0440\u0435\u0432\u043D\u044F
       \u0443 \u043D\u0430\u0441 \u0431\u0435\u0434\u043D\u0430\u044F \u0438 \u0434\u0435\u0440\u0436\u0430\u0442\u044C
       \u0432\u0441\u0435 \u0434\u0440\u0430\u0433\u043E\u0446\u0435\u043D\u043D\u043E\u0441\u0442\u0438
@@ -1444,7 +1582,8 @@ MonoBehaviour:
         \u0441\u043C\u043E\u0433\u0443, \u043D\u043E \u043E\u0431\u0435\u0449\u0430\u0442\u044C
         \u043D\u0435 \u043C\u043E\u0433\u0443."
       nextNode: 5
-  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
+  - bandage: 1
+    speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A "
     dialogue: "\u0418 \u0435\u0449\u0435 \u043A\u043E\u0435-\u0447\u0442\u043E. \u041F\u043E\u043C\u043E\u0448\u043D\u0438\u043A
       \u043C\u043E\u0439 \u0441\u043E \u0441\u043E\u0438\u043C\u0438 \u043E\u0431\u044F\u0437\u0430\u043D\u043D\u043E\u0441\u0442\u044F\u043C\u0438
       \u0441\u043F\u0440\u0430\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0445\u043E\u0440\u043E\u0448\u043E,
@@ -1458,6 +1597,227 @@ MonoBehaviour:
     - text: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u041E\u0442\u0435\u0446.
         \u041F\u043E\u043F\u044B\u0442\u0430\u044E\u0441\u044C \u0435\u0433\u043E
         \u043D\u0430\u0439\u0442\u0438."
+      nextNode: -1
+--- !u!114 &99453506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99453500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121f7c4e034acec4e8bfe7d32385aff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_helper_priest
+  canvas: {fileID: 1444180914}
+  person: {fileID: 26274507}
+  dialogue: {fileID: 1842638785}
+  textButton1: {fileID: 1835764632}
+  textButton2: {fileID: 677662483}
+  Main_goal: {fileID: 785550592}
+  player: {fileID: 1876813473}
+  helper: {fileID: 1405776828}
+  button1: {fileID: 941448709}
+  button2: {fileID: 288213398}
+  nodes:
+  - silver: 0
+    arrow: 0
+    use_bandage: 0
+    speaker: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430"
+    dialogue: "\u0424\u0444\u0444, \u0430\u0439 \u043A\u0430\u043A \u0431\u043E\u043B\u044C\u043D\u043E.
+      \u042D\u0439 \u0434\u043E\u0431\u0440\u044B\u0439 \u0447\u0435\u043B\u043E\u0432\u0435\u043A,
+      \u043D\u0435 \u043F\u043E\u043C\u043E\u0436\u0435\u0442\u0435 \u043B\u0438
+      \u0432\u044B \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0443 \u0432 \u0431\u0435\u0434\u0435?"
+    choices:
+    - bad: 0
+      text: "\u0410 \u0442\u044B \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A
+        \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430 \u044F \u0442\u0430\u043A
+        \u043F\u0440\u0435\u0434\u043F\u043E\u043B\u0430\u0433\u0430\u044E?"
+      nextNode: 1
+  - silver: 0
+    arrow: 0
+    use_bandage: 0
+    speaker: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430"
+    dialogue: "\u041E, \u0442\u0430\u043A \u044D\u0442\u043E \u043E\u043D \u0432\u0430\u0441
+      \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043B!? \u041A\u0430\u043A \u0436\u0435
+      \u0445\u043E\u0440\u043E\u0448\u043E. \u042F \u0443\u0436\u0435 \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u043B\u0441\u044F
+      \u043E\u0431\u0440\u0430\u0442\u043D\u043E, \u0434\u0430 \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u043E
+      \u0443\u043F\u0430\u043B \u0438 \u043D\u043E\u0433\u0443 \u0440\u0430\u0441\u0442\u044F\u043D\u0443\u043B.
+      \u041A\u043E\u0435-\u043A\u0430\u043A \u0434\u043E\u0448\u0435\u043B \u0434\u043E
+      \u043F\u043E\u043B\u044F, \u043D\u043E \u0434\u0430\u043B\u044C\u0448\u0435
+      \u0438\u0434\u0442\u0438 \u043D\u0435 \u043C\u043E\u0433\u0443."
+    choices:
+    - bad: 0
+      text: "\u041C\u0434\u0430, \u043D\u0435 \u043F\u043E\u0432\u0435\u0437\u043B\u043E
+        \u0442\u0435\u0431\u0435. \u0412\u043E\u0442, \u0434\u0435\u0440\u0436\u0438
+        \u0431\u0438\u043D\u0442."
+      nextNode: 2
+    - bad: 0
+      text: "\u041C\u043D\u043E\u0433\u043E \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435
+        \u043F\u0440\u0438\u0448\u043B\u043E\u0441\u044C \u043D\u0435\u0441\u0442\u0438,
+        \u0440\u0430\u0437 \u0443\u0436 \u0442\u044B \u0442\u0443\u0442"
+      nextNode: 3
+  - silver: 0
+    arrow: 0
+    use_bandage: 1
+    speaker: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430"
+    dialogue: "\u041E\u0445, \u0442\u0430\u043A \u0443\u0436\u0435 \u043B\u0443\u0447\u0448\u0435.
+      \u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0432\u0430\u043C, \u0434\u043E\u0431\u0440\u044B\u0439
+      \u0447\u0435\u043B\u043E\u0432\u0435\u043A. \u0414\u0430\u0432\u0430\u0439\u0442\u0435,
+      \u043F\u043E\u0439\u0434\u0435\u043C \u0443\u0436\u0435 \u0432 \u0446\u0435\u0432\u043A\u043E\u0432\u044C.
+      \u0412\u0441\u0435 \u043C\u0435\u043D\u044F \u0443\u0436\u0435 \u0437\u0430\u0436\u0434\u0430\u043B\u0438\u0441\u044C."
+    choices:
+    - bad: 0
+      text: "\u041F\u043E\u0448\u043B\u0438."
+      nextNode: -1
+  - silver: 0
+    arrow: 0
+    use_bandage: 0
+    speaker: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430"
+    dialogue: "\u041E\u043E, \u0435\u0441\u0442\u044C \u0442\u0430\u043A\u043E\u0435.
+      \u0426\u0435\u043B\u044B\u0439 \u043C\u0435\u0448\u043E\u043A \u0441\u0435\u0440\u0435\u0431\u0440\u0430,
+      \u043F\u0430\u0440\u0430 \u0441\u0442\u0440\u0435\u043B, \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0435
+      \u0434\u0440\u0430\u0433\u043E\u0446\u0435... \u0410 \u0432\u044B \u0437\u0430\u0447\u0435\u043C
+      \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u0442\u0435?"
+    choices:
+    - bad: 0
+      text: "\u0420\u0430\u0434\u0438 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0430.
+        \u0412\u043E\u0442 \u0432\u043E\u0437\u044C\u043C\u0438 \u0431\u0438\u043D\u0442."
+      nextNode: 2
+    - bad: 0
+      text: "\u0414\u0443\u043C\u0430\u044E \u0442\u0435\u043F\u0435\u0440\u044C
+        \u044D\u0442\u043E \u043C\u043E\u0435."
+      nextNode: 4
+  - silver: 150
+    arrow: 6
+    use_bandage: 0
+    speaker: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430"
+    dialogue: "\u0427\u0442\u043E!? \u0412\u044B \u043D\u0435 \u043C\u043E\u0436\u0435\u0442!
+      \u042D\u0442\u043E \u0436\u0435 \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0438
+      \u0426\u0435\u0440\u043A\u0432\u0438. \u041E\u043D\u0438 \u043D\u0443\u0436\u043D\u044B
+      \u043D\u0443\u0436\u0434\u0430\u044E\u0449\u0438\u043C\u0438\u0441\u044F. \u042F
+      \u0438\u0445 \u043D\u0435 \u043E\u0442\u0434\u0430\u043C! \u041D\u0438\u043A\u0442\u043E
+      \u043D\u0435 \u0441\u043C\u0435\u0435\u0442..."
+    choices:
+    - bad: 1
+      text: "(\u0423\u0434\u0430\u0440) \u041C\u043D\u043E\u0433\u043E \u0431\u043E\u043B\u0442\u0430\u0435\u0448\u044C"
+      nextNode: -1
+--- !u!114 &99453507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99453500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d21451ab1553c140bbefcb510bd048d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog_priest_2
+  canvas: {fileID: 1444180914}
+  person: {fileID: 26274507}
+  dialogue: {fileID: 1842638785}
+  textButton1: {fileID: 1835764632}
+  textButton2: {fileID: 677662483}
+  Main_goal: {fileID: 785550592}
+  player: {fileID: 1876813473}
+  cross: {fileID: 16667340}
+  button1: {fileID: 941448709}
+  button2: {fileID: 288213398}
+  nodes:
+  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A"
+    dialogue: "\u041E\u0445, \u0441\u043F\u0430\u0441\u0438\u0431\u043E \u0447\u0442\u043E
+      \u043D\u0430\u0448\u0435\u043B \u043C\u043E\u0435\u0433\u043E \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A\u0430.
+      \u0422\u0430\u043A \u0438 \u0447\u0443\u0432\u0441\u0442\u0432\u043E\u0432\u0430\u043B,
+      \u0447\u0442\u043E \u043E\u043D \u0432 \u0431\u0435\u0434\u0443 \u043F\u043E\u043F\u0430\u0434\u0435\u0442.
+      \u0411\u043B\u0430\u0433\u043E, \u0447\u0442\u043E \u0432\u0441\u0435 \u043E\u0431\u043E\u0448\u043B\u043E\u0441\u044C. "
+    choices:
+    - text: "\u0420\u0430\u0434 \u043F\u043E\u043C\u043E\u0447\u044C. \u0422\u0435\u043F\u0435\u0440\u044C
+        \u044F \u0434\u0440\u0443\u0433 \u0426\u0435\u0440\u043A\u0432\u0438?"
+      nextNode: 1
+  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A"
+    dialogue: "\u041D\u0443 \u0435\u0441\u043B\u0438 \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0448\u044C
+      \u0435\u0449\u0435 \u043E\u0434\u043D\u043E \u043F\u043E\u0440\u0443\u0447\u0435\u043D\u0438\u0435,
+      \u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u0438 \u0441\u0442\u0430\u043D\u0435\u0448\u044C.
+      \u0412\u0438\u0434\u0438\u0448\u044C \u043B\u0438 \u044F \u043F\u0440\u043E\u0432\u0435\u0440\u0438\u043B
+      \u043F\u0440\u0438\u043D\u0435\u0441\u0435\u043D\u043D\u044B\u0435 \u0432\u0435\u0449\u0438
+      \u0438 \u043E\u0431\u043D\u0430\u0440\u0443\u0436\u0438\u043B, \u0447\u0442\u043E
+      \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 \u0433\u043B\u0430\u0432\u043D\u043E\u0439
+      \u0432\u0435\u0449\u0438 - \u0417\u043E\u043B\u043E\u0442\u043E\u0433\u043E
+      \u043A\u0440\u0435\u0441\u0442\u0430. \u041E\u043D\u0430 \u0433\u043E\u0432\u043E\u0440\u0438\u0442
+      \u043E \u043F\u0440\u0438\u0447\u0430\u0441\u0442\u043D\u043E\u0441\u0442\u0438
+      \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u043A \u0426\u0435\u0440\u043A\u0432\u0438,
+      \u0442\u043E \u0435\u0441\u0442\u044C \u0431\u0435\u0437 \u043D\u0435\u0433\u043E
+      \u0432\u044B \u043D\u0435 \u0441\u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+      \u043C\u043E\u0441\u0442. \u042F \u043F\u044B\u0442\u0430\u043B\u0441\u044F
+      \u0443\u0437\u043D\u0430\u0442\u044C \u0443 \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A\u0430,
+      \u0433\u0434\u0435 \u043E\u043D \u043C\u043E\u0433 \u0435\u0433\u043E \u043F\u043E\u0442\u0435\u0440\u044F\u0442\u044C,
+      \u043D\u043E \u043E\u043D \u043C\u043D\u043E\u0433\u043E \u0433\u0434\u0435
+      \u0431\u0440\u043E\u0434\u0438\u043B: \u0442\u043E \u0432 \u043B\u0435\u0441\u0443,
+      \u0442\u043E \u0432 \u043F\u043E\u043B\u0435, \u0442\u043E \u0443 \u0434\u043E\u0440\u043E\u0433\u0438.
+      \u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F, \u0447\u0442\u043E
+      \u043D\u0443\u0436\u043D\u043E \u0438\u0441\u043A\u0430\u0442\u044C \u0432
+      \u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u043E\u0431\u043B\u0430\u0441\u0442\u0438.
+      \u041C\u043E\u0436\u0435\u0448\u044C \u043B\u0438 \u0442\u044B \u043F\u043E\u043C\u043E\u0447\u044C? "
+    choices:
+    - text: "\u0415\u0441\u043B\u0438 \u043F\u0440\u0438 \u043F\u043E\u043C\u043E\u0449\u0438
+        \u043D\u0435\u0433\u043E \u044F \u043F\u0435\u0440\u0435\u0439\u0434\u0443
+        \u0447\u0435\u0440\u0435\u0437 \u043C\u043E\u0441\u0442, \u0442\u043E \u0434\u0430."
+      nextNode: -1
+--- !u!114 &99453508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99453500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9aee13744958c489cf1a009f4e6f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog_priest_3
+  canvas: {fileID: 1444180914}
+  person: {fileID: 26274507}
+  dialogue: {fileID: 1842638785}
+  textButton1: {fileID: 1835764632}
+  textButton2: {fileID: 677662483}
+  Main_goal: {fileID: 785550592}
+  player: {fileID: 1876813473}
+  button1: {fileID: 941448709}
+  button2: {fileID: 288213398}
+  nodes:
+  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u0435"
+    dialogue: "\u0422\u044B \u043D\u0430\u0448\u0435\u043B \u0435\u0433\u043E! \u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044E
+      \u0442\u0435\u0431\u044F! \u0422\u0435\u043F\u0435\u0440\u044C \u043C\u043E\u0438
+      \u0441\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u0438 \u043C\u043E\u0433\u0443\u0442
+      \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u0441\u044F \u0432 \u0433\u043E\u0440\u043E\u0434."
+    choices:
+    - text: "\u042F \u043D\u0430\u0434\u0435\u044E\u0441\u044C \u043E\u043D\u0438
+        \u043C\u043E\u0433\u0443\u0442 \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u0441\u044F
+        \u0441\u043E \u043C\u043D\u043E\u0439?"
+      nextNode: 1
+    - text: "\u0420\u0430\u0434 \u0431\u044B\u043B \u043F\u043E\u043C\u043E\u0447\u044C.
+        \u041D\u0430\u0434\u0435\u044E\u0441\u044C \u044F \u0442\u0435\u043F\u0435\u0440\u044C
+        \u0432\u0430\u0448 \u0434\u0440\u0443\u0433."
+      nextNode: 1
+  - speaker: "\u0421\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u0435"
+    dialogue: "\u041A\u043E\u043D\u0435\u0447\u043D\u043E \u0434\u0440\u0443\u0433
+      \u043C\u043E\u0439! \u0422\u044B \u0434\u043E\u043A\u0430\u0437\u0430\u043B
+      \u0441\u0438\u043B\u0443 \u0441\u0432\u043E\u0435\u0439 \u0432\u0435\u0440\u044B.
+      \u0422\u0430\u043A\u0438\u0435 \u043A\u0430\u043A \u0432\u044B \u043E\u0447\u0435\u043D\u044C
+      \u043D\u0443\u0436\u043D\u044B \u0433\u043E\u0440\u043E\u0434\u0441\u043A\u043E\u0439
+      \u0446\u0435\u0440\u043A\u0432\u0438. \u0412\u043E\u0442 \u0432\u043E\u0437\u044C\u043C\u0438\u0442\u0435.
+      \u042D\u0442\u0430 \u0434\u043E\u0432\u0435\u0440\u0435\u043D\u043D\u043E\u0441\u0442\u044C
+      \u043E \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0435. \u0421 \u043D\u0435\u0439
+      \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043B\u0443\u0436\u0438\u0442\u044C
+      \u0446\u0435\u0440\u043A\u0432\u0438 \u043D\u0430 \u0432\u0430\u0436\u043D\u044B\u0445
+      \u043F\u043E\u0441\u0442\u0430\u0445. \u042D\u0442\u043E, \u043A\u043E\u043D\u0435\u0447\u043D\u043E
+      \u0443\u0436\u0435 \u0432\u0430\u0448 \u0432\u044B\u0431\u043E\u0440.  "
+    choices:
+    - text: "\u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044E \u0432\u0430\u0441,
+        \u041E\u0442\u0435\u0446. \u0412\u044B \u043E\u0447\u0435\u043D\u044C \u0432\u044B\u0440\u0443\u0447\u0438\u043B\u0438
+        \u043C\u0435\u043D\u044F!"
       nextNode: -1
 --- !u!1001 &104135969
 PrefabInstance:
@@ -4282,15 +4642,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 678046421922209777, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.380929
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 678046421922209777, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 678046421922209777, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 83.41709
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 678046421922209777, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14466,6 +14826,136 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+--- !u!1 &1405776828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405776832}
+  - component: {fileID: 1405776831}
+  - component: {fileID: 1405776830}
+  - component: {fileID: 1405776829}
+  - component: {fileID: 1405776833}
+  m_Layer: 0
+  m_Name: Helper_of_the_priest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!136 &1405776829
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405776828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1405776830
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405776828}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1405776831
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405776828}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1405776832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405776828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.52, y: 0.72671, z: 25.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405776833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405776828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5135df7619d54419f30d116137438a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenHelper_Dialogue
+  dialoge_space: {fileID: 1444180914}
+  image: {fileID: 99453502}
+  goal: {fileID: 785550592}
 --- !u!1001 &1409478950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19414,6 +19904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OpenChurchDialoge
   dialoge_space: {fileID: 1444180914}
   image: {fileID: 99453502}
+  goal: {fileID: 785550592}
 --- !u!114 &1827039063 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2696829842219232958, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
@@ -22845,3 +23336,5 @@ SceneRoots:
   - {fileID: 1444180915}
   - {fileID: 408839277}
   - {fileID: 1819572716}
+  - {fileID: 1405776832}
+  - {fileID: 16667344}

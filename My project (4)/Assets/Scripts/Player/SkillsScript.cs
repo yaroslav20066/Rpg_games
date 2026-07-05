@@ -85,7 +85,6 @@ public class SkillsScript : MonoBehaviour
     {
         if (points.skillPointsCounter.value > 0)
         {
-            // что то ещё с луком
             points.skillPointsCounter.value -= 1;
             aim.interactable = false;
             player_movable.allowZoom();

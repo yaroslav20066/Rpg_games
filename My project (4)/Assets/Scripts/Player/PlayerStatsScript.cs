@@ -20,11 +20,13 @@ public class PlayerStatsScript : MonoBehaviour
     SwordScript sword;
     bool regen;
     float newEXP;
+    public bool bonus = false;
 
     // инвентарь
     public int maxArrows = 6;
     public int Arrows = 3;
     public int silver = 0;
+    public int bandage = 0;
 
     void Awake()
     {
@@ -41,8 +43,6 @@ public class PlayerStatsScript : MonoBehaviour
             experience -= expBar.maxValue;
             expBar.maxValue = (float)(Math.Floor  ((expBar.maxValue*nextLevelMultiplier)/10)) * 10;
             skillPointsCounter.value++;
-            movement.speed++;
-            movement.shiftedSpeed++;
             sword.base_damage += 5;
             sword.base_heavy_damage += 10;
             maxHealth += 10;
@@ -67,7 +67,6 @@ public class PlayerStatsScript : MonoBehaviour
         }
     }
 
-
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -91,5 +90,48 @@ public class PlayerStatsScript : MonoBehaviour
     {
         regenPerFrame *= 1.5f;
         regenStartsAfter -= 0.5f;
+    }
+
+    public void updateSmoothTalker()
+    {
+        bonus = true;
+    }
+
+
+    public void getBandages(int stuff)
+    {
+        if (stuff == 0) return;
+
+        bandage += stuff;
+        Debug.Log("Получено: " + stuff + " повязок");
+    }
+
+    public void useBandages(int stuff)
+    {
+        if (stuff == 0) return;
+
+        bandage -= stuff;
+        Debug.Log("Вы использовали " + stuff + " повязок");
+    }
+
+    public void getArrow(int stuff)
+    {
+        if (stuff == 0) return;
+
+        Arrows += stuff;
+        Debug.Log("Получено: " + stuff + " стрел");
+        if (Arrows >= maxArrows)
+        {
+            Arrows = maxArrows;
+            Debug.Log("Переполнение инвентаря!");
+        }
+    }
+
+    public void getSilver(int stuff)
+    {
+        if (stuff == 0) return;
+
+        silver += stuff;
+        Debug.Log("Получено: " + stuff + " серебра");
     }
 }
