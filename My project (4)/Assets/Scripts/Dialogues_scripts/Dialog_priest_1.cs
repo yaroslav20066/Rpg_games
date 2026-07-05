@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class Dialogue_priest_1 : MonoBehaviour
     [System.Serializable]
     public class DialogueNode
     {
+        public int bandage = 0;
         public string speaker;
         [TextArea]
         public string dialogue;
@@ -25,8 +27,11 @@ public class Dialogue_priest_1 : MonoBehaviour
 
     public TextMeshProUGUI textButton1;
     public TextMeshProUGUI textButton2;
-    //public TextMeshProUGUI Main_goal;
-    //MainGoalCounter counter;
+    public TextMeshProUGUI Main_goal;
+    MainGoalCounter counter;
+    public GameObject helper;
+    public GameObject player;
+    PlayerStatsScript playerStatsScript;
 
     public Button button1;
     public Button button2;
@@ -36,6 +41,8 @@ public class Dialogue_priest_1 : MonoBehaviour
 
     void Start()
     {
+        playerStatsScript = player.GetComponent<PlayerStatsScript>();
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -44,7 +51,7 @@ public class Dialogue_priest_1 : MonoBehaviour
         button1.onClick.AddListener(() => Choose(0));
         button2.onClick.AddListener(() => Choose(1));
 
-        //counter = Main_goal.GetComponent<MainGoalCounter>();
+        counter = Main_goal.GetComponent<MainGoalCounter>();
 
         ShowNode(0);
     }
@@ -54,6 +61,8 @@ public class Dialogue_priest_1 : MonoBehaviour
         currentNode = index;
 
         DialogueNode node = nodes[index];
+
+        playerStatsScript.getBandages(node.bandage);
 
         person.text = node.speaker;
 
@@ -104,13 +113,16 @@ public class Dialogue_priest_1 : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("church");
         enabled = false;
         canvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        //counter.NewStep();
+
+        counter.NewPriestStep();
+        helper.SetActive(true);
+
+        Destroy(this);
     }
 }

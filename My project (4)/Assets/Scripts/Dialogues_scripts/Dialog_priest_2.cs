@@ -1,9 +1,8 @@
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class Dialogue_bridge_1 : MonoBehaviour
+public class Dialog_priest_2 : MonoBehaviour
 {
     [System.Serializable]
     public class Choice
@@ -15,7 +14,6 @@ public class Dialogue_bridge_1 : MonoBehaviour
     [System.Serializable]
     public class DialogueNode
     {
-        
         public string speaker;
         [TextArea]
         public string dialogue;
@@ -30,8 +28,7 @@ public class Dialogue_bridge_1 : MonoBehaviour
     public TextMeshProUGUI Main_goal;
     MainGoalCounter counter;
     public GameObject player;
-    PlayerStatsScript stats;
-
+    public GameObject cross;
     public Button button1;
     public Button button2;
     private int currentNode;
@@ -49,7 +46,6 @@ public class Dialogue_bridge_1 : MonoBehaviour
         button2.onClick.AddListener(() => Choose(1));
 
         counter = Main_goal.GetComponent<MainGoalCounter>();
-        stats = player.GetComponent<PlayerStatsScript>();
 
         ShowNode(0);
     }
@@ -98,12 +94,12 @@ public class Dialogue_bridge_1 : MonoBehaviour
         {
             ShowNode(next);
         }
+
         else
         {
             currentNode = 0;
             EndDialogue();
-        }
-            
+        }   
     }
 
     void EndDialogue()
@@ -115,9 +111,9 @@ public class Dialogue_bridge_1 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        counter.NewStep();
-        stats.TakeExperience(100);
-        
+        counter.NewPriestStep();
+        cross.SetActive(true);
+
         Destroy(this);
     }
 }
