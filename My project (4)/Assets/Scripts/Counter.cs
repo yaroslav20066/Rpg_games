@@ -18,8 +18,8 @@ public class Counter : MonoBehaviour
     {
         if (bar != null)
         {
-            value = bar.value;
-            maxValue = bar.maxValue;
+            bar.value = value;
+            bar.maxValue = maxValue;
         }
         if (countedTextbox != null) {
         countedTextbox.text = defaultText + value.ToString();
@@ -28,5 +28,10 @@ public class Counter : MonoBehaviour
             countedTextbox.text += "/" + maxValue.ToString();
         }
         }
+    }
+
+    public bool isFull()
+    {
+        return value >= maxValue;
     }
 }

@@ -9,7 +9,7 @@ public class PlayerStatsScript : MonoBehaviour
     public float experience = 0;
     public float nextLevelMultiplier;
 
-    public Bar expBar;
+    public Counter expCounter;
     public HUD currentHUD;
     public Counter skillPointsCounter;
     public Counter LevelCounter;
@@ -35,11 +35,11 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void Update()
     {
-        expBar.value = experience;
-        if (expBar.full())
+        expCounter.value = experience;
+        if (expCounter.isFull())
         {
-            experience -= expBar.maxValue;
-            expBar.maxValue = (float)(Math.Floor  ((expBar.maxValue*nextLevelMultiplier)/10)) * 10;
+            experience -= expCounter.maxValue;
+            expCounter.maxValue = (float)(Math.Floor  ((expCounter.maxValue*nextLevelMultiplier)/10)) * 10;
             skillPointsCounter.value++;
             movement.speed++;
             movement.shiftedSpeed++;

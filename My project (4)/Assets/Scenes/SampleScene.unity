@@ -4337,6 +4337,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1827039063}
     - target: {fileID: 7122291660413483478, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
+      propertyPath: expCounter
+      value: 
+      objectReference: {fileID: 892496168}
+    - target: {fileID: 7122291660413483478, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: LevelCounter
       value: 
       objectReference: {fileID: 1176222809}
@@ -10109,6 +10113,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5875822608823934953, guid: 72d4c28052c731844aa4eaeafb852c62, type: 3}
   m_PrefabInstance: {fileID: 890958577}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &892496168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8868767962215649264, guid: 4f804939c95a44342aa396cff4baff0e, type: 3}
+  m_PrefabInstance: {fileID: 3278591410732136661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb90beb4ed8e9864a8724d734a7f3533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counter
 --- !u!1001 &900599066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22363,6 +22378,10 @@ PrefabInstance:
       value: exp
       objectReference: {fileID: 0}
     - target: {fileID: 8868767962215649264, guid: 4f804939c95a44342aa396cff4baff0e, type: 3}
+      propertyPath: maxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868767962215649264, guid: 4f804939c95a44342aa396cff4baff0e, type: 3}
       propertyPath: countedTextbox
       value: 
       objectReference: {fileID: 447099060}
@@ -22571,6 +22590,18 @@ PrefabInstance:
     - target: {fileID: 150788230495893391, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215032824212205849, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215032824212205849, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215032824212205849, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2528713273948551270, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
       propertyPath: m_LocalScale.x

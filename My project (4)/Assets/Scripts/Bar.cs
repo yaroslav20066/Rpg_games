@@ -6,12 +6,11 @@ public class Bar : MonoBehaviour
 {
     public float value;
     public float maxValue;
-    public GameObject BarObject;
     RectTransform rectTransform;
 
     void Start()
     {
-        rectTransform = BarObject.GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
@@ -19,7 +18,7 @@ public class Bar : MonoBehaviour
         rectTransform.sizeDelta = new Vector2((value / maxValue) * 100, 100f);
     }
 
-    public bool full()
+    public bool isFull()
     {
         return value >= maxValue;
     }
@@ -31,14 +30,14 @@ public class Bar : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        if (BarObject.GetComponent<Image>() != null)
+        if (GetComponent<Image>() != null)
         {
-            BarObject.GetComponent<Image>().color = color;
+            GetComponent<Image>().color = color;
         }
     }
 
     public void SetActive(bool active)
     {
-        BarObject.SetActive(active);
+        SetActive(active);
     }
 }
