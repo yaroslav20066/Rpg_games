@@ -24,6 +24,17 @@ public class Bar : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(Math.Min((value / maxValue) * 100, 100f), 100f);
     }
 
+    private void OnEnable()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        if (counter != null)
+        {
+            value = counter.value;
+            maxValue = counter.maxValue;
+        }
+        rectTransform.sizeDelta = new Vector2(Math.Min((value / maxValue) * 100, 100f), 100f);
+    }
+
     public bool isFull()
     {
         return value >= maxValue;
