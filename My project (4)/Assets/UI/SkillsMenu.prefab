@@ -1320,8 +1320,6 @@ MonoBehaviour:
   defaultText: 'Skill points: '
   value: 0
   maxValue: 0
-  bar: {fileID: 0}
-  countedTextbox: {fileID: 0}
 --- !u!1 &5111015483179264059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,8 +2743,6 @@ MonoBehaviour:
   defaultText: 'LV '
   value: 1
   maxValue: 0
-  bar: {fileID: 0}
-  countedTextbox: {fileID: 3199520416669241707}
 --- !u!1 &8285054118232536486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,8 +3033,6 @@ MonoBehaviour:
   defaultText: 'Exp: '
   value: 0
   maxValue: 0
-  bar: {fileID: 3243859442083268842}
-  countedTextbox: {fileID: 0}
 --- !u!1 &8384363850931809159
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,3 +3120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bar
   value: 0
   maxValue: 100
+  counter: {fileID: 8868767962215649264}
