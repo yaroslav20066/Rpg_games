@@ -8,6 +8,9 @@ public class Dialogue_helper_priest : MonoBehaviour
     public class Choice
     {
         public bool bad = false;
+        public int silver = 0;
+        public int arrow = 0;
+        public int use_bandage = 0;
         public string text;      
         public int nextNode;     
     }
@@ -15,9 +18,6 @@ public class Dialogue_helper_priest : MonoBehaviour
     [System.Serializable]
     public class DialogueNode
     {
-        public int silver = 0;
-        public int arrow = 0;
-        public int use_bandage = 0;
         public string speaker;
         [TextArea]
         public string dialogue;
@@ -35,6 +35,8 @@ public class Dialogue_helper_priest : MonoBehaviour
     PlayerStatsScript playerStatsScript;
 
     public GameObject helper;
+    public ItemInventory itemInventory;
+    public EnemiesManagerScripts enemiesManagerScripts;
 
     public Button button1;
     public Button button2;
@@ -42,8 +44,7 @@ public class Dialogue_helper_priest : MonoBehaviour
 
     public DialogueNode[] nodes;
 
-    void Start()
-    {
+    void Start() {
         playerStatsScript = player.GetComponent<PlayerStatsScript>();
 
         Cursor.visible = true;
@@ -58,38 +59,36 @@ public class Dialogue_helper_priest : MonoBehaviour
 
         ShowNode(0);
     }
-
-    void ShowNode(int index)
+    void Update()
     {
+        if (playerStatsScript.bandage <= 0 && (currentNode == 1 || currentNode == 3)) {
+            button1.enabled = false;
+        }
+        else {button1.enabled = true;}
+    }
+
+    void ShowNode(int index) {
         currentNode = index;
 
         DialogueNode node = nodes[index];
-
-        playerStatsScript.getSilver(node.silver);
-        playerStatsScript.getArrow(node.arrow);
-        playerStatsScript.useBandages(node.use_bandage);
 
         person.text = node.speaker;
 
         dialogue.text = node.dialogue;
 
-        if (node.choices.Length > 0)
-        {
+        if (node.choices.Length > 0) {
             button1.gameObject.SetActive(true);
             textButton1.text = node.choices[0].text;
         }
-        else
-        {
+        else {
             button1.gameObject.SetActive(false);
         }
 
-        if (node.choices.Length > 1)
-        {
+        if (node.choices.Length > 1) {
             button2.gameObject.SetActive(true);
             textButton2.text = node.choices[1].text;
         }
-        else
-        {
+        else {
             button2.gameObject.SetActive(false);
         }
     }
@@ -105,10 +104,17 @@ public class Dialogue_helper_priest : MonoBehaviour
 
         if (next >= 0)
         {
+            if (node.choices[choiceIndex].use_bandage > 0)
+            {
+                itemInventory.consume(2);
+            }
             ShowNode(next);
         }
-        else if (next >= 0 && node.choices[choiceIndex].bad)
+        else if (next < 0 && node.choices[choiceIndex].bad)
         {
+            playerStatsScript.getArrow(node.choices[choiceIndex].arrow);
+            playerStatsScript.getSilver(node.choices[choiceIndex].silver);
+
             Bad_endings();
         }
 
@@ -148,6 +154,8 @@ public class Dialogue_helper_priest : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         playerStatsScript.TakeExperience(100);
+
+        enemiesManagerScripts.enabled = true;
 
         Destroy(this);
         Destroy(helper);

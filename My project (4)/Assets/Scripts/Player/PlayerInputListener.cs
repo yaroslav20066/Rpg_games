@@ -19,7 +19,7 @@ public class PlayerInputListener : MonoBehaviour
     BowScript bow;
     PlayerStatsScript stats;
     bool inventoryOpenedPreviousCheck = false;
-    bool changed_weapon = true;
+    bool changed_weapon = false;
 
     void Start()
     {
@@ -36,15 +36,15 @@ public class PlayerInputListener : MonoBehaviour
     {
         if (movementIsEnabled)
         {
-            
             if (controls.FindAction("ScrollWheel").ReadValue<Vector2>().normalized.y != 0) {
-                if (controls.FindAction("ScrollWheel").ReadValue<Vector2>().normalized.y > 0) { mainHUD.hotbarSelectedSlot +=1; }
+                if (controls.FindAction("ScrollWheel").ReadValue<Vector2>().normalized.y > 0) {
+                     mainHUD.hotbarSelectedSlot +=1; 
+                }
                 else { mainHUD.hotbarSelectedSlot -=1; }
+
             if (mainHUD.hotbarSelectedSlot > 4) mainHUD.hotbarSelectedSlot = 0;
             if (mainHUD.hotbarSelectedSlot < 0) mainHUD.hotbarSelectedSlot = 4;
-            
             }
-        
         }
     }
     private void FixedUpdate()

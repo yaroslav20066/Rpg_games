@@ -27,19 +27,19 @@ public class PlayerStatsScript : MonoBehaviour
     public int Arrows = 3;
     public int silver = 0;
     public int bandage = 0;
+    public int plantain = 1;
+    public int sugar = 1;
+    public int drag = 1;
 
-    void Awake()
-    {
+    void Awake() {
         instance = this;
         movement = GetComponent<Movable>();
         sword = GetComponent<SwordScript>();
     }
 
-    private void Update()
-    {
+    private void Update() {
         expCounter.value = experience;
-        if (expCounter.isFull())
-        {
+        if (expCounter.isFull()) {
             experience -= expCounter.maxValue;
             expCounter.maxValue = (float)(Math.Floor  ((expCounter.maxValue*nextLevelMultiplier)/10)) * 10;
             skillPointsCounter.value++;
@@ -50,7 +50,8 @@ public class PlayerStatsScript : MonoBehaviour
             LevelCounter.value++;
             currentHUD.XPmessage(newEXP, true);
             newEXP = 0;
-        } else if (newEXP > 0) {
+        } 
+        else if (newEXP > 0) {
             currentHUD.XPmessage(newEXP, false);
             newEXP = 0;
         }
@@ -62,38 +63,32 @@ public class PlayerStatsScript : MonoBehaviour
             health += regenPerFrame;
         
             if (health >= maxHealth) {
-            health = maxHealth;
+                health = maxHealth;
             }
         }
     }
 
-    public void TakeDamage(float damage)
-    {
+    public void TakeDamage(float damage) {
         health -= damage;
         lastHit = Time.time;
         if (health <= 0){
         }
-        
     }
 
-    public void TakeExperience(float exp)
-    {
+    public void TakeExperience(float exp) {
         experience += exp;
         newEXP = exp;
     }
-    public void updateArrows()
-    {
+    public void updateArrows() {
         maxArrows += 6;
     }
 
-    public void updateRegen()
-    {
+    public void updateRegen() {
         regenPerFrame *= 1.5f;
         regenStartsAfter -= 0.5f;
     }
 
-    public void updateSmoothTalker()
-    {
+    public void updateSmoothTalker() {
         bonus = true;
     }
 
@@ -103,7 +98,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (stuff == 0) return;
 
         bandage += stuff;
-        Debug.Log("Получено: " + stuff + " повязок");
+        Debug.Log("Получено: " + stuff + " повязка");
     }
 
     public void useBandages(int stuff)
@@ -111,7 +106,54 @@ public class PlayerStatsScript : MonoBehaviour
         if (stuff == 0) return;
 
         bandage -= stuff;
-        Debug.Log("Вы использовали " + stuff + " повязок");
+        Debug.Log("Вы использовали " + stuff + " повязку");
+    }
+
+    public void getPlantain(int stuff)
+    {
+        if (stuff == 0) return;
+
+        plantain += stuff;
+        Debug.Log("Получено: " + stuff + " подорожник");
+    }
+
+    public void usePlaintain(int stuff)
+    {
+        if (stuff == 0) return;
+
+        plantain -= stuff;
+        Debug.Log("Вы использовали " + stuff + " подорожник");
+    }
+
+    public void getSugar(int stuff)
+    {
+        if (stuff == 0) return;
+
+        sugar += stuff;
+        Debug.Log("Получено: " + stuff + " подорожник");
+    }
+
+    public void useSugar(int stuff)
+    {
+        if (stuff == 0) return;
+
+        sugar -= stuff;
+        Debug.Log("Вы использовали " + stuff + " подорожник");
+    }
+
+    public void getDrag(int stuff)
+    {
+        if (stuff == 0) return;
+
+        drag += stuff;
+        Debug.Log("Получено: " + stuff + " снадобье");
+    }
+    public void useDrag(int stuff)
+    {
+        if (stuff == 0) return;
+
+        sugar -= stuff;
+        Debug.Log("Вы использовали " + stuff + " подорожник");
     }
 
     public void getArrow(int stuff)
