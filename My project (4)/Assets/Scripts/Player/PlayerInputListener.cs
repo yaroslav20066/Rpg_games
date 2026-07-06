@@ -1,11 +1,17 @@
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 public class PlayerInputListener : MonoBehaviour
 {
     [HideInInspector] public bool movementIsEnabled;
+    public HUD mainHUD;
+    public ItemInventory itemInventory;
     public Canvas UI;
+    //public Counter debugcounter;
     InputSystem_Actions controls;
     Movable movement;
     IteractionScript iteractionScript;
@@ -26,8 +32,23 @@ public class PlayerInputListener : MonoBehaviour
         stats = GetComponent<PlayerStatsScript>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if (movementIsEnabled)
+        {
+            
+            if (controls.FindAction("ScrollWheel").ReadValue<Vector2>().normalized.y != 0) {
+                if (controls.FindAction("ScrollWheel").ReadValue<Vector2>().normalized.y > 0) { mainHUD.hotbarSelectedSlot +=1; }
+                else { mainHUD.hotbarSelectedSlot -=1; }
+            if (mainHUD.hotbarSelectedSlot > 4) mainHUD.hotbarSelectedSlot = 0;
+            if (mainHUD.hotbarSelectedSlot < 0) mainHUD.hotbarSelectedSlot = 4;
+            
+            }
+        
+        }
+    }
+    private void FixedUpdate()
+    {  
         if (controls.FindAction("Exit").IsPressed())
         {
             Application.Quit();
@@ -60,6 +81,10 @@ public class PlayerInputListener : MonoBehaviour
         }
         if (movementIsEnabled)
         {
+            if (controls.FindAction("MiddleClick").IsPressed()) {
+                itemInventory.consume(mainHUD.hotbarSelectedSlot);
+            }
+
             if (controls.FindAction("Sword").IsPressed())
             {
                 changed_weapon = false;
