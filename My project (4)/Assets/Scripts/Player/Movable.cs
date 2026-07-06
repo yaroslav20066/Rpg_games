@@ -27,6 +27,14 @@ public class Movable : MonoBehaviour
         forZoom = Camera.GetComponent<Camera>();
     }
 
+    private void FixedUpdate()
+    {
+        if (transform.localPosition.y < -50)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, 10, transform.localPosition.z);
+        }
+    }
+
     public void move(Vector2 direction)
     {
         body.MovePosition(transform.position + ((transform.forward * direction.y) + (transform.right * direction.x)) * actualSpeed * Time.fixedDeltaTime);

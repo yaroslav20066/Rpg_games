@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 7965448497543033191}
   - component: {fileID: 6260284496453322664}
   - component: {fileID: 8819782782235221012}
-  - component: {fileID: 4787851662885720921}
+  - component: {fileID: 5390305011728883095}
   m_Layer: 5
   m_Name: CooldownBoxFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7965448497543033191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &4787851662885720921
+--- !u!114 &5390305011728883095
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,13 +83,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 733543156030104539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654ea9da3bd3a3744bafcd39dcd84168, type: 3}
+  m_Script: {fileID: 11500000, guid: eb90beb4ed8e9864a8724d734a7f3533, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CooldownBar
-  FillerBar: {fileID: 5816887282337183741}
-  BarFrame: {fileID: 733543156030104539}
-  timeElapsed: 0
-  maxCooldown: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Counter
+  defaultText: 
+  value: 0
+  maxValue: 0
 --- !u!1 &1256999409012162149
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +243,8 @@ MonoBehaviour:
   main_goal: {fileID: 616469386871387096}
   player: {fileID: 0}
   step: 1
+  step_priest: 1
+  step_trader: 1
 --- !u!1 &1490051783748121726
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,8 +398,6 @@ MonoBehaviour:
   defaultText: 'Arrows: '
   value: 3
   maxValue: 6
-  bar: {fileID: 0}
-  countedTextbox: {fileID: 4962093282429383417}
 --- !u!1 &2950329467351484466
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bar
   value: 0
   maxValue: 0
+  counter: {fileID: 5390305011728883095}
 --- !u!1 &5905367257937997759
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 1215032824212205849}
   - component: {fileID: 5028778486543376497}
   - component: {fileID: 2696829842219232958}
+  - component: {fileID: 5583207224023778798}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -617,6 +618,21 @@ MonoBehaviour:
   XPmessageActive: 0
   XPmessageLength: 3
   XPmessageExistedFor: 0
+--- !u!114 &5583207224023778798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905367257937997759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d422502157a970e4eb12e32be10d03d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AppearsOnCounter
+  counter: {fileID: 5390305011728883095}
+  toAppear: {fileID: 733543156030104539}
+  inverted: 1
 --- !u!1 &6039256824338156840
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bar
   value: 0
   maxValue: 0
+  counter: {fileID: 0}
 --- !u!1 &8091689990004522322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,5 +1087,3 @@ MonoBehaviour:
   defaultText: 'HP:  '
   value: 100
   maxValue: 100
-  bar: {fileID: 8977670706231658280}
-  countedTextbox: {fileID: 2785997807786862704}

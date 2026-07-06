@@ -1127,17 +1127,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5875822608823934953, guid: 72d4c28052c731844aa4eaeafb852c62, type: 3}
   m_PrefabInstance: {fileID: 87842016}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &95039239 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4787851662885720921, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
-  m_PrefabInstance: {fileID: 5104417175589985542}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654ea9da3bd3a3744bafcd39dcd84168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CooldownBar
 --- !u!1001 &97099467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4683,7 +4672,11 @@ PrefabInstance:
     - target: {fileID: 3507837368150280153, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: cooldownBar
       value: 
-      objectReference: {fileID: 95039239}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507837368150280153, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
+      propertyPath: cooldownCounter
+      value: 
+      objectReference: {fileID: 5104417175589985543}
     - target: {fileID: 6077923106559888469, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4708,6 +4701,10 @@ PrefabInstance:
       propertyPath: skillPointsCounter
       value: 
       objectReference: {fileID: 724422672}
+    - target: {fileID: 7967811082844032656, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
+      propertyPath: cooldownCounter
+      value: 
+      objectReference: {fileID: 5104417175589985543}
     - target: {fileID: 8502399207965681125, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: UI
       value: 
@@ -9184,6 +9181,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &786074726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 772730179163125664, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+  m_PrefabInstance: {fileID: 5104417175589985542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb90beb4ed8e9864a8724d734a7f3533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counter
 --- !u!1001 &788281784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23266,12 +23274,28 @@ PrefabInstance:
       propertyPath: defaultText
       value: 'Main quest:'
       objectReference: {fileID: 0}
+    - target: {fileID: 8977670706231658280, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 786074726}
     m_RemovedComponents:
     - {fileID: 8167799435878805134, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+    - {fileID: 4787851662885720921, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+--- !u!114 &5104417175589985543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5390305011728883095, guid: ca2224b8523c7a044acc4c4d8cb722e8, type: 3}
+  m_PrefabInstance: {fileID: 5104417175589985542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb90beb4ed8e9864a8724d734a7f3533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counter
 --- !u!1001 &9117082179702097132
 PrefabInstance:
   m_ObjectHideFlags: 0

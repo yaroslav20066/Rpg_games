@@ -1,11 +1,12 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Bar : MonoBehaviour
 {
     public float value;
     public float maxValue;
+    public Counter counter;
     RectTransform rectTransform;
 
     void Start()
@@ -15,7 +16,12 @@ public class Bar : MonoBehaviour
 
     void Update()
     {
-        rectTransform.sizeDelta = new Vector2((value / maxValue) * 100, 100f);
+        if (counter != null)
+        {
+            value = counter.value;
+            maxValue = counter.maxValue;
+        }
+        rectTransform.sizeDelta = new Vector2(Math.Min((value / maxValue) * 100, 100f), 100f);
     }
 
     public bool isFull()

@@ -3,8 +3,8 @@ using UnityEngine;
 public class BowScript : MonoBehaviour
 {
     public float damage = 30;
-    private bool is_Attack_Ready = false;
-    private float timeReload = 0f;
+    public Counter cooldownCounter;
+    public float cooldown = 1f;
     private Camera playerCamera;
     PlayerStatsScript playerStatsScript;
     [SerializeField] GameObject arrowPrefab;
@@ -20,14 +20,19 @@ public class BowScript : MonoBehaviour
         playerStatsScript = GetComponent<PlayerStatsScript>();
     }
 
+    void FixedUpdate()
+    {
+        cooldownCounter.value += Time.fixedDeltaTime;
+    }
+
     public void Attack(bool attack)
     {
         if (!attack || playerStatsScript.Arrows <= 0) return;
-        if (is_Attack_Ready)
+        if (cooldownCounter.isFull())
         {
-            is_Attack_Ready = false;
-            playerStatsScript.Arrows -= 1;
-            timeReload = 0;
+            playerStatsScript.Arrows--;
+            cooldownCounter.value = 0;
+            cooldownCounter.maxValue = cooldown;
 
             Vector3 spawnArrow = Vector3.forward * 1.5f;
             spawnArrow.y += 0.5f;
@@ -42,16 +47,6 @@ public class BowScript : MonoBehaviour
             } 
             
             
-        }
-    }
-
-    void Update()
-    {
-        timeReload += Time.deltaTime;
-        if (timeReload >= 2.0f && !is_Attack_Ready)
-        {
-            is_Attack_Ready = true;
-            Debug.Log("Shoot!");
         }
     }
 }
