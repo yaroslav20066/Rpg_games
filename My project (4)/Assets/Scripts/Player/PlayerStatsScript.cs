@@ -6,6 +6,7 @@ public class PlayerStatsScript : MonoBehaviour
     public static PlayerStatsScript instance;
     public float maxHealth = 100;
     public float health = 100;
+    public float defense = 5;
     public float experience = 0;
     public float nextLevelMultiplier;
 
@@ -17,8 +18,7 @@ public class PlayerStatsScript : MonoBehaviour
     public float regenStartsAfter = 1.5f;
     public float regenPerFrame = 0.1f;
     Movable movement;
-    SwordScript sword;
-    bool regen;
+    public SwordScript sword;
     float newEXP;
     public bool bonus = false;
 
@@ -45,6 +45,7 @@ public class PlayerStatsScript : MonoBehaviour
             skillPointsCounter.value++;
             sword.base_damage += 5;
             sword.base_heavy_damage += 10;
+            defense += 2;
             maxHealth += 10;
             health += 10;
             LevelCounter.value++;
@@ -69,9 +70,12 @@ public class PlayerStatsScript : MonoBehaviour
     }
 
     public void TakeDamage(float damage) {
-        health -= damage;
-        lastHit = Time.time;
-        if (health <= 0){
+        damage -= defense;
+        if (damage > 0) {
+            health -= damage;
+            lastHit = Time.time;
+            if (health <= 0){
+            }
         }
     }
 
@@ -130,7 +134,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (stuff == 0) return;
 
         sugar += stuff;
-        Debug.Log("Получено: " + stuff + " подорожник");
+        Debug.Log("Получено: " + stuff + " сахар");
     }
 
     public void useSugar(int stuff)
@@ -138,7 +142,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (stuff == 0) return;
 
         sugar -= stuff;
-        Debug.Log("Вы использовали " + stuff + " подорожник");
+        Debug.Log("Вы использовали " + stuff + " сахар");
     }
 
     public void getDrag(int stuff)
@@ -152,8 +156,8 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (stuff == 0) return;
 
-        sugar -= stuff;
-        Debug.Log("Вы использовали " + stuff + " подорожник");
+        drag -= stuff;
+        Debug.Log("Вы использовали " + stuff + " снадобье");
     }
 
     public void getArrow(int stuff)

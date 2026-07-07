@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ public class HUD : MonoBehaviour
     public GameObject hotbarSelectedSlotOverlay;
 
     public bool XPmessageActive = false;
+    public bool inventoryOpen = false;
 
     public float XPmessageLength = 3f;
 
@@ -59,6 +61,7 @@ public class HUD : MonoBehaviour
 
         newHotbarOverlayPos = originalHotbarOverlayPos;
         newHotbarOverlayPos.x += hotbarSelectedSlot*27 + 14*hotbarSelectedSlot;
+        if (inventoryOpen) newHotbarOverlayPos.y += 64;
         hotbarOverlayRectTransform.position = newHotbarOverlayPos;
 
         //отрисовка предметов в хотбаре
@@ -79,4 +82,5 @@ public class HUD : MonoBehaviour
         }
 
     }
+    
 }

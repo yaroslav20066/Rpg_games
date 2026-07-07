@@ -111,7 +111,7 @@ public class SwordScript : MonoBehaviour
     }
 
     public void updateCrit() {
-        crit += 0.25f;
+        crit += 0.21f;
         heavy_crit += 0.45f;
     }
 
