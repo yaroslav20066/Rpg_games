@@ -79,7 +79,7 @@ public class PlayerInputListener : MonoBehaviour
             inventoryOpenedPreviousCheck = false;
         }
 
-        if (controls.FindAction("Interact").IsPressed() && !skillMenuOpen)
+        if (controls.FindAction("Inventary").IsPressed() && !skillMenuOpen)
         {
             if (!itemInventoryOpenedPreviousCheck)
             {

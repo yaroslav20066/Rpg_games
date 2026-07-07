@@ -115,10 +115,10 @@ public class SkillsScript : MonoBehaviour
 
     void Regen()
     {
-        if (points.skillPointsCounter.value > 0)
+        if (points.skillPointsCounter.value > 1)
         {
             points.updateRegen();
-            points.skillPointsCounter.value -= 1;
+            points.skillPointsCounter.value -= 2;
             regen.interactable = false;
         }
     }

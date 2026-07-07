@@ -226,6 +226,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventary"",
+                    ""type"": ""Button"",
+                    ""id"": ""51457f40-731f-4cd6-bde6-f9f730ef87bc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -688,6 +697,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sword"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""caf0d7ca-d526-4978-bf1d-449fa024b07d"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1310,6 +1330,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Exit = m_Player.FindAction("Exit", throwIfNotFound: true);
         m_Player_Bow = m_Player.FindAction("Bow", throwIfNotFound: true);
         m_Player_Sword = m_Player.FindAction("Sword", throwIfNotFound: true);
+        m_Player_Inventary = m_Player.FindAction("Inventary", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1419,6 +1440,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Exit;
     private readonly InputAction m_Player_Bow;
     private readonly InputAction m_Player_Sword;
+    private readonly InputAction m_Player_Inventary;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1491,6 +1513,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Sword => m_Wrapper.m_Player_Sword;
         /// <summary>
+        /// Provides access to the underlying input action "Player/Inventary".
+        /// </summary>
+        public InputAction @Inventary => m_Wrapper.m_Player_Inventary;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1561,6 +1587,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sword.started += instance.OnSword;
             @Sword.performed += instance.OnSword;
             @Sword.canceled += instance.OnSword;
+            @Inventary.started += instance.OnInventary;
+            @Inventary.performed += instance.OnInventary;
+            @Inventary.canceled += instance.OnInventary;
         }
 
         /// <summary>
@@ -1617,6 +1646,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sword.started -= instance.OnSword;
             @Sword.performed -= instance.OnSword;
             @Sword.canceled -= instance.OnSword;
+            @Inventary.started -= instance.OnInventary;
+            @Inventary.performed -= instance.OnInventary;
+            @Inventary.canceled -= instance.OnInventary;
         }
 
         /// <summary>
@@ -2033,6 +2065,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSword(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventary(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
