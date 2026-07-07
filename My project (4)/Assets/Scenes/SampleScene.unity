@@ -24176,6 +24176,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1558087704863094674, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558087704863094674, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.2248945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558087704863094674, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3886812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558087704863094674, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862059891657924034, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862059891657924034, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862059891657924034, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 3683569746429614179, guid: d638e1652aaa2a1458a6acc9b7fd0692, type: 3}
       propertyPath: m_Pivot.x
       value: 0
