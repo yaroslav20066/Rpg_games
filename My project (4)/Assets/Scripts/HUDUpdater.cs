@@ -1,12 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Numerics;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class HUD : MonoBehaviour
 {
