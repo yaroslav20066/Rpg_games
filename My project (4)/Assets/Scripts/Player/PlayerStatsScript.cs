@@ -7,6 +7,7 @@ public class PlayerStatsScript : MonoBehaviour
     public float maxHealth = 100;
     public float health = 100;
     public float defense = 5;
+    public int armor = 0;
     public float experience = 0;
     public float nextLevelMultiplier;
 
@@ -21,6 +22,8 @@ public class PlayerStatsScript : MonoBehaviour
     public SwordScript sword;
     float newEXP;
     public bool bonus = false;
+
+    public bool ticket = false;
 
     // инвентарь
     public int maxArrows = 6;
@@ -179,5 +182,14 @@ public class PlayerStatsScript : MonoBehaviour
 
         silver += stuff;
         Debug.Log("Получено: " + stuff + " серебра");
+    }
+
+    public void getTicket(bool stuff) {
+        ticket = stuff;
+    }
+
+    public void getArmor(int stuff)
+    {
+        armor += stuff;
     }
 }

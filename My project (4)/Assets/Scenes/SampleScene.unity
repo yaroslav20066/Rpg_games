@@ -1276,9 +1276,10 @@ GameObject:
   - component: {fileID: 99453502}
   - component: {fileID: 99453504}
   - component: {fileID: 99453505}
-  - component: {fileID: 99453506}
   - component: {fileID: 99453507}
   - component: {fileID: 99453508}
+  - component: {fileID: 99453506}
+  - component: {fileID: 99453509}
   m_Layer: 5
   m_Name: Image (dialoge)
   m_TagString: Untagged
@@ -1815,6 +1816,229 @@ MonoBehaviour:
     - text: "\u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044E \u0432\u0430\u0441,
         \u041E\u0442\u0435\u0446. \u0412\u044B \u043E\u0447\u0435\u043D\u044C \u0432\u044B\u0440\u0443\u0447\u0438\u043B\u0438
         \u043C\u0435\u043D\u044F!"
+      nextNode: -1
+--- !u!114 &99453509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99453500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b923b1aa30a345f46ad4eee397a73d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_trader_1
+  canvas: {fileID: 1444180914}
+  person: {fileID: 26274507}
+  dialogue: {fileID: 1842638785}
+  textButton1: {fileID: 1835764632}
+  textButton2: {fileID: 677662483}
+  Main_goal: {fileID: 785550592}
+  player: {fileID: 1876813473}
+  trader: {fileID: 1201850392}
+  enemiesManagerScripts: {fileID: 1883630090}
+  button1: {fileID: 941448709}
+  button2: {fileID: 288213398}
+  nodes:
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u0412\u043E\u0442 \u0436\u0435\u0448\u044C \u0447\u0435\u0440\u0442\u0438.
+      \u0412\u0441\u0435 \u0437\u0430\u0431\u0440\u0430\u043B\u0438! \u0414\u0430\u0436\u0435
+      \u043C\u0435\u0442\u0430\u043B\u043B \u0441 \u043F\u0440\u0438\u043C\u0435\u0441\u044F\u043C\u0438
+      \u0438\u0437 \u0411\u044D\u0434\u0441\u0432\u043E\u0440\u0434\u0430! \u0412\u043E\u0442
+      \u0437\u0430\u0447\u0435\u043C \u043E\u043D \u0438\u043C?! (\u041E\u0431\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044F)
+      \u0427\u0442\u043E, \u0440\u0435\u0448\u0438\u043B\u0438 \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C
+      \u043D\u0430\u0447\u0430\u0442\u043E\u0435!?"
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0427\u0435\u0433\u043E?! \u0412\u044B \u043E \u0447\u0435\u043C?"
+      nextNode: 1
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0423 \u0432\u0430\u0441 \u0447\u0442\u043E-\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C?"
+      nextNode: 1
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u0410, \u0432\u044B \u043D\u0435 \u0438\u0437 \u0432\u043E\u0440\u043E\u0432?
+      \u0422\u043E\u0433\u0434\u0430 \u043B\u0430\u0434\u043D\u043E. \u0411\u0435\u0434\u0430
+      \u0441\u043B\u0443\u0447\u0438\u043B\u0430\u0441\u044C! \u0415\u0445\u0430\u043B
+      \u044F \u0432 \u0433\u043E\u0440\u043E\u0434 \u0437\u043D\u0430\u0447\u0438\u0442,
+      \u0447\u0442\u043E\u0431\u044B \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+      \u0441\u0432\u043E\u044E \u0442\u043E\u0440\u0433\u043E\u0432\u043B\u044E,
+      \u043A\u0430\u043A \u0442\u0443\u0442 \u043F\u043E\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F
+      \u044D\u0442\u0438 \u0447\u0435\u0440\u0442\u0438, \u0443\u0433\u0440\u043E\u0436\u0430\u044E\u0442
+      \u0438 \u0437\u0430\u0431\u0438\u0440\u0430\u044E\u0442 \u043F\u043E\u0447\u0442\u0438
+      \u0432\u0441\u0435! \u0418 \u044D\u0442\u043E \u0440\u044F\u0434\u043E\u043C
+      \u0441 \u043C\u043E\u0435\u0439 \u0440\u043E\u0434\u043D\u043E\u0439 \u0434\u0435\u0440\u0435\u0432\u043D\u0435\u0439!"
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0421\u043A\u043E\u0440\u0435\u0435 \u0432\u0441\u0435\u0433\u043E
+        \u0443 \u043D\u0438\u0445 \u0433\u0434\u0435-\u0442\u043E \u0440\u044F\u0434\u043E\u043C
+        \u043B\u0430\u0433\u0435\u0440\u044C..."
+      nextNode: 4
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u041F\u043E\u0441\u043B\u0435 \u0432\u043E\u0439\u043D\u044B \u0432\u0441\u0435\u0433\u0434\u0430
+        \u043F\u043E\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F \u043F\u0440\u0435\u0441\u0442\u0443\u043F\u043D\u0438\u043A\u0438.
+        \u0422\u0430\u043A\u043E\u0432 \u043C\u0438\u0440."
+      nextNode: 2
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u041E\u0439, \u0431\u0443\u0434\u044C \u043F\u0440\u043E\u043A\u043B\u044F\u0442\u0430
+      \u044D\u0442\u0430 \u0432\u043E\u0439\u043D\u0430! \u0418\u0437-\u0437\u0430
+      \u043D\u0435\u0435 \u0443 \u043C\u0435\u043D\u044F \u0432\u0441\u044F \u0442\u043E\u0440\u0433\u043E\u0432\u043B\u044F
+      \u0443\u0448\u043B\u0430 \u0432 \u0443\u043F\u0430\u0434\u043E\u043A! \u041F\u0440\u0438\u0448\u043B\u043E\u0441\u044C
+      \u043B\u0435\u0437\u0442\u044C \u0432 \u0434\u043E\u043B\u0433\u0438 \u0438
+      \u043F\u0440\u043E\u0434\u0430\u0432\u0430\u0442\u044C \u0447\u0430\u0441\u0442\u044C
+      \u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430. \u0410 \u0432\u0435\u0434\u044C
+      \u0440\u0430\u043D\u044C\u0448\u0435 \u0443 \u043C\u0435\u043D\u044F \u0431\u044B\u043B\u0430
+      \u043E\u0431\u0448\u0438\u0440\u043D\u0430\u044F \u0442\u043E\u0440\u0433\u043E\u0432\u043B\u044F
+      \u0432\u043E \u043C\u043D\u043E\u0433\u0438\u0445 \u0433\u043E\u0440\u043E\u0434\u0430\u0445,
+      \u0432 \u0442\u043E\u043C \u0447\u0438\u0441\u043B\u0435 \u0438 \u0432 \u041A\u043E\u0440\u043D\u0435\u0432\u0443\u043B\u0435.
+      \u042F \u0434\u0430\u0436\u0435 \u0438\u043C\u0435\u043B \u0434\u043E\u043C
+      \u0432 \u0435\u0433\u043E \u043E\u043A\u0440\u0435\u0441\u043D\u043E\u0441\u0442\u044F\u0445.
+      \u0410 \u043F\u043E\u0442\u043E\u043C \u043F\u0440\u0438\u0448\u043B\u043E
+      \u0432\u043E\u0439\u0441\u043A\u043E \u0438 \u0432\u0441\u0435 \u0441\u043E\u0436\u0433\u043B\u043E!"
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u041F\u043E\u0445\u043E\u0434\u0443 \u043C\u044B \u043E\u0431\u0430
+        \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0438 \u0441\u0432\u043E\u0438
+        \u0434\u043E\u043C\u0430 \u0438\u0437-\u0437\u0430 \u0432\u043E\u0439\u043D\u044B."
+      nextNode: 3
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0422\u044B \u0437\u043D\u0430\u0435\u0448\u044C \u0447\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
+        \u043F\u0440\u043E \u043F\u0440\u043E\u043F\u0443\u0441\u043A\u0438? \u0421\u0442\u0440\u0430\u0436\u0430
+        \u0438\u0445 \u0442\u0440\u0435\u0431\u0443\u0435\u0442 \u0443 \u043C\u043E\u0441\u0442\u0430."
+      nextNode: 5
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u0410, \u0432\u044B \u0442\u043E\u0436\u0435 \u043F\u043E\u0441\u0442\u0440\u0430\u0434\u0430\u043B\u0438
+      \u0438\u0437-\u0437\u0430 \u043D\u0435\u0435. \u041D\u0443 \u0434\u043E\u0431\u0440\u043E
+      \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C \u0432 \u043D\u0430\u0448
+      \u043A\u043B\u0430\u043D \u043F\u043E\u0441\u0442\u0440\u0430\u0434\u0430\u0432\u0448\u0438\u0445.
+      \u0410 \u0440\u0430\u0437\u0431\u043E\u0439\u043D\u0438\u043A\u043E\u0432 \u0442\u0435\u043F\u0435\u0440\u044C
+      \u043A\u0430\u043A \u043A\u0440\u044B\u0441. \u041F\u0440\u0438 \u0447\u0435\u043C
+      \u0441\u0442\u0440\u0430\u0436\u0430 \u0437\u0430 \u043F\u0440\u0435\u0434\u0435\u043B\u0430\u043C\u0438
+      \u0433\u043E\u0440\u043E\u0434\u043E\u0432 \u043D\u0438\u0447\u0435\u0433\u043E
+      \u043D\u0435 \u0434\u0430\u043B\u0430\u0435\u0442! \u0412\u0438\u0434\u0438\u0442\u0435
+      \u043B\u0438 \u044D\u0442\u043E \u043D\u0435 \u0438\u0445 \u0442\u0435\u0440\u0440\u0438\u0442\u043E\u0440\u0438\u044F...
+      \u0410 \u0432\u0435\u0434\u044C \u043E\u043D\u0438 \u0443 \u043D\u0438\u0445
+      \u043F\u043E\u0434 \u0431\u043E\u043A\u043E\u043C!"
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0412\u044B \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0435, \u0447\u0442\u043E
+        \u043D\u0435\u043F\u043E\u0434\u0430\u043B\u0435\u043A\u0443 \u0438\u0445
+        \u043B\u0430\u0433\u0435\u0440\u044C?"
+      nextNode: 4
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u041D\u0435\u0442, \u044F \u0442\u043E\u0447\u043D\u043E \u0443\u0432\u0435\u0440\u0435\u043D,
+      \u0447\u0442\u043E \u043E\u043D \u0440\u044F\u0434\u043E\u043C! \u0427\u0443\u0442\u044C
+      \u043B\u0438 \u043D\u0435 \u0443 \u0434\u0435\u0440\u0435\u0432\u043D\u0438.
+      \u041E\u0434\u0438\u043D \u0438\u0437 \u044D\u0442\u0438\u0445 \u0431\u043E\u043B\u0432\u0430\u043D\u043E\u0432
+      \u043E\u0431\u043C\u043E\u043B\u0432\u0438\u043B\u0441\u044F \u043E\u0431 \u044D\u0442\u043E\u043C,
+      \u043F\u043E\u043A\u0430 \u043C\u0435\u043D\u044F \u0433\u0440\u0430\u0431\u0438\u043B\u0438.
+      (\u0417\u0430\u0434\u0443\u043C\u0430\u043B\u0441\u044F) \u0421\u043B\u0443\u0448\u0430\u0439,
+      \u0434\u0430\u0432\u0430\u0439 \u0437\u0430\u043A\u043B\u044E\u0447\u0438\u043C
+      \u0441\u0434\u0435\u043B\u043A\u0443? \u0422\u044B \u0432\u0435\u0440\u043D\u0435\u0448\u044C
+      \u043C\u043D\u0435 \u043C\u043E\u0438 \u0442\u043E\u0432\u0430\u0440\u044B,
+      \u0430 \u044F \u0442\u0435\u0431\u0435 \u043F\u0440\u043E\u0434\u0430\u043C
+      \u0447\u0430\u0441\u0442\u044C \u0441\u0432\u043E\u0435\u0433\u043E \u0430\u0440\u0441\u0435\u043D\u0430\u043B\u0430.
+      \u0412\u0441\u0435 \u0440\u0430\u0432\u043D\u043E \u044F \u0435\u0433\u043E
+      \u043F\u0440\u043E\u0434\u0430\u0432\u0430\u0442\u044C \u0432 \u0433\u043E\u0440\u043E\u0434\u0435
+      \u0445\u043E\u0442\u0435\u043B. \u0421\u0434\u0435\u043B\u043A\u0430?"
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0425\u043E\u0440\u043E\u0448\u043E, \u0441\u0434\u0435\u043B\u043A\u0430."
+      nextNode: -1
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u0417\u043D\u0430\u044E \u043B\u0438 \u044F? \u041A\u043E\u043D\u0435\u0447\u043D\u043E
+      \u0437\u043D\u0430\u044E! \u041F\u043E\u0441\u043B\u0435 \u0432\u043E\u0439\u043D\u044B
+      \u0432 \u043A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u0442\u0432\u0435 \u043D\u0430\u0447\u0430\u043B\u0438\u0441\u044C
+      \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B \u0441 \u0434\u0435\u043D\u044C\u0433\u0430\u043C\u0438
+      \u0438 \u041A\u043E\u0440\u043E\u043D\u0430 \u043E\u0431\u044A\u044F\u0432\u0438\u043B\u0430,
+      \u0447\u0442\u043E \u0432\u0441\u0435 \u0432\u0430\u0436\u043D\u044B\u0435
+      \u0437\u0434\u0430\u043D\u0438\u044F \u0442\u0435\u043F\u0435\u0440\u044C \u043E\u0431\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u044E\u0442\u0441\u044F
+      \u043D\u0430\u043B\u043E\u0433\u043E\u043C. \u0418\u0441\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435
+      \u0442\u043E\u043B\u044C\u043A\u043E \u0434\u043B\u044F \u0432\u0435\u0440\u0443\u044E\u0449\u0438\u0445
+      \u0438\u043B\u0438 \u0442\u0435\u0445, \u043A\u0442\u043E \u044D\u0442\u0438
+      \u0434\u0435\u043D\u044C\u0433\u0438, \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u043E,
+      \u0438 \u0434\u0435\u043B\u0430\u0435\u0442, \u043A\u0430\u043A \u044F. \u0411\u043B\u0430\u0433\u043E
+      \u044D\u0442\u0438 \u0431\u0430\u043D\u0434\u0438\u0442\u044B \u0445\u043E\u0442\u044F
+      \u0431\u044B \u043F\u0440\u043E\u043F\u0443\u0441\u043A \u043D\u0435 \u043D\u0430\u0448\u043B\u0438.
+      \u0422\u0443\u043F\u0438\u0446\u044B!"
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0417\u0430 \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0442\u044B
+        \u043C\u043D\u0435 \u0434\u0430\u0448\u044C \u043F\u0440\u043E\u043F\u0443\u0441\u043A?"
+      nextNode: 6
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0425\u043E\u0440\u043E\u0448\u043E, \u0442\u0435\u043F\u0435\u0440\u044C
+        \u043E\u043D \u043C\u043E\u0439!"
+      nextNode: 7
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u041D\u0438 \u0437\u0430 \u0441\u043A\u043E\u043B\u044C\u043A\u043E!
+      \u042D\u0442\u0438 \u043F\u0440\u043E\u043F\u0443\u0441\u043A\u0430 \u0432\u044B\u0434\u0430\u044E\u0442\u0441\u044F
+      \u0442\u043E\u043B\u044C\u043A\u043E \u0440\u0430\u0437! \u041F\u043E\u0442\u0435\u0440\u044F\u0435\u0448\u044C
+      \u0433\u0434\u0435-\u043D\u0438\u0431\u0443\u0434\u044C \u0438 \u0432\u0441\u0435!
+      \u0422\u044B \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435 \u0442\u043E\u0440\u0433\u043E\u0432\u0435\u0446,
+      \u0430 \u043D\u0435\u0437\u043D\u0430\u043A\u043E\u043C\u0435\u0446 \u043F\u0440\u0438\u043A\u0438\u0434\u044B\u0432\u0430\u044E\u0449\u0438\u0439\u0441\u044F
+      \u0442\u043E\u0440\u0433\u043E\u0432\u0446\u0435\u043C! (\u0417\u0430\u0434\u0443\u043C\u044B\u0432\u0430\u0435\u0442\u0441\u044F)
+      \u041D\u0430\u0432\u0435\u0440\u043D\u043E\u0435 \u0437\u0440\u044F \u044F
+      \u044D\u0442\u043E \u0441\u043A\u0430\u0437\u0430\u043B."
+    choices:
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u0414\u0430, \u044D\u0442\u043E \u0442\u044B \u0437\u0440\u044F. \u0422\u0435\u043F\u0435\u0440\u044C
+        \u0434\u0430\u0432\u0430\u0439 \u043F\u0440\u043E\u043F\u0443\u0441\u043A!"
+      nextNode: 6
+    - bad: 0
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: "\u041D\u0438\u0447\u0435\u0433\u043E, \u0442\u0430\u043A\u043E\u0435
+        \u0431\u044B\u0432\u0430\u0435\u0442. \u0417\u043D\u0430\u0447\u0438\u0442
+        \u0442\u044B \u0434\u0443\u043C\u0430\u0435\u0448\u044C \u0447\u0442\u043E
+        \u0433\u0434\u0435-\u0442\u043E \u043B\u0430\u0433\u0435\u0440\u044C \u0431\u0430\u043D\u0434\u0438\u0442\u043E\u0432?"
+      nextNode: 4
+  - speaker: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446 "
+    dialogue: "\u0422\u0430\u043A \u0442\u044B \u0442\u043E\u0436\u0435 \u0438\u0437
+      \u044D\u0442\u0438\u0445 \u043F\u0430\u0434\u0430\u043B\u044C\u0449\u0438\u043A\u043E\u0432!
+      \u041D\u0443 \u0443\u0436 \u043D\u0435\u0442! \u042F \u0442\u0430\u043A \u043F\u0440\u043E\u0441\u0442\u043E
+      \u043D\u0435 \u0434\u0430\u043C\u0441\u044F \u0432\u0442\u043E\u0440\u043E\u0439
+      \u0440\u0430\u0437! \u0414\u0430\u0432\u0430\u0439, \u043D\u0430\u043F\u0430\u0434\u0430\u0439!"
+    choices:
+    - bad: 1
+      silver: 0
+      arrow: 0
+      arrmor: 0
+      text: ...
       nextNode: -1
 --- !u!1001 &104135969
 PrefabInstance:
@@ -4709,6 +4933,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1192511456}
     - target: {fileID: 7122291660413483478, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
+      propertyPath: silver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122291660413483478, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: bandage
       value: 1
       objectReference: {fileID: 0}
@@ -4720,6 +4948,10 @@ PrefabInstance:
       propertyPath: expCounter
       value: 
       objectReference: {fileID: 892496168}
+    - target: {fileID: 7122291660413483478, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
+      propertyPath: experience
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7122291660413483478, guid: a43c8ff6dd529c942a05f1bbf9e7630f, type: 3}
       propertyPath: LevelCounter
       value: 
@@ -5685,6 +5917,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8801,6 +9045,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13370,6 +13626,118 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6742000741431657110, guid: 9798785fe95eb9f48b52e7c9639a82d8, type: 3}
   m_PrefabInstance: {fileID: 1201350262}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1201850391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.456607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7576372
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409627878697344966, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666319731495570236, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_Name
+      value: Trader
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: armor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: arrow
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: ticket
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1201850393}
+  m_SourcePrefab: {fileID: 100100000, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+--- !u!1 &1201850392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1881327361563885508, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+  m_PrefabInstance: {fileID: 1201850391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1201850393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201850392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce04c7bcc3b33e2469a7a474f0e1e297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenTraderDialogue
+  dialoge_space: {fileID: 1444180914}
+  image: {fileID: 99453502}
+  goal: {fileID: 785550592}
 --- !u!1001 &1205137680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14951,6 +15319,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15084,6 +15464,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15149,6 +15541,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15219,6 +15623,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17104,6 +17520,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20402,7 +20830,7 @@ Transform:
   m_GameObject: {fileID: 1819572712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.21, y: 0.72671, z: 87.18}
+  m_LocalPosition: {x: 17.13, y: 0.72671, z: 83.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21518,6 +21946,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: silver
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: experience
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195588984678843731, guid: f7a2b85a9577fe44ab437d032dcbbee5, type: 3}
+      propertyPath: playerStatsScript
+      value: 
+      objectReference: {fileID: 1876813475}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24420,3 +24860,4 @@ SceneRoots:
   - {fileID: 431741222}
   - {fileID: 1385350524}
   - {fileID: 1546361238}
+  - {fileID: 1201850391}

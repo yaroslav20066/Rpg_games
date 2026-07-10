@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6833581413362358215}
   - component: {fileID: 8574005165628739430}
   - component: {fileID: 1666319731495570236}
+  - component: {fileID: 6195588984678843731}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Soldier
@@ -182,3 +183,21 @@ MonoBehaviour:
   rotationSpeed: 7
   timeReload: 0
   health: 100
+--- !u!114 &6195588984678843731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881327361563885508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49e928d8c56e694da2bd0d109d45c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Loot
+  playerStatsScript: {fileID: 0}
+  silver: 0
+  arrow: 0
+  armor: 0
+  ticket: 0
+  experience: 0
