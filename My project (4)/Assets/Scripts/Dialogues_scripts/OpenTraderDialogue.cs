@@ -23,12 +23,12 @@ public class OpenTraderDialogue : MonoBehaviour
             script.enabled = true;
             check_1 = false;
         }
-        else if (check_2 && counter.step_trader > 2)
+        else if (check_2 && counter.step_trader > 1)
         {
-            //dialoge_space.gameObject.SetActive(true);
-            //Dialog_priest_2 script = image.GetComponent<Dialog_priest_2>();
-            //script.enabled = true;
-            //check_2 = false;
+            dialoge_space.gameObject.SetActive(true);
+            Dialogue_trader_2 script = image.GetComponent<Dialogue_trader_2>();
+            script.enabled = true;
+            check_2 = false;
         }
         else if (counter.step_trader > 3)
         {

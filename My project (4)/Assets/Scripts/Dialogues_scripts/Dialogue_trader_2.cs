@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialogue_trader_1 : MonoBehaviour
+public class Dialogue_trader_2 : MonoBehaviour
 {
     [System.Serializable]
     public class Choice
@@ -33,8 +33,6 @@ public class Dialogue_trader_1 : MonoBehaviour
     PlayerStatsScript playerStatsScript;
 
     public GameObject trader;
-    public EnemiesManagerScripts enemiesManagerScripts;
-    public BanditsManagerScripts banditsManagerScripts;
 
     public Button button1;
     public Button button2;
@@ -97,7 +95,7 @@ public class Dialogue_trader_1 : MonoBehaviour
             ShowNode(next);
         }
         else if (next < 0 && node.choices[choiceIndex].bad) {
-            Bad_endings();
+            //Bad_endings();
         }
         else {
             currentNode = 0;
@@ -115,27 +113,23 @@ public class Dialogue_trader_1 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        banditsManagerScripts.enabled = true;
-
-        Destroy(this);
-    }
-
-    void Bad_endings()
-    {
-        enabled = false;
-        canvas.gameObject.SetActive(false);
-        Time.timeScale = 1f;
-
-        EnemySoldierScript enemy = trader.GetComponent<EnemySoldierScript>();
-        enemy.enabled = true;
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         playerStatsScript.TakeExperience(100);
-
-        enemiesManagerScripts.enabled = true;
+        counter.NewTraderStep();
 
         Destroy(this);
     }
+
+    //void Bad_endings()
+    //{
+    //    enabled = false;
+    //    canvas.gameObject.SetActive(false);
+    //    Time.timeScale = 1f;
+//
+    //    Cursor.visible = false;
+    //    Cursor.lockState = CursorLockMode.Locked;
+//
+    //    playerStatsScript.TakeExperience(100);
+//
+    //    Destroy(this);
+    //}
 }

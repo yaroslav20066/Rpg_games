@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 
 public class EnemiesManagerScripts : MonoBehaviour
 {
     public GameObject[] enemies;
 
-    // Update is called once per frame
     void Start()
     {
         for (int i = 0; i < enemies.Length; i++)
