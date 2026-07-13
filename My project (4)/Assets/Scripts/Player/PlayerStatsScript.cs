@@ -22,6 +22,7 @@ public class PlayerStatsScript : MonoBehaviour
     public SwordScript sword;
     float newEXP;
     public bool bonus = false;
+    public bool regen_check = false; 
 
     public bool ticket = false;
 
@@ -63,7 +64,7 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.time - lastHit > regenStartsAfter) { //регенерация начинается только через 1.5 секунды после последнего удара (1сек со скиллом)
+        if (Time.time - lastHit > regenStartsAfter && regen_check) { //регенерация начинается только через 1.5 секунды после последнего удара (1сек со скиллом)
             health += regenPerFrame;
         
             if (health >= maxHealth) {
@@ -91,29 +92,24 @@ public class PlayerStatsScript : MonoBehaviour
     }
 
     public void updateRegen() {
-        regenPerFrame *= 1.5f;
-        regenStartsAfter -= 0.5f;
+        regen_check = true;
     }
 
     public void updateSmoothTalker() {
         bonus = true;
     }
 
-
     public void getBandages(int stuff)
     {
         if (stuff == 0) return;
 
         bandage += stuff;
-        Debug.Log("Получено: " + stuff + " повязка");
-    }
-
-    public void useBandages(int stuff)
-    {
-        if (stuff == 0) return;
-
-        bandage -= stuff;
-        Debug.Log("Вы использовали " + stuff + " повязку");
+        if (stuff > 0) {
+            Debug.Log("Получено: " + stuff + " повязка");
+        }
+        else if (stuff < 0) {
+            Debug.Log("Использован: " + (stuff * (-1)) + " бинт"); 
+        }
     }
 
     public void getPlantain(int stuff)
@@ -181,7 +177,10 @@ public class PlayerStatsScript : MonoBehaviour
         if (stuff == 0) return;
 
         silver += stuff;
-        Debug.Log("Получено: " + stuff + " серебра");
+
+        if (stuff > 0) {
+           Debug.Log("Получено: " + stuff + " серебра"); 
+        }
     }
 
     public void getTicket(bool stuff) {

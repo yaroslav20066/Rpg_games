@@ -32,7 +32,10 @@ public class Dialogue_trader_2 : MonoBehaviour
     public GameObject player;
     PlayerStatsScript playerStatsScript;
 
+    public TradeWindowScript tradeWindowScript;
+
     public GameObject trader;
+    public Canvas trading;
 
     public Button button1;
     public Button button2;
@@ -91,45 +94,39 @@ public class Dialogue_trader_2 : MonoBehaviour
 
         int next = node.choices[choiceIndex].nextNode;
 
+        if (node.choices[choiceIndex].bad) {
+            tradeWindowScript.increaseFine();
+        }
+
         if (next >= 0) {
             ShowNode(next);
-        }
-        else if (next < 0 && node.choices[choiceIndex].bad) {
-            //Bad_endings();
         }
         else {
             currentNode = 0;
             EndDialogue_trader();
         }
-            
     }
 
     void EndDialogue_trader()
     {
         enabled = false;
         canvas.gameObject.SetActive(false);
-        Time.timeScale = 1f;
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 
         playerStatsScript.TakeExperience(100);
         counter.NewTraderStep();
 
+        openTrade();
+
         Destroy(this);
     }
 
-    //void Bad_endings()
-    //{
-    //    enabled = false;
-    //    canvas.gameObject.SetActive(false);
-    //    Time.timeScale = 1f;
-//
-    //    Cursor.visible = false;
-    //    Cursor.lockState = CursorLockMode.Locked;
-//
-    //    playerStatsScript.TakeExperience(100);
-//
-    //    Destroy(this);
-    //}
+    void openTrade()
+    {
+        trading.gameObject.SetActive(true);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+
+        Time.timeScale = 0f;
+    }
 }

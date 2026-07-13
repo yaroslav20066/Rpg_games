@@ -109,7 +109,7 @@ public class ItemInventory : MonoBehaviour
             }
             case item_bandage: {
                 playerStats.health += 50;
-                playerStats.useBandages(1);
+                playerStats.getBandages(-1);
                 break;        
             }
             case item_sugar: {

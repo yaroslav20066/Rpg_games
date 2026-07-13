@@ -33,18 +33,15 @@ public class MainGoalCounter : MonoBehaviour
         }
         
     }
-    public void NewStep()
-    {
+    public void NewStep() {
         step += 1;
     }
 
-    public void NewPriestStep()
-    {
+    public void NewPriestStep() {
         step_priest += 1;
     }
 
-    public void NewTraderStep()
-    {
+    public void NewTraderStep() {
         step_trader += 1;
     }
 }
