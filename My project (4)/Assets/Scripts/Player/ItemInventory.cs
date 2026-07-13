@@ -45,18 +45,18 @@ public class ItemInventory : MonoBehaviour
         switch (itemID)
         {
             case item_podorozhnik: {
-                playerStats.health += 15;
+                playerStats.TakeHP(15);
                 playerStats.usePlaintain(1);
                 break;
             }
             case item_bandage: {
-                playerStats.health += 50;
+                playerStats.TakeHP(50);
                 playerStats.getBandages(-1);
                 break;        
             }
             case item_sugar: {
                 movable.speed += 1;
-                playerStats.health += 10;
+                playerStats.TakeHP(10);
                 sugarActive = true;
                 sugarTimerLeft = sugarTimerMax;
                 playerStats.useSugar(1);

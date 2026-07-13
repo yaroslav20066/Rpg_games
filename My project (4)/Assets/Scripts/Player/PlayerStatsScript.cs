@@ -24,6 +24,7 @@ public class PlayerStatsScript : MonoBehaviour
     float newEXP;
     public bool smoothTalkerBonus = false;
     public bool regen_check = false; 
+    public bool lie = false;
 
     public bool ticket = false;
     public bool unlockedChestplate = false, unlockedLeggings = false, unlockedHelmet = false, unlockedBoots = false;
@@ -75,7 +76,15 @@ public class PlayerStatsScript : MonoBehaviour
             }
         }
     }
-
+    public void TakeHP(float hp)
+    {
+        if ((health + hp) > maxHealth)  {
+            health = maxHealth;
+        }
+        else {
+            health += hp;
+        }
+    }
     public void TakeDamage(float damage) {
         damage *= (1-(defense/100));
         if (damage > 0) {
@@ -100,6 +109,9 @@ public class PlayerStatsScript : MonoBehaviour
 
     public void updateSmoothTalker() {
         smoothTalkerBonus = true;
+    }
+    public void updateLie() {
+        lie = true;
     }
 
     public void getBandages(int stuff)

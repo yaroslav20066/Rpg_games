@@ -95,7 +95,8 @@ public class SkillsScript : MonoBehaviour
     {
         if (points.skillPointsCounter.value > 0)
         {
-            player_movable.updateCrouchMultiplier();
+            points.updateSmoothTalker();
+            //player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
             smooth_talker.interactable = false;
             deceiver.interactable = false;
@@ -106,7 +107,8 @@ public class SkillsScript : MonoBehaviour
     {
         if (points.skillPointsCounter.value > 0)
         {
-            player_movable.updateCrouchMultiplier();
+            points.updateLie();
+            //player_movable.updateCrouchMultiplier();
             points.skillPointsCounter.value -= 1;
             deceiver.interactable = false;
             smooth_talker.interactable = false;

@@ -299,6 +299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputListener
   movementIsEnabled: 1
+  mainHUD: {fileID: 0}
+  itemInventory: {fileID: 0}
   UI: {fileID: 8836113226325721117, guid: 4f804939c95a44342aa396cff4baff0e, type: 3}
 --- !u!114 &8437841295024637058
 MonoBehaviour:
@@ -346,12 +348,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsScript
   maxHealth: 100
   health: 100
+  defense: 5
+  armor: 0
   experience: 0
   nextLevelMultiplier: 1.5
-  expBar: {fileID: 0}
+  expCounter: {fileID: 0}
+  currentHUD: {fileID: 0}
   skillPointsCounter: {fileID: 0}
+  LevelCounter: {fileID: 0}
+  lastHit: 0
+  regenStartsAfter: 1.5
+  regenPerFrame: 0.1
+  sword: {fileID: 0}
+  smoothTalkerBonus: 0
+  regen_check: 0
+  lie: 0
+  ticket: 0
+  unlockedChestplate: 0
+  unlockedLeggings: 0
+  unlockedHelmet: 0
+  unlockedBoots: 0
+  equippedChestplate: 0
+  equippedLeggings: 0
+  equippedHelmet: 0
+  equippedBoots: 0
   maxArrows: 6
   Arrows: 3
+  silver: 0
+  bandage: 0
+  plantain: 1
+  sugar: 1
+  drag: 1
 --- !u!114 &3507837368150280153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,12 +391,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63c26ab447e9c64db25db62ddc5d1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordScript
-  damage: 25
-  heavy_damage: 40
+  base_damage: 20
+  base_heavy_damage: 40
   crit: 0
   heavy_crit: 0
   sphereRadius: 0.5
   sphereDistance: 1.5
+  cooldownCounter: {fileID: 0}
 --- !u!114 &7967811082844032656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,4 +411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowScript
   damage: 30
+  cooldownCounter: {fileID: 0}
+  cooldown: 1
   arrowPrefab: {fileID: 4876115449217335476, guid: 91e03c13157bb8543869e0f30f2e1c16, type: 3}
