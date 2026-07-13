@@ -32,6 +32,7 @@ public class Dialogue_priest_1 : MonoBehaviour
     public GameObject helper;
     public GameObject player;
     PlayerStatsScript playerStatsScript;
+    ItemInventory itemInventory;
 
     public Button button1;
     public Button button2;
@@ -41,7 +42,7 @@ public class Dialogue_priest_1 : MonoBehaviour
 
     void Start()
     {
-        playerStatsScript = player.GetComponent<PlayerStatsScript>();
+        itemInventory = player.GetComponent<ItemInventory>();
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -62,7 +63,7 @@ public class Dialogue_priest_1 : MonoBehaviour
 
         DialogueNode node = nodes[index];
 
-        playerStatsScript.getBandages(node.bandage);
+        if (node.bandage > 0) itemInventory.tryToAddItem(ItemInventory.item_bandage);
 
         person.text = node.speaker;
 

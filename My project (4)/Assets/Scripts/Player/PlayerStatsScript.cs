@@ -10,6 +10,7 @@ public class PlayerStatsScript : MonoBehaviour
     public int armor = 0;
     public float experience = 0;
     public float nextLevelMultiplier;
+    public const int defense_boots = 10, defense_helmet = 15, defense_leggings = 20, defense_chestplate = 25;
 
     public Counter expCounter;
     public HUD currentHUD;
@@ -21,10 +22,12 @@ public class PlayerStatsScript : MonoBehaviour
     Movable movement;
     public SwordScript sword;
     float newEXP;
-    public bool bonus = false;
+    public bool smoothTalkerBonus = false;
     public bool regen_check = false; 
 
     public bool ticket = false;
+    public bool unlockedChestplate = false, unlockedLeggings = false, unlockedHelmet = false, unlockedBoots = false;
+    public bool equippedChestplate = false, equippedLeggings = false, equippedHelmet = false, equippedBoots = false;
 
     // инвентарь
     public int maxArrows = 6;
@@ -49,7 +52,7 @@ public class PlayerStatsScript : MonoBehaviour
             skillPointsCounter.value++;
             sword.base_damage += 5;
             sword.base_heavy_damage += 10;
-            defense += 2;
+            defense += 4;
             maxHealth += 10;
             health += 10;
             LevelCounter.value++;
@@ -64,7 +67,7 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.time - lastHit > regenStartsAfter && regen_check) { //регенерация начинается только через 1.5 секунды после последнего удара (1сек со скиллом)
+        if (Time.time - lastHit > regenStartsAfter && regen_check && health < maxHealth) { //регенерация начинается только через 1.5 секунды после последнего удара (1сек со скиллом)
             health += regenPerFrame;
         
             if (health >= maxHealth) {
@@ -74,7 +77,7 @@ public class PlayerStatsScript : MonoBehaviour
     }
 
     public void TakeDamage(float damage) {
-        damage -= defense;
+        damage *= (1-(defense/100));
         if (damage > 0) {
             health -= damage;
             lastHit = Time.time;
@@ -96,7 +99,7 @@ public class PlayerStatsScript : MonoBehaviour
     }
 
     public void updateSmoothTalker() {
-        bonus = true;
+        smoothTalkerBonus = true;
     }
 
     public void getBandages(int stuff)
@@ -115,47 +118,35 @@ public class PlayerStatsScript : MonoBehaviour
     public void getPlantain(int stuff)
     {
         if (stuff == 0) return;
-
-        plantain += stuff;
         Debug.Log("Получено: " + stuff + " подорожник");
     }
 
     public void usePlaintain(int stuff)
     {
         if (stuff == 0) return;
-
-        plantain -= stuff;
         Debug.Log("Вы использовали " + stuff + " подорожник");
     }
 
     public void getSugar(int stuff)
     {
         if (stuff == 0) return;
-
-        sugar += stuff;
         Debug.Log("Получено: " + stuff + " сахар");
     }
 
     public void useSugar(int stuff)
     {
         if (stuff == 0) return;
-
-        sugar -= stuff;
         Debug.Log("Вы использовали " + stuff + " сахар");
     }
 
     public void getDrag(int stuff)
     {
         if (stuff == 0) return;
-
-        drag += stuff;
         Debug.Log("Получено: " + stuff + " снадобье");
     }
     public void useDrag(int stuff)
     {
         if (stuff == 0) return;
-
-        drag -= stuff;
         Debug.Log("Вы использовали " + stuff + " снадобье");
     }
 
@@ -185,10 +176,5 @@ public class PlayerStatsScript : MonoBehaviour
 
     public void getTicket(bool stuff) {
         ticket = stuff;
-    }
-
-    public void getArmor(int stuff)
-    {
-        armor += stuff;
     }
 }

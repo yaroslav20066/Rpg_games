@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,6 +47,16 @@ public class HUD : MonoBehaviour
             XPmessageBox.text += "\nYour level rose to " + statSource.LevelCounter.value.ToString() + ".";
         }
     }
+
+    public void inventoryFullMessage()
+    {
+        XPmessageActive = true;
+        XPmessageExistedFor = 0;
+
+        XPmessageBoxObject.SetActive(true);
+
+        XPmessageBox.text = "Your inventory is full!";
+    }
     void Update()
     {
         HPMeter.value = (float)Math.Floor(statSource.health);
@@ -55,8 +66,9 @@ public class HUD : MonoBehaviour
         ArrowMeter.maxValue = statSource.maxArrows;
 
         newHotbarOverlayPos = originalHotbarOverlayPos;
-        newHotbarOverlayPos.x += hotbarSelectedSlot*27 + 14*hotbarSelectedSlot;
-        if (inventoryOpen) newHotbarOverlayPos.y += 64;
+        newHotbarOverlayPos.x = slotObjectsByNumber[hotbarSelectedSlot].GameObject().GetComponent<RectTransform>().position.x;
+                
+        if (inventoryOpen) newHotbarOverlayPos.y += 60;
         hotbarOverlayRectTransform.position = newHotbarOverlayPos;
 
         //отрисовка предметов в хотбаре

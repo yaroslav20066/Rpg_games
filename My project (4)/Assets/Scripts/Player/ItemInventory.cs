@@ -4,6 +4,7 @@ using System.Data;
 using System.Numerics;
 using TMPro;
 using Unity.Collections;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class ItemInventory : MonoBehaviour
     public int[] hotbarSlots = {0,0,0,0,0};
     public PlayerStatsScript playerStats;
     public Counter cntrATK, cntrLV, cntrDEF, cntrREGEN, cntrCRIT, cntrSPEED, cntrMAXHP;
+    public Button toggleChestplate, toggleHelmet, toggleBoots, toggleLeggings;
+    public TextMeshProUGUI labelChestplate, labelHelmet, labelBoots, labelLeggings;
     public HUD mainHUD;
     public Movable movable;
     public TextMeshProUGUI itemDescTextbox;
@@ -30,73 +33,12 @@ public class ItemInventory : MonoBehaviour
 
     void Update() 
     {
-        if (playerStats.plantain <= 0) {
-            hotbarSlots[1] = 0;
-        }
-        else {hotbarSlots[1] = 1;}
 
-        if (playerStats.bandage <= 0) {
-            hotbarSlots[2] = 0;
-        }
-        else {hotbarSlots[2] = 2;}
-
-        if (playerStats.sugar <= 0) {
-            hotbarSlots[3] = 0;
-        }
-        else {hotbarSlots[3] = 3;}
-
-        if (playerStats.drag <= 0) {
-            hotbarSlots[4] = 0;
-        }
-        else {hotbarSlots[4] = 4;}
     }
     public void consume(int slot)
     {
-        if (slot == 1)
-        {
-            if (playerStats.plantain > 1) {
-                processItemID(hotbarSlots[slot]);
-            }
-            else if (playerStats.plantain == 1) {
-                hotbarSlots[slot] = 1;
-                processItemID(hotbarSlots[slot]);
-                hotbarSlots[slot] = 0;
-            }
-        }
-        else if (slot == 2)
-        {
-            if (playerStats.bandage > 1) {
-                processItemID(hotbarSlots[slot]);
-            }
-            else if (playerStats.bandage == 1) {
-                hotbarSlots[slot] = 2;
-                processItemID(hotbarSlots[slot]);
-                hotbarSlots[slot] = 0;
-            }
-        }
-        else if (slot == 3)
-        {
-            if (playerStats.sugar > 1) {
-                processItemID(hotbarSlots[slot]);
-            }
-            else if (playerStats.sugar == 1) {
-                hotbarSlots[slot] = 3;
-                processItemID(hotbarSlots[slot]);
-                hotbarSlots[slot] = 0;
-            }
-        }
-        else if (slot == 4)
-        {
-            if (playerStats.drag > 1) {
-                processItemID(hotbarSlots[slot]);
-            }
-            else if (playerStats.drag == 1) {
-                hotbarSlots[slot] = 4;
-                processItemID(hotbarSlots[slot]);
-                hotbarSlots[slot] = 0;
-            }
-        }
-        
+        processItemID(hotbarSlots[slot]);
+        hotbarSlots[slot] = item_blank;
     }
     public void processItemID(int itemID)
     {
@@ -148,6 +90,8 @@ public class ItemInventory : MonoBehaviour
         newHotbarPosition.y += 64;
 
         hotbarObject.GetComponent<RectTransform>().position = newHotbarPosition;
+
+
     }
 
     public void Hide() {
@@ -161,11 +105,22 @@ public class ItemInventory : MonoBehaviour
     }
     void Start()
     {
-
+        toggleBoots.onClick.AddListener(ToggleBoots);
+        toggleHelmet.onClick.AddListener(ToggleHelmet);
+        toggleChestplate.onClick.AddListener(ToggleChestplate);
+        toggleLeggings.onClick.AddListener(ToggleLeggings);
     }
-    public void setItem(int slot, int id) {hotbarSlots[slot] = id;}
-
-    String tmp;
+    public bool tryToAddItem(int id)
+    {
+        for (int i = 0; i<5; i++) {
+            if (hotbarSlots[i] == 0) {
+                hotbarSlots[i] = id;
+                return true;
+            }
+        }
+        mainHUD.inventoryFullMessage();
+        return false; //инвентарь полон
+    }
     void FixedUpdate()
     {
         
@@ -194,6 +149,51 @@ public class ItemInventory : MonoBehaviour
             cntrLV.value = playerStats.LevelCounter.value;
             cntrMAXHP.value = playerStats.maxHealth;
         }
+    }
+
+    void ToggleBoots() {
+        playerStats.equippedBoots = !playerStats.equippedBoots;
+        playerStats.defense += PlayerStatsScript.defense_boots * (playerStats.equippedBoots ? 1 : -1);
+        labelBoots.text = "Sturdy Boots " + (playerStats.equippedBoots ? "(On)" : "(Off)");
+    }
+    void ToggleHelmet() {
+        playerStats.equippedHelmet = !playerStats.equippedHelmet;
+        playerStats.defense += PlayerStatsScript.defense_helmet * (playerStats.equippedHelmet ? 1 : -1);
+        labelHelmet.text = "War Helmet " + (playerStats.equippedHelmet ? "(On)" : "(Off)");
+    }
+    void ToggleChestplate() {
+        playerStats.equippedChestplate = !playerStats.equippedChestplate;
+        playerStats.defense += PlayerStatsScript.defense_chestplate * (playerStats.equippedChestplate ? 1 : -1);
+        labelChestplate.text = "Chainmail Chestplate " + (playerStats.equippedChestplate ? "(On)" : "(Off)");
+    }
+    void ToggleLeggings() {
+        playerStats.equippedLeggings = !playerStats.equippedLeggings;
+        playerStats.defense += PlayerStatsScript.defense_leggings * (playerStats.equippedLeggings ? 1 : -1);
+        labelLeggings.text = "Chainmail Leggings " + (playerStats.equippedLeggings ? "(On)" : "(Off)");
+    }
+
+    public void unlockChestplate() {
+        playerStats.unlockedChestplate = true;
+        toggleChestplate.interactable = true;
+        ToggleChestplate();
+    }
+
+    public void unlockLeggings() {
+        playerStats.unlockedLeggings = true;
+        toggleLeggings.interactable = true;
+        ToggleLeggings();
+    }
+
+    public void unlockHelmet() {
+        playerStats.unlockedHelmet = true;
+        toggleHelmet.interactable = true;
+        ToggleHelmet();
+    }
+
+    public void unlockBoots() {
+        playerStats.unlockedBoots = true;
+        toggleBoots.interactable = true;
+        ToggleBoots();
     }
 
     String getDescByID(int itemID) {
