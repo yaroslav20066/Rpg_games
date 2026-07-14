@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialogue_peasunt_helper : MonoBehaviour
+public class Dialogue_peasunt_trader : MonoBehaviour
 {
     [System.Serializable]
     public class Choice
@@ -134,7 +134,7 @@ public class Dialogue_peasunt_helper : MonoBehaviour
         playerStatsScript.TakeExperience(100);
 
         enemiesManagerScripts.Leave();
-        
+
         Destroy(this);
     }
 }

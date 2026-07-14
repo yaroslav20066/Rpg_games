@@ -25,4 +25,12 @@ public class EnemiesManagerScripts : MonoBehaviour
             }
         } 
     }
+    public void Leave() {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i] != null) {
+                Destroy(enemies[i]);
+            }
+        } 
+    }
 }

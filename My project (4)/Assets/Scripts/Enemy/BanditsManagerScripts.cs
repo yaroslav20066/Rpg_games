@@ -24,7 +24,7 @@ public class BanditsManagerScripts : MonoBehaviour
                 nul += 1;
             }
         }
-        if (nul == 4)
+        if (nul == enemies.Length)
         {
             mainGoal.NewTraderStep();
             playerStatsScript.TakeExperience(100);

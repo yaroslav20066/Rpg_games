@@ -24,7 +24,7 @@ public class OpenPeasuntDialogue : MonoBehaviour
     {
         if (check && queue == "trader") {
             dialoge_space.gameObject.SetActive(true);
-            Dialogue_helper_priest script = image.GetComponent<Dialogue_helper_priest>();
+            Dialogue_peasunt_trader script = image.GetComponent<Dialogue_peasunt_trader>();
             script.enabled = true;
             check = false;
         }

@@ -26,7 +26,7 @@ public class MainGoalCounter : MonoBehaviour
         else if (step == 2)
         {
             main_goal.text = defaultText + " " + silver.silver + " / 750 серебра";
-            if (silver.silver >= 1000)
+            if (silver.silver >= 750)
             {
                 main_goal.text = defaultText + "Возвращайтесь к охране";
             }
