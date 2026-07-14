@@ -22,6 +22,7 @@ public class IteractionScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 3.0f)) {
                 GameObject hitObject = hit.transform.gameObject;
                 hitObject.SendMessage("OpenNewDialoge", SendMessageOptions.DontRequireReceiver);
+                hitObject.SendMessage("pickUp", SendMessageOptions.DontRequireReceiver);
             }     
         }
         
