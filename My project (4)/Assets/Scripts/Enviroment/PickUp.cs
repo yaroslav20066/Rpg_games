@@ -11,29 +11,46 @@ public class PickUp : MonoBehaviour
     public PlayerStatsScript playerStatsScript;
     public ItemInventory itemInventory;
     public UnityEvent[] events;
+    public bool disappearsOnEmpty = true;
 
     public void pickUp()
     {
         playerStatsScript.silver += silver;
-        for (int i = 0; i < podorozhnik; i++) {
-            itemInventory.tryToAddItem(1);
+        silver = 0;
+        for (int i = 0; i < remedy; i++)
+        {
+            if (itemInventory.tryToAddItem(4))
+            {
+                remedy--;
+            }
         }
         for (int i = 0; i < bandage; i++)
         {
-            itemInventory.tryToAddItem(2);
+            if (itemInventory.tryToAddItem(2))
+            {
+                bandage--;
+            }
         }
         for (int i = 0; i < sugar; i++)
         {
-            itemInventory.tryToAddItem(3);
+            if (itemInventory.tryToAddItem(3))
+            {
+                sugar--;
+            }
         }
-        for (int i = 0; i < remedy; i++)
-        {
-            itemInventory.tryToAddItem(4);
+        for (int i = 0; i < podorozhnik; i++) {
+            if (itemInventory.tryToAddItem(1))
+            {
+                podorozhnik--;
+            }
         }
         for (int i = 0; i < events.Length; i++)
         {
             events[i].Invoke();
         }
-        Destroy(gameObject);
+        if (disappearsOnEmpty && silver + podorozhnik + bandage + sugar + remedy <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
