@@ -1,14 +1,17 @@
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 public class PlayerInputListener : MonoBehaviour
 {
     [HideInInspector] public bool movementIsEnabled;
     public HUD mainHUD;
+    public TextMeshProUGUI typeWeapon;
     public ItemInventory itemInventory;
     public Canvas UI;
     //public Counter debugcounter;
@@ -124,10 +127,14 @@ public class PlayerInputListener : MonoBehaviour
             {
                 sword.Attack(controls.FindAction("Attack").IsPressed());
                 sword.Heavy_Attack(controls.FindAction("Heavy_attack").IsPressed());
+                
+                typeWeapon.text = "Type: Sword";
             }
             else if (changed_weapon)
             {
                 bow.Attack(controls.FindAction("Attack").IsPressed());
+
+                typeWeapon.text = "Type: Bow";
             }
             movement.sprint(controls.FindAction("Sprint").IsPressed());
             movement.crouch(controls.FindAction("Crouch").IsPressed());

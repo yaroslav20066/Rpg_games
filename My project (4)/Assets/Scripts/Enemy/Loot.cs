@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
-    public PlayerStatsScript playerStatsScript;
+    GameObject target;
+    PlayerStatsScript playerStatsScript;
     public int silver;
     public int arrow;
     public bool ticket;
     public float experience;
+
+    void Start() {
+        target = PlayerManager.instance.player;
+        playerStatsScript = target.GetComponent<PlayerStatsScript>();
+    }
     public void lootEnemies()
     {
         playerStatsScript.getArrow(arrow);

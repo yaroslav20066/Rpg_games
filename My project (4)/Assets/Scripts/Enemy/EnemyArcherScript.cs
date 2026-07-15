@@ -1,45 +1,42 @@
 using UnityEngine;
-using System.Collections.Generic;
-using Unity.AI;
-using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemySoldierScript : MonoBehaviour {
+public class EnemyArcherScript : MonoBehaviour
+{
     Transform target;
-    NavMeshAgent agent;
+
     public float lookRadius;
-    [SerializeField] private float damage_enemy = 25;
-    public float armor = 0;
+    public float damage_enemy = 25;
     public float rotationSpeed = 5f;
     public float timeReload = 0f;
     [SerializeField] private float health = 100f;
     private float Maxhealth;
     public Canvas canvas;
     public Image bar;
+
+    [SerializeField] GameObject arrowPrefab;
+    private GameObject arrow;
+
     void Start() {
         canvas.gameObject.SetActive(true);
 
         Maxhealth = health;
-        agent = GetComponent<NavMeshAgent>();
-        target = PlayerManager.instance.player.transform;        
+        target = PlayerManager.instance.player.transform;       
     }
 
-    // Update is called once per frame
-    void Update(){
+    void Update() {
         float distance = Vector3.Distance(target.position, transform.position);
-        if (distance <= lookRadius) {
-            agent.SetDestination(target.position);
-            if (distance <= agent.stoppingDistance)
-            {
-                if (timeReload >= 5f) {
-                    PlayerStatsScript.instance.TakeDamage(damage_enemy);
-                    timeReload = 0f;
-                }
-                lookTarget();
+        if (distance <= lookRadius) 
+        {
+            lookTarget();
+            if (timeReload >= 5f && distance > 5f) {
+                Shoot();
+                timeReload = 0f;
             }
         }
-        timeReload += 0.1f;
+        timeReload += Time.deltaTime;
     }
+
     void lookTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -51,12 +48,24 @@ public class EnemySoldierScript : MonoBehaviour {
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
-    public void TakeDamage(float damage) {
-        if (enabled)
+    public void Shoot()
+    {
+         Vector3 spawnArrow = Vector3.forward * 1.5f;
+        spawnArrow.y += 0.5f;
+        arrow = Instantiate(arrowPrefab, 
+            transform.TransformPoint(spawnArrow), 
+            Quaternion.LookRotation(target.position - transform.position)) as GameObject;
+    
+        ArrowScript arr_dm = arrow.GetComponent<ArrowScript>();
+        if (arr_dm != null)
         {
-            float resist = (damage * armor) / 100;
-            float actual_damage = damage - resist;
-            health -= actual_damage;
+            arr_dm.giveDamage(damage_enemy);
+        } 
+    }
+
+    public void TakeDamage(float damage) {
+        if (enabled) {
+            health -= damage;
 
             bar.fillAmount = ((health * 100) / Maxhealth ) / 100;
 

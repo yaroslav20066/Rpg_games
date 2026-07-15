@@ -44,15 +44,22 @@ public class SwordScript : MonoBehaviour
             {
                 foreach (Collider collider in hitColliders)
                 {
-                    Debug.Log(collider.GetType());
-                    if (collider.GetComponent<EnemySoldierScript>() != null)
-                    {
+                    if (collider.GetComponent<EnemySoldierScript>() != null) {
                         EnemySoldierScript soldier = collider.GetComponent<EnemySoldierScript>();
+
                         soldier.TakeDamage(base_damage);
-                        Debug.Log("Hit: " + collider.name);
-                        if (Random.Range(0f, 1f) < crit) 
-                        {
+                        if (Random.Range(0f, 1f) < crit) {
                             soldier.TakeDamage(base_damage);
+                        }
+                        
+                    }
+                    else if (collider.GetComponent<EnemyArcherScript>() != null)
+                    {
+                        EnemyArcherScript archer = collider.GetComponent<EnemyArcherScript>();
+                        
+                        archer.TakeDamage(base_damage);
+                        if (Random.Range(0f, 1f) < crit) {
+                            archer.TakeDamage(base_damage);
                         }
                     }
                 }
@@ -71,15 +78,22 @@ public class SwordScript : MonoBehaviour
             {
                 foreach (Collider collider in hitColliders)
                 {
-                    Debug.Log(collider.GetType());
-                    if (collider.GetComponent<EnemySoldierScript>() != null)
-                    {
+                    if (collider.GetComponent<EnemySoldierScript>() != null) {
                         EnemySoldierScript soldier = collider.GetComponent<EnemySoldierScript>();
                         soldier.TakeDamage(base_heavy_damage);
-                        Debug.Log("Hit: " + collider.name);
+
                         if (Random.Range(0f, 1f) < crit)
                         {
                             soldier.TakeDamage(base_damage);
+                        }
+                    }
+                    else if (collider.GetComponent<EnemyArcherScript>() != null)
+                    {
+                        EnemyArcherScript archer = collider.GetComponent<EnemyArcherScript>();
+                        archer.TakeDamage(base_heavy_damage);
+
+                        if (Random.Range(0f, 1f) < crit) {
+                            archer.TakeDamage(base_damage);
                         }
                     }
                 }

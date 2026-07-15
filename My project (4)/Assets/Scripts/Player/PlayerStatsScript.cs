@@ -187,6 +187,8 @@ public class PlayerStatsScript : MonoBehaviour
     }
 
     public void getTicket(bool stuff) {
-        ticket = stuff;
+        if (stuff) {
+            ticket = stuff;
+        }
     }
 }

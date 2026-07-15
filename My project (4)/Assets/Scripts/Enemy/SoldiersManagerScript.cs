@@ -11,8 +11,14 @@ public class SoldiersManagerScript : MonoBehaviour
         {
             if (enemies[i] != null) {
                 enemies[i].SetActive(true);
-                EnemySoldierScript enemySoldierScript = enemies[i].GetComponent<EnemySoldierScript>();
-                enemySoldierScript.enabled = true;
+                if (enemies[i].GetComponent<EnemySoldierScript>() != null) {
+                    EnemySoldierScript enemySoldierScript = enemies[i].GetComponent<EnemySoldierScript>();
+                    enemySoldierScript.enabled = true;
+                }
+                else if (enemies[i].GetComponent<EnemyArcherScript>() != null) {
+                    EnemyArcherScript enemyArcherScript = enemies[i].GetComponent<EnemyArcherScript>();
+                    enemyArcherScript.enabled = true;
+                }
             }
         } 
     }

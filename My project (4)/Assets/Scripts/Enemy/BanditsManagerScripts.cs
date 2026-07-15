@@ -11,8 +11,6 @@ public class BanditsManagerScripts : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].SetActive(true);
-            EnemySoldierScript script = enemies[i].GetComponent<EnemySoldierScript>();
-            script.enabled = true;
         } 
     }
 
