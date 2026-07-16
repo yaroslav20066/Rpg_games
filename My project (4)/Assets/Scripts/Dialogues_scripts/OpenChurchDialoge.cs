@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class OpenChurchDialoge : MonoBehaviour
 {
     public Canvas dialoge_space;
+    public Canvas quest_space;
     public Image image;
     public GameObject trader;
     public TextMeshProUGUI goal;
@@ -15,7 +16,23 @@ public class OpenChurchDialoge : MonoBehaviour
     void Start() {
         counter = goal.GetComponent<MainGoalCounter>();
     }
-    
+
+    void Update()
+    {
+        if (trader != null) {
+            if ((check_1 && counter.step > 1) || (check_2 && counter.step_priest > 2) 
+             || (check_3 && counter.step_priest > 4)) {
+                quest_space.gameObject.SetActive(true);
+            }
+            else {
+                quest_space.gameObject.SetActive(false);
+            }
+        }
+        else {
+            quest_space.gameObject.SetActive(false);
+        }
+    }
+
     public void OpenNewDialoge()
     {
         if (trader != null)

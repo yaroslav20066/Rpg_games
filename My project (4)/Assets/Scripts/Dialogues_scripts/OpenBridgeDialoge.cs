@@ -5,10 +5,20 @@ public class OpenBridgeDialoge : MonoBehaviour
 {
     public Canvas dialoge_space;
     public Canvas choose_table;
+    public Canvas quest_space;
     public Image image;
     public Image image_choose;
     public MainGoalCounter counter;
     private bool check = true;
+    void Update()
+    {
+        if (check || counter.step == 2) {
+            quest_space.gameObject.SetActive(true);
+        }
+        else if (counter.step > 2) {
+            quest_space.gameObject.SetActive(false);
+        }    
+    }
     public void OpenNewDialoge()
     {
         if (check) {
@@ -23,10 +33,13 @@ public class OpenBridgeDialoge : MonoBehaviour
             ChooseScript script = image_choose.GetComponent<ChooseScript>();
             script.enabled = true;
 
+            counter.NewStep();
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
             Time.timeScale = 0f;
+
         }
         
     }

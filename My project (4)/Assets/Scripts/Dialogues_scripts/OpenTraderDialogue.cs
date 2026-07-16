@@ -6,15 +6,25 @@ using UnityEngine.UI;
 public class OpenTraderDialogue : MonoBehaviour
 {
     public Canvas dialoge_space;
+    public Canvas quest_space;
     public Image image;
     public TextMeshProUGUI goal;
     MainGoalCounter counter;
     public Canvas trading;
     private bool check_1 = true;
     private bool check_2 = true;
-    void Start()
-    {
+    void Start() {
         counter = goal.GetComponent<MainGoalCounter>();
+    }
+    void Update()
+    {
+        if ((check_1 && counter.step > 1) || (check_2 && counter.step_trader > 1) 
+         || (counter.step_trader > 2)) {
+            quest_space.gameObject.SetActive(true);
+        }
+        else {
+            quest_space.gameObject.SetActive(false);
+        }
     }
     public void OpenNewDialoge()
     {

@@ -6,6 +6,7 @@ using System;
 public class OpenPeasuntDialogue : MonoBehaviour
 {
     public Canvas dialoge_space;
+    public Canvas quest_space;
     public Image image;
     public GameObject helper_of_priest;
     public GameObject trader;
@@ -18,6 +19,13 @@ public class OpenPeasuntDialogue : MonoBehaviour
         }
         else if (helper_of_priest == null && queue == null) {
             queue = "helper";
+        }
+
+        if ((check && queue == "trader") || (check && queue == "helper")) {
+            quest_space.gameObject.SetActive(true);
+        }
+        else {
+            quest_space.gameObject.SetActive(false);
         }
     }
     public void OpenNewDialoge()

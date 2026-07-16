@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 public class PickUp : MonoBehaviour
 {
-    public int silver;
     public int podorozhnik;
     public int bandage;
     public int sugar;
@@ -15,8 +14,6 @@ public class PickUp : MonoBehaviour
 
     public void pickUp()
     {
-        playerStatsScript.silver += silver;
-        silver = 0;
         for (int i = 0; i < remedy; i++)
         {
             if (itemInventory.tryToAddItem(4))
@@ -48,7 +45,7 @@ public class PickUp : MonoBehaviour
         {
             events[i].Invoke();
         }
-        if (disappearsOnEmpty && silver + podorozhnik + bandage + sugar + remedy <= 0)
+        if (disappearsOnEmpty && podorozhnik + bandage + sugar + remedy <= 0)
         {
             Destroy(gameObject);
         }

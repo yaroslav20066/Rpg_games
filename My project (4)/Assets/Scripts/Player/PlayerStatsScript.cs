@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class PlayerStatsScript : MonoBehaviour
@@ -14,6 +15,8 @@ public class PlayerStatsScript : MonoBehaviour
 
     public Counter expCounter;
     public HUD currentHUD;
+    public TextMeshProUGUI silve_notif_text;
+    private float timing_silver = 0f;
     public Counter skillPointsCounter;
     public Counter LevelCounter;
     public float lastHit = 0f;
@@ -34,10 +37,6 @@ public class PlayerStatsScript : MonoBehaviour
     public int maxArrows = 6;
     public int Arrows = 3;
     public int silver = 0;
-    public int bandage = 0;
-    public int plantain = 1;
-    public int sugar = 1;
-    public int drag = 1;
 
     void Awake() {
         instance = this;
@@ -63,6 +62,15 @@ public class PlayerStatsScript : MonoBehaviour
         else if (newEXP > 0) {
             currentHUD.XPmessage(newEXP, false);
             newEXP = 0;
+        }
+
+        if (timing_silver > 0f) {
+            timing_silver += Time.deltaTime;
+
+            if (timing_silver > 3f) {
+                silve_notif_text.gameObject.SetActive(false);
+                timing_silver = 0f;
+            }
         }
     }
 
@@ -114,54 +122,6 @@ public class PlayerStatsScript : MonoBehaviour
         lie = true;
     }
 
-    public void getBandages(int stuff)
-    {
-        if (stuff == 0) return;
-
-        bandage += stuff;
-        if (stuff > 0) {
-            Debug.Log("Получено: " + stuff + " повязка");
-        }
-        else if (stuff < 0) {
-            Debug.Log("Использован: " + (stuff * (-1)) + " бинт"); 
-        }
-    }
-
-    public void getPlantain(int stuff)
-    {
-        if (stuff == 0) return;
-        Debug.Log("Получено: " + stuff + " подорожник");
-    }
-
-    public void usePlaintain(int stuff)
-    {
-        if (stuff == 0) return;
-        Debug.Log("Вы использовали " + stuff + " подорожник");
-    }
-
-    public void getSugar(int stuff)
-    {
-        if (stuff == 0) return;
-        Debug.Log("Получено: " + stuff + " сахар");
-    }
-
-    public void useSugar(int stuff)
-    {
-        if (stuff == 0) return;
-        Debug.Log("Вы использовали " + stuff + " сахар");
-    }
-
-    public void getDrag(int stuff)
-    {
-        if (stuff == 0) return;
-        Debug.Log("Получено: " + stuff + " снадобье");
-    }
-    public void useDrag(int stuff)
-    {
-        if (stuff == 0) return;
-        Debug.Log("Вы использовали " + stuff + " снадобье");
-    }
-
     public void getArrow(int stuff)
     {
         if (stuff == 0) return;
@@ -181,8 +141,14 @@ public class PlayerStatsScript : MonoBehaviour
 
         silver += stuff;
 
+        timing_silver = 0f;
+
         if (stuff > 0) {
-           Debug.Log("Получено: " + stuff + " серебра"); 
+            silve_notif_text.gameObject.SetActive(true);
+            silve_notif_text.text = $"Gained: {stuff} silver"; 
+
+            timing_silver += Time.deltaTime; 
+
         }
     }
 

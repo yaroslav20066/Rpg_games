@@ -31,10 +31,6 @@ public class ItemInventory : MonoBehaviour
     const float sugarTimerMax = 30, remedyTimerMax = 60;
     bool inventoryOpen;
 
-    void Update() 
-    {
-
-    }
     public void consume(int slot)
     {
         processItemID(hotbarSlots[slot]);
@@ -46,12 +42,12 @@ public class ItemInventory : MonoBehaviour
         {
             case item_podorozhnik: {
                 playerStats.TakeHP(15);
-                playerStats.usePlaintain(1);
+                //playerStats.getPlantain(-1);
                 break;
             }
             case item_bandage: {
                 playerStats.TakeHP(50);
-                playerStats.getBandages(-1);
+                //playerStats.getBandages(-1);
                 break;        
             }
             case item_sugar: {
@@ -59,7 +55,7 @@ public class ItemInventory : MonoBehaviour
                 playerStats.TakeHP(10);
                 sugarActive = true;
                 sugarTimerLeft = sugarTimerMax;
-                playerStats.useSugar(1);
+                //playerStats.getSugar(-1);
                 break;
             }
             case item_remedy: {
@@ -67,7 +63,7 @@ public class ItemInventory : MonoBehaviour
                 playerStats.regenPerFrame += 0.02f;
                 remedyActive = true;
                 remedyTimerLeft = remedyTimerMax;
-                playerStats.useDrag(1);
+                //playerStats.getDrag(-1);
                 break;
             }
 
@@ -91,7 +87,6 @@ public class ItemInventory : MonoBehaviour
 
         hotbarObject.GetComponent<RectTransform>().position = newHotbarPosition;
 
-
     }
 
     public void Hide() {
@@ -109,6 +104,8 @@ public class ItemInventory : MonoBehaviour
         toggleHelmet.onClick.AddListener(ToggleHelmet);
         toggleChestplate.onClick.AddListener(ToggleChestplate);
         toggleLeggings.onClick.AddListener(ToggleLeggings);
+
+
     }
     public bool tryToAddItem(int id)
     {
@@ -120,6 +117,17 @@ public class ItemInventory : MonoBehaviour
         }
         mainHUD.inventoryFullMessage();
         return false; //инвентарь полон
+    }
+
+    public bool tryToRemoveItem(int id)
+    {
+        for (int i = 0; i<5; i++) {
+            if (hotbarSlots[i] == id) {
+                hotbarSlots[i] = 0;
+                return true;
+            }
+        }
+        return false;
     }
     void FixedUpdate()
     {

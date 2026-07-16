@@ -43,6 +43,7 @@ public class Dialogue_helper_priest : MonoBehaviour
     private int currentNode;
 
     public DialogueNode[] nodes;
+    private bool check = false;
 
     void Start() {
         playerStatsScript = player.GetComponent<PlayerStatsScript>();
@@ -57,11 +58,14 @@ public class Dialogue_helper_priest : MonoBehaviour
 
         counter = Main_goal.GetComponent<MainGoalCounter>();
 
+        check = itemInventory.tryToRemoveItem(2);
+
         ShowNode(0);
     }
     void Update()
     {
-        if (playerStatsScript.bandage <= 0 && (currentNode == 1 || currentNode == 3)) {
+        if (!check && (currentNode == 1 || currentNode == 3)) {
+
             button1.enabled = false;
         }
         else {button1.enabled = true;}
@@ -104,10 +108,10 @@ public class Dialogue_helper_priest : MonoBehaviour
 
         if (next >= 0)
         {
-            if (node.choices[choiceIndex].use_bandage > 0)
-            {
-                itemInventory.consume(2);
-            }
+            //if (node.choices[choiceIndex].use_bandage > 0)
+            //{
+            //    itemInventory.consume(2);
+            //}
             ShowNode(next);
         }
         else if (next < 0 && node.choices[choiceIndex].bad)
