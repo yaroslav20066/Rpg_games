@@ -164,7 +164,7 @@ MonoBehaviour:
   health: 80
   canvas: {fileID: 4233469550600540307}
   bar: {fileID: 1222476663182851308}
-  arrowPrefab: {fileID: 4876115449217335476, guid: 91e03c13157bb8543869e0f30f2e1c16, type: 3}
+  arrowPrefab: {fileID: 7062805113162015647, guid: cd8f2498f0511744e9c7bb1f5559128d, type: 3}
 --- !u!114 &1894443979404581357
 MonoBehaviour:
   m_ObjectHideFlags: 0
