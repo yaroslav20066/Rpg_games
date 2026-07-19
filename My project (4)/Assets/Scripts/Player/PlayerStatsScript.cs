@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStatsScript : MonoBehaviour
 {
     public static PlayerStatsScript instance;
+    public PlayerInputListener inputListener;
     public float maxHealth = 100;
     public float health = 100;
     public float defense = 5;
@@ -86,19 +87,28 @@ public class PlayerStatsScript : MonoBehaviour
     }
     public void TakeHP(float hp)
     {
+        if (inputListener.isDead) return;
         if ((health + hp) > maxHealth)  {
             health = maxHealth;
         }
         else {
             health += hp;
         }
+
+        if (health <= 0) {
+            regen_check = false;
+            inputListener.die();
+        }
     }
     public void TakeDamage(float damage) {
+        if (inputListener.isDead) return;
         damage *= (1-(defense/100));
         if (damage > 0) {
             health -= damage;
             lastHit = Time.time;
-            if (health <= 0){
+            if (health <= 0) {
+                regen_check = false;
+                inputListener.die();
             }
         }
     }

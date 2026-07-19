@@ -14,6 +14,7 @@ public class PlayerInputListener : MonoBehaviour
     public TextMeshProUGUI typeWeapon;
     public ItemInventory itemInventory;
     public Canvas UI;
+    public GameOverScript gameOverScript;
     //public Counter debugcounter;
     InputSystem_Actions controls;
     Movable movement;
@@ -24,6 +25,7 @@ public class PlayerInputListener : MonoBehaviour
     bool inventoryOpenedPreviousCheck = false, itemInventoryOpenedPreviousCheck = false;
     bool skillMenuOpen = false, itemMenuOpen = false;
     bool changed_weapon = false;
+    public bool isDead = false;
 
     void Start()
     {
@@ -34,6 +36,14 @@ public class PlayerInputListener : MonoBehaviour
         controls = new InputSystem_Actions();
         controls.Enable();
         stats = GetComponent<PlayerStatsScript>();
+    }
+
+    public void die() {
+        isDead = true;
+        movementIsEnabled = false;
+        gameOverScript.showGameOverScreen();
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -54,6 +64,11 @@ public class PlayerInputListener : MonoBehaviour
         {
             Application.Quit();
         }
+
+        if (isDead) {
+            return;
+        }
+
         if (controls.FindAction("TEST").IsPressed())
         {
             stats.experience += 50;
@@ -142,10 +157,11 @@ public class PlayerInputListener : MonoBehaviour
             movement.rotate(controls.FindAction("Look").ReadValue<Vector2>());
             movement.zoom(controls.FindAction("Zoom").IsPressed());
             iteractionScript.interact(controls.FindAction("Interact").WasPressedThisFrame());
-        }
-        if (controls.FindAction("Jump").IsPressed())
-        {
+            
+            if (controls.FindAction("Jump").IsPressed()) {
             movement.jump();
+            }
         }
+        
     }
 }

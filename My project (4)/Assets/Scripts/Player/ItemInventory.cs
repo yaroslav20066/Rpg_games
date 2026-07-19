@@ -17,7 +17,7 @@ public class ItemInventory : MonoBehaviour
     public const int item_remedy = 4;
     public int[] hotbarSlots = {0,0,0,0,0};
     public PlayerStatsScript playerStats;
-    public Counter cntrATK, cntrLV, cntrDEF, cntrREGEN, cntrCRIT, cntrSPEED, cntrMAXHP;
+    public Counter cntrATK, cntrLV, cntrDEF, cntrREGEN, cntrCRIT, cntrSPEED, cntrMAXHP, cntrSILVER;
     public Button toggleChestplate, toggleHelmet, toggleBoots, toggleLeggings;
     public TextMeshProUGUI labelChestplate, labelHelmet, labelBoots, labelLeggings;
     public HUD mainHUD;
@@ -145,6 +145,7 @@ public class ItemInventory : MonoBehaviour
             if (remedyTimerLeft <= 0) {
                 remedyActive = false;
                 playerStats.regenPerFrame -= 0.02f;
+                
             }
         }
         if (inventoryOpen) {
@@ -156,6 +157,7 @@ public class ItemInventory : MonoBehaviour
             cntrSPEED.value = movable.speed*10;
             cntrLV.value = playerStats.LevelCounter.value;
             cntrMAXHP.value = playerStats.maxHealth;
+            cntrSILVER.value = playerStats.silver;
         }
     }
 
