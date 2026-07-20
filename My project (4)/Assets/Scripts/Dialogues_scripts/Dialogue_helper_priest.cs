@@ -68,6 +68,7 @@ public class Dialogue_helper_priest : MonoBehaviour
 
             button1.enabled = false;
             button1.interactable = false;
+            textButton1.text = "'Вам нужен бинт'";
         }
         else {
             button1.enabled = true;

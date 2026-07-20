@@ -28,9 +28,12 @@ public class Dialogue_trader_1 : MonoBehaviour
     public TextMeshProUGUI textButton1;
     public TextMeshProUGUI textButton2;
     public TextMeshProUGUI Main_goal;
-    MainGoalCounter counter;
     public GameObject player;
     PlayerStatsScript playerStatsScript;
+
+    public AudioSource audioSource;
+    public AudioClip music_calm;
+    public AudioClip music_fight;
 
     public GameObject trader;
     public EnemiesManagerScripts enemiesManagerScripts;
@@ -52,8 +55,6 @@ public class Dialogue_trader_1 : MonoBehaviour
 
         button1.onClick.AddListener(() => Choose(0));
         button2.onClick.AddListener(() => Choose(1));
-
-        counter = Main_goal.GetComponent<MainGoalCounter>();
 
         ShowNode(0);
     }
@@ -115,6 +116,10 @@ public class Dialogue_trader_1 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        audioSource.Stop();
+        audioSource.clip = music_fight;
+        audioSource.Play();
+
         banditsManagerScripts.enabled = true;
 
         Destroy(this);
@@ -134,6 +139,10 @@ public class Dialogue_trader_1 : MonoBehaviour
 
         playerStatsScript.TakeExperienceFromQuest(100);
         playerStatsScript.isRogue = true;
+
+        audioSource.Stop();
+        audioSource.clip = music_fight;
+        audioSource.Play();
 
         enemiesManagerScripts.enabled = true;
 

@@ -32,6 +32,10 @@ public class Dialogue_peasunt_trader : MonoBehaviour
 
     public EnemiesManagerScripts enemiesManagerScripts;
 
+    public AudioSource audioSource;
+    public AudioClip music_calm;
+    public AudioClip music_fight;
+
     public Button button1;
     public Button button2;
     private int currentNode;
@@ -57,6 +61,7 @@ public class Dialogue_peasunt_trader : MonoBehaviour
         if (!playerStatsScript.lie && currentNode == 2) {
             button2.enabled = false;
             button2.interactable = false;
+            textButton2.text = "'Вам нужен навык Deceiver'";
         }
         else {
             button2.enabled = true;
@@ -121,6 +126,11 @@ public class Dialogue_peasunt_trader : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        audioSource.Stop();
+        audioSource.clip = music_fight;
+        audioSource.Play();
+
+        enemiesManagerScripts.enabled = true;
         enemiesManagerScripts.ActivateEnemies();
 
         Destroy(this);

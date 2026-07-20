@@ -30,6 +30,10 @@ public class Dialogue_bridge_fight : MonoBehaviour
 
     public SoldiersManagerScript soldiersManagerScript;
 
+    public AudioSource audioSource;
+    public AudioClip music_calm;
+    public AudioClip music_fight;
+
     public Button button1;
     public Button button2;
     private int currentNode;
@@ -41,7 +45,6 @@ public class Dialogue_bridge_fight : MonoBehaviour
 
         button1.onClick.AddListener(() => Choose(0));
         button2.onClick.AddListener(() => Choose(1));
-
 
         ShowNode(0);
     }
@@ -106,6 +109,10 @@ public class Dialogue_bridge_fight : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        audioSource.Stop();
+        audioSource.clip = music_fight;
+        audioSource.Play();
 
         soldiersManagerScript.enabled = true;
         soldiersManagerScript.ActivateEnemies();

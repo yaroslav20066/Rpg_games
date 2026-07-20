@@ -6,6 +6,9 @@ public class SoldiersManagerScript : MonoBehaviour
     private float timeAfter = 5f;
     private bool isGameEnding = false;
     public PlayerInputListener playerInputListener;
+    public AudioSource audioSource;
+    public AudioClip music_calm;
+    public AudioClip music_fight;
 
     public void ActivateEnemies() {
         for (int i = 0; i < enemies.Length; i++)
@@ -44,6 +47,10 @@ public class SoldiersManagerScript : MonoBehaviour
             }
         }
         if (num == enemies.Length) {
+            audioSource.Stop();
+            audioSource.clip = music_calm;
+            audioSource.Play();
+            
             isGameEnding = true;
         }
     }
