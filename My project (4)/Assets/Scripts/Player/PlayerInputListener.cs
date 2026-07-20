@@ -15,6 +15,7 @@ public class PlayerInputListener : MonoBehaviour
     public ItemInventory itemInventory;
     public Canvas UI;
     public GameOverScript gameOverScript;
+    public EndingScript endingScript;
     //public Counter debugcounter;
     InputSystem_Actions controls;
     Movable movement;
@@ -25,7 +26,7 @@ public class PlayerInputListener : MonoBehaviour
     bool inventoryOpenedPreviousCheck = false, itemInventoryOpenedPreviousCheck = false;
     bool skillMenuOpen = false, itemMenuOpen = false;
     bool changed_weapon = false;
-    public bool isDead = false;
+    public bool gameEnded = false;
 
     void Start()
     {
@@ -39,11 +40,19 @@ public class PlayerInputListener : MonoBehaviour
     }
 
     public void die() {
-        isDead = true;
+        gameEnded = true;
         movementIsEnabled = false;
         gameOverScript.showGameOverScreen();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+    }
+
+    public void ending(int endingID) {
+        gameEnded = true;
+        movementIsEnabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        endingScript.showEnding(endingID, stats.isRogue);
     }
 
     private void Update()
@@ -65,7 +74,7 @@ public class PlayerInputListener : MonoBehaviour
             Application.Quit();
         }
 
-        if (isDead) {
+        if (gameEnded) {
             return;
         }
 

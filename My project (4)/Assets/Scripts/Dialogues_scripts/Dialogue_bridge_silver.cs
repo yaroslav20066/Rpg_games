@@ -24,6 +24,7 @@ public class Dialogue_bridge_silver : MonoBehaviour
     public Canvas canvas;
     public TextMeshProUGUI person;
     public TextMeshProUGUI dialogue;
+    public PlayerInputListener playerInputListener;
 
     public TextMeshProUGUI textButton1;
     public TextMeshProUGUI textButton2;
@@ -102,14 +103,7 @@ public class Dialogue_bridge_silver : MonoBehaviour
         canvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
-            Application.Quit();
-        
-        Destroy(this);
+        playerInputListener.ending(EndingScript.ending_pay);
+      
     }
 }

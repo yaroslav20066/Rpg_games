@@ -30,6 +30,7 @@ public class Dialog_priest_3 : MonoBehaviour
     public GameObject player;
     public Button button1;
     public Button button2;
+    public PlayerInputListener playerInputListener;
     private int currentNode;
 
     public DialogueNode[] nodes;
@@ -107,12 +108,7 @@ public class Dialog_priest_3 : MonoBehaviour
         canvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        playerInputListener.ending(EndingScript.ending_church);
 
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
-            Application.Quit();
     }
 }

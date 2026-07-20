@@ -26,11 +26,12 @@ public class PlayerStatsScript : MonoBehaviour
     Movable movement;
     public SwordScript sword;
     float newEXP;
-    public bool smoothTalkerBonus = false;
+    public float smoothTalkerBonus = 1;
     public bool regen_check = false; 
     public bool lie = false;
 
     public bool ticket = false;
+    public bool isRogue = false;
     public bool unlockedChestplate = false, unlockedLeggings = false, unlockedHelmet = false, unlockedBoots = false;
     public bool equippedChestplate = false, equippedLeggings = false, equippedHelmet = false, equippedBoots = false;
 
@@ -87,7 +88,7 @@ public class PlayerStatsScript : MonoBehaviour
     }
     public void TakeHP(float hp)
     {
-        if (inputListener.isDead) return;
+        if (inputListener.gameEnded) return;
         if ((health + hp) > maxHealth)  {
             health = maxHealth;
         }
@@ -101,7 +102,7 @@ public class PlayerStatsScript : MonoBehaviour
         }
     }
     public void TakeDamage(float damage) {
-        if (inputListener.isDead) return;
+        if (inputListener.gameEnded) return;
         damage *= (1-(defense/100));
         if (damage > 0) {
             health -= damage;
@@ -126,7 +127,7 @@ public class PlayerStatsScript : MonoBehaviour
     }
 
     public void updateSmoothTalker() {
-        smoothTalkerBonus = true;
+        smoothTalkerBonus = 1.5F;
     }
     public void updateLie() {
         lie = true;

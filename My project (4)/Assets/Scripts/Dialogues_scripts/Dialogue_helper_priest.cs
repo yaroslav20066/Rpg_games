@@ -119,6 +119,7 @@ public class Dialogue_helper_priest : MonoBehaviour
             playerStatsScript.getArrow(node.choices[choiceIndex].arrow);
             playerStatsScript.getSilver(node.choices[choiceIndex].silver);
 
+
             Bad_endings();
         }
 
@@ -142,7 +143,7 @@ public class Dialogue_helper_priest : MonoBehaviour
         player.transform.position = new Vector3(10, 1, 82);
 
         counter.NewPriestStep();
-        playerStatsScript.TakeExperience(100);
+        playerStatsScript.TakeExperience(100*playerStatsScript.smoothTalkerBonus);
 
         Destroy(this);
         Destroy(helper);
@@ -160,6 +161,7 @@ public class Dialogue_helper_priest : MonoBehaviour
         playerStatsScript.TakeExperience(100);
 
         enemiesManagerScripts.enabled = true;
+        playerStatsScript.isRogue = true;
 
         Destroy(this);
         Destroy(helper);

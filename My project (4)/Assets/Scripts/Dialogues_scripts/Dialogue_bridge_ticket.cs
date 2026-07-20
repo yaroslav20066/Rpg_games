@@ -28,6 +28,8 @@ public class Dialogue_bridge_ticket : MonoBehaviour
     public TextMeshProUGUI textButton1;
     public TextMeshProUGUI textButton2;
 
+    public PlayerInputListener playerInputListener;
+
     public Button button1;
     public Button button2;
     private int currentNode;
@@ -102,14 +104,7 @@ public class Dialogue_bridge_ticket : MonoBehaviour
         canvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        playerInputListener.ending(EndingScript.ending_pass);
 
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
-            Application.Quit();
-        
-        Destroy(this);
     }
 }

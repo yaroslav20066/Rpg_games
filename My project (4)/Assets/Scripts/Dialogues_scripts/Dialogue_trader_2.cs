@@ -112,7 +112,7 @@ public class Dialogue_trader_2 : MonoBehaviour
         enabled = false;
         canvas.gameObject.SetActive(false);
 
-        playerStatsScript.TakeExperience(100);
+        playerStatsScript.TakeExperience(100*playerStatsScript.smoothTalkerBonus);
         counter.NewTraderStep();
 
         openTrade();

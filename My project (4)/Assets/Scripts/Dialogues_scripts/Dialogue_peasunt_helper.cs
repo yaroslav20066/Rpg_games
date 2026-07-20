@@ -131,7 +131,7 @@ public class Dialogue_peasunt_helper : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        playerStatsScript.TakeExperience(100);
+        playerStatsScript.TakeExperience(100*playerStatsScript.smoothTalkerBonus);
 
         enemiesManagerScripts.Leave();
         
