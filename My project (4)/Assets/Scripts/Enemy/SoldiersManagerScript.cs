@@ -5,6 +5,7 @@ public class SoldiersManagerScript : MonoBehaviour
     public GameObject[] enemies;
     private float timeAfter = 5f;
     private bool isGameEnding = false;
+    public PlayerInputListener playerInputListener;
 
     public void ActivateEnemies() {
         for (int i = 0; i < enemies.Length; i++)
@@ -27,13 +28,10 @@ public class SoldiersManagerScript : MonoBehaviour
     {
         if (isGameEnding) {
             timeAfter -= Time.deltaTime;
+            Debug.Log("time" + timeAfter);
             if (timeAfter <= 0)
             {
-                #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
-                #else
-                    Application.Quit();
-                #endif
+                playerInputListener.ending(EndingScript.ending_warrior);
             }
             return;
         }
@@ -44,6 +42,9 @@ public class SoldiersManagerScript : MonoBehaviour
             if (enemies[i] == null) {
                 num += 1;
             }
+        }
+        if (num == enemies.Length) {
+            isGameEnding = true;
         }
     }
 }

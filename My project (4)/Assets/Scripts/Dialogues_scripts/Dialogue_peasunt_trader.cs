@@ -56,8 +56,12 @@ public class Dialogue_peasunt_trader : MonoBehaviour
     {
         if (!playerStatsScript.lie && currentNode == 2) {
             button2.enabled = false;
+            button2.interactable = false;
         }
-        else {button2.enabled = true;}
+        else {
+            button2.enabled = true;
+            button2.interactable = true;
+        }
     }
 
     void ShowNode(int index) {
@@ -131,7 +135,7 @@ public class Dialogue_peasunt_trader : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        playerStatsScript.TakeExperience(100*playerStatsScript.smoothTalkerBonus);
+        playerStatsScript.TakeExperienceFromQuest(100);
 
         enemiesManagerScripts.Leave();
 

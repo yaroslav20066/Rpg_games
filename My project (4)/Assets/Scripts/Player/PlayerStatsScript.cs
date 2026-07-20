@@ -118,6 +118,12 @@ public class PlayerStatsScript : MonoBehaviour
         experience += exp;
         newEXP = exp;
     }
+
+    public void TakeExperienceFromQuest(float exp) {
+        exp *= smoothTalkerBonus;
+        newEXP = exp;
+        experience += exp;
+    }
     public void updateArrows() {
         maxArrows += 6;
     }

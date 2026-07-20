@@ -107,6 +107,7 @@ public class Dialogue_bridge_fight : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        soldiersManagerScript.enabled = true;
         soldiersManagerScript.ActivateEnemies();
 
         Destroy(this);

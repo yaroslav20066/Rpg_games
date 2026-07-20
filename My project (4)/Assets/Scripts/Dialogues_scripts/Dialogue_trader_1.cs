@@ -132,7 +132,7 @@ public class Dialogue_trader_1 : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        playerStatsScript.TakeExperience(100);
+        playerStatsScript.TakeExperienceFromQuest(100);
         playerStatsScript.isRogue = true;
 
         enemiesManagerScripts.enabled = true;

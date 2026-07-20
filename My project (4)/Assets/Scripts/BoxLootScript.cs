@@ -14,7 +14,7 @@ public class BoxLootScript : MonoBehaviour
     public int remedy;
 
     void Start() {
-        silver = (int)Random.Range(10f, 50f);
+        silver = (int)Random.Range(25f, 75f);
         arrow = (int) Random.Range(0f, 2f);
     }
 

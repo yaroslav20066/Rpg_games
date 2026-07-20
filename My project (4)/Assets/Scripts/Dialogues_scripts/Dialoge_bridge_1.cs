@@ -116,7 +116,7 @@ public class Dialogue_bridge_1 : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         counter.NewStep();
-        stats.TakeExperience(100*stats.smoothTalkerBonus);
+        stats.TakeExperienceFromQuest(100);
         
         Destroy(this);
     }

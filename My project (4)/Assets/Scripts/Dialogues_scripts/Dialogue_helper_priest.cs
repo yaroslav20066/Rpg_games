@@ -67,8 +67,12 @@ public class Dialogue_helper_priest : MonoBehaviour
         if (!check && (currentNode == 1 || currentNode == 3)) {
 
             button1.enabled = false;
+            button1.interactable = false;
         }
-        else {button1.enabled = true;}
+        else {
+            button1.enabled = true;
+            button1.interactable = true;
+        }
     }
 
     void ShowNode(int index) {
@@ -143,7 +147,7 @@ public class Dialogue_helper_priest : MonoBehaviour
         player.transform.position = new Vector3(10, 1, 82);
 
         counter.NewPriestStep();
-        playerStatsScript.TakeExperience(100*playerStatsScript.smoothTalkerBonus);
+        playerStatsScript.TakeExperienceFromQuest(100);
 
         Destroy(this);
         Destroy(helper);
@@ -158,7 +162,7 @@ public class Dialogue_helper_priest : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        playerStatsScript.TakeExperience(100);
+        playerStatsScript.TakeExperienceFromQuest(100);
 
         enemiesManagerScripts.enabled = true;
         playerStatsScript.isRogue = true;
